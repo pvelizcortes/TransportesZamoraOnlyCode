@@ -1,0 +1,30 @@
+﻿
+.text-purple {
+    color: #a27ce6;
+}
+
+
+.amalia-control {
+    font-size: small !important;
+}
+
+.tz-input {
+    border: 0px solid black;
+    background-color: transparent;
+    border-bottom: 1px solid purple;
+    width: 100%;
+}
+
+.tz-md {
+    width: 50% !important;
+}
+
+.tz-input2 {
+    border: 1px solid lightgray;
+    background-color: transparent;    
+    width: 100%;
+}
+
+.nomargin{
+    margin:0px 0px 0px 0px !important;
+}

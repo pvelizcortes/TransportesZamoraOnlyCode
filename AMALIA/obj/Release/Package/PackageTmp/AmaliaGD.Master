@@ -1,0 +1,215 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AmaliaGD.Master.cs" Inherits="AMALIA.AmaliaGD" %>
+
+<!doctype html>
+<html class="no-js" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="CLoud Mant, Mantenimiento en la Nube.">
+    <title>TRANSPORTES ZAMORA</title>
+    <!-- Favicon-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/plugins/sweetalert/sweetalert.css" />
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="assets/css/main1.css">
+    <link rel="stylesheet" href="assets/css/color_skins.css">
+    <a href="Amalia.Master">Amalia.Master</a>
+
+    <link href="assets/css/amalia.css" rel="stylesheet" />
+    <!-- JQuery DataTable Css -->
+    <link rel="stylesheet" href="assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css">
+    <link href="assets/jstree/themes/default/style.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- SORTABLE -->
+    <link href="assets/plugins/nestable/jquery-nestable.css" rel="stylesheet" />
+    <link href="assets/css/tzamora.css" rel="stylesheet" />
+    <!-- SELECTIZE -->
+    <link href="assets/selectize.css" rel="stylesheet" />
+    <link href="assets/selectize.bootstrap3.css" rel="stylesheet" />
+    <style>
+        .combopro {
+            color: black;
+        }
+
+        .badge-block {
+            width: 100% !important;
+        }
+
+        .modal-lg {
+            width: 90% !important;
+        }
+
+        .wrapsito{
+            white-space:pre !important;
+        }
+    </style>
+</head>
+
+<body class="theme-purple">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="m-t-30">
+                <img class="zmdi-hc-spin" src="assets/images/logo.svg" width="48" height="48" alt="sQuare">
+            </div>
+            <p>Espere un momento ...</p>
+        </div>
+    </div>
+
+    <div class="page-loader-wrapper" id="relojito2" style="display: none">
+        <div class="loader">
+            <div class="m-t-30">
+                <img class="zmdi-hc-spin" src="assets/images/logo.svg" width="48" height="48" alt="sQuare">
+            </div>
+            <p>Cargando...</p>
+        </div>
+    </div>
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+
+    <!-- Top Bar -->
+    <form runat="server" id="FORM1">
+        <nav class="top_navbar">
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-12">
+                        <div class="navbar-logo">
+                            <a href="javascript:void(0);" class="bars"></a>
+                            <a class="navbar-brand" href="GD_INDEX.aspx">
+                                <img src="assets/images/logo.svg" width="30" alt="Transportes Zamora"><span class="m-l-10">TRANSPORTES ZAMORA | GESTOR OPERACIONAL</span></a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li style="color: white !important">Usuario:
+                                <asp:LoginName runat="server" Style="color: white !important" />
+                            </li>
+                            <li class="dropdown profile">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                    <img class="rounded-circle" src="assets/images/profile_av.jpg" alt="User">
+                                </a>
+                                <ul class="dropdown-menu pullDown">
+                                    <li>
+                                        <div class="user-info">
+                                            <asp:LoginName runat="server" />
+                                        </div>
+                                    </li>
+                                    <hr>
+                                    <li>
+                                        <asp:LoginStatus runat="server" />
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="javascript:void(0);" class="fullscreen hidden-sm" data-provide="fullscreen"><i class=" icon-size-fullscreen"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <aside id="leftsidebar" class="sidebar h_menu">
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-12">
+                        <div class="menu">
+                            <ul class="list">
+                                <li class="header">MENU</li>
+                                <li><a href="GD_DASHBOARD.aspx"><i class="fa fa-tachometer-alt"></i><span>| DASHBOARD |</span></a></li>
+                                <li><a href="GD_CAMION.aspx"><i class="fa fa-truck"></i><span>| CAMIONES |</span></a></li>
+                                <li><a href="GD_NEUMATICOS.aspx"><i class="fa fa-dot-circle"></i><span>| NEUMATICOS |</span></a></li>
+                                <li><a href="#.aspx"><i class="fa fa-users"></i><span>| PERSONAL |</span></a></li>
+                                <li><a href="#.aspx"><i class="fa fa-pallet"></i><span>| EQUIPOS |</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!-- Main Content -->
+        <asp:ContentPlaceHolder runat="server" ID="BODY">
+        </asp:ContentPlaceHolder>
+    </form>
+    <!-- NO TOCAR -->
+    <script src="assets/bundles/libscripts.bundle.js"></script>
+    <script src="assets/bundles/vendorscripts.bundle.js"></script>
+    <script src="assets/bundles/mainscripts.bundle.js"></script>
+
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="assets/bundles/datatablescripts.bundle.js"></script>
+    <script src="assets/plugins/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
+    <script src="assets/plugins/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
+    <script src="assets/plugins/jquery-datatable/buttons/buttons.colVis.min.js"></script>
+    <script src="assets/plugins/jquery-datatable/buttons/buttons.html5.min.js"></script>
+    <script src="assets/plugins/jquery-datatable/buttons/buttons.print.min.js"></script>
+
+    <!-- NOTIFICACIONES -->
+    <script src="assets/plugins/bootstrap-notify/bootstrap-notify.js"></script>
+    <!-- ARBOL JSTREE -->
+    <script src="assets/jstree/jstree.min.js"></script>
+    <!-- DIALOGS Y ALERTS -->
+    <script src="assets/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="assets/js/pages/ui/dialogs.js"></script>
+    <!-- ANGULAR -->
+    <script src="assets/angular.min.js"></script>
+    <!-- SELECTIZE -->
+    <script src="assets/selectize.min.js"></script>
+
+    <script>
+        function MostrarNotificacion(mensaje, flag) {
+            var color = 'bg-black';
+            if (flag == 0) { color = 'bg-red' };
+            if (flag == 1) { color = 'bg-green' };
+            if (flag == 2) { color = 'bg-black' };
+            var allowDismiss = true;
+
+            $.notify({
+                message: mensaje
+            },
+                {
+                    type: color,
+                    allow_dismiss: allowDismiss,
+                    newest_on_top: true,
+                    timer: 300,
+                    placement: {
+                        from: 'top',
+                        align: 'right'
+                    },
+                    animate: {
+                        enter: 'animated fadeInDown',
+                        exit: 'animated fadeOutUp'
+                    },
+                    template: '<div data-notify="container" class="bootstrap-notify-container alert alert-dismissible {0} ' + (allowDismiss ? "p-r-35" : "") + '" role="alert">' +
+                        '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+                        '<span data-notify="icon"></span> ' +
+                        '<span data-notify="title">{1}</span> ' +
+                        '<span data-notify="message">{2}</span>' +
+                        '<div class="progress" data-notify="progressbar">' +
+                        '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+                        '</div>' +
+                        '<a href="{3}" target="{4}" data-notify="url"></a>' +
+                        '</div>'
+                });
+        }
+
+        function relojito(x) {
+            if (x) {
+                $(".page-loader-wrapper").fadeIn();
+            }
+            else {
+                $(".page-loader-wrapper").fadeOut();
+            }
+        }
+
+        function relojito2(x) {
+            if (x) {
+                $("#relojito2").fadeIn();
+            }
+            else {
+                $("#relojito2").fadeOut();
+            }
+        }
+    </script>
+
+    <asp:ContentPlaceHolder runat="server" ID="CODIGO_JAVASCRIPT">
+    </asp:ContentPlaceHolder>
+</body>
+</html>

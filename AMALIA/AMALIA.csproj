@@ -1,0 +1,621 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C7B705C8-D7D2-4959-985F-DD613008B815}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AMALIA</RootNamespace>
+    <AssemblyName>AMALIA</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.70.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Librerias\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.0.5022.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Librerias\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Librerias\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Librerias\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SpreadsheetLight, Version=3.4.0.0, Culture=neutral, PublicKeyToken=32fbb46dc1730c57, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Librerias\SpreadsheetLight.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\angular.min.js" />
+    <Content Include="assets\number-divider.js" />
+    <Content Include="assets\selectize.bootstrap3.css" />
+    <Content Include="assets\selectize.css" />
+    <Content Include="assets\selectize.min.js" />
+    <Content Include="Checklist.aspx" />
+    <Content Include="banner.jpg" />
+    <Content Include="DemoRendicion.aspx" />
+    <Content Include="Captura.PNG" />
+    <Content Include="Depositos.aspx" />
+    <Content Include="FacturaVenta.aspx" />
+    <Content Include="FacturaCompra.aspx" />
+    <Content Include="COMPRA.aspx" />
+    <Content Include="GD_INDEX.aspx" />
+    <Content Include="GD_NEUMATICOS.aspx" />
+    <Content Include="Categoria_repuesto.aspx" />
+    <Content Include="GD_CAMION.aspx" />
+    <Content Include="GD_DASHBOARD.aspx" />
+    <Content Include="CombustibleControl.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="AUT_OC.aspx" />
+    <Content Include="Imprime_deposito.aspx" />
+    <Content Include="imprimeChecklist.aspx" />
+    <Content Include="Imprime_hallazgo.aspx" />
+    <Content Include="Imprime_ocpv.aspx" />
+    <Content Include="Imprime_oc.aspx" />
+    <Content Include="logozamoraoc.jpg" />
+    <Content Include="OrdenesdeTrabajo.aspx" />
+    <Content Include="Hallazgo.aspx" />
+    <Content Include="Checklists.aspx" />
+    <Content Include="Ordenes_Compra_Agro.aspx" />
+    <Content Include="Ordenes_Compra.aspx" />
+    <Content Include="Proveedores_OC.aspx" />
+    <Content Include="Proveedores.aspx" />
+    <Content Include="ReporteDepositos.aspx" />
+    <Content Include="Reporte_OTZ.aspx" />
+    <Content Include="Repuestos.aspx" />
+    <Content Include="Marca_repuesto.aspx" />
+    <Content Include="Estacion.aspx" />
+    <Content Include="Excel_Copec.aspx" />
+    <Content Include="Modulo_OTZ.aspx" />
+    <Content Include="Obra.aspx" />
+    <Content Include="Reporte_GT.aspx" />
+    <Content Include="Imprime_gt.aspx" />
+    <Content Include="Ingresar_Requerimiento.aspx" />
+    <Content Include="resumen_GT.aspx" />
+    <Content Include="Rampla.aspx" />
+    <Content Include="Camion.aspx" />
+    <Content Include="Conductor.aspx" />
+    <Content Include="Modulo_GT.aspx" />
+    <Content Include="Librerias\ClosedXML.dll" />
+    <Content Include="Librerias\ClosedXML.xml" />
+    <Content Include="Librerias\DocumentFormat.OpenXml.dll" />
+    <Content Include="Librerias\DocumentFormat.OpenXml.xml" />
+    <Content Include="Librerias\itextsharp.dll" />
+    <Content Include="Librerias\itextsharp.xml" />
+    <Content Include="Librerias\Newtonsoft.Json.dll" />
+    <Content Include="Librerias\Newtonsoft.Json.pdb" />
+    <Content Include="Librerias\Newtonsoft.Json.xml" />
+    <Content Include="Librerias\SpreadsheetLight.dll" />
+    <Content Include="Login.aspx" />
+    <Content Include="Cliente.aspx" />
+    <Content Include="Requerimientos.aspx" />
+    <Content Include="Stock_Repuestos.aspx" />
+    <Content Include="SUBE_ARCHIVOS.aspx" />
+    <Content Include="Usuarios.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="Amalia.Master" />
+    <Content Include="AmaliaGD.Master" />
+    <None Include="Properties\PublishProfiles\pveliz.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Index.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AmaliaGD.Master.cs">
+      <DependentUpon>AmaliaGD.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AmaliaGD.Master.designer.cs">
+      <DependentUpon>AmaliaGD.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Amalia.Master.cs">
+      <DependentUpon>Amalia.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Amalia.Master.designer.cs">
+      <DependentUpon>Amalia.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Checklist.aspx.cs">
+      <DependentUpon>Checklist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Checklist.aspx.designer.cs">
+      <DependentUpon>Checklist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\CHECKLIST.cs" />
+    <Compile Include="Clases\FN_CHECKLISTS_RESPUESTAS.cs" />
+    <Compile Include="Clases\FN_CHECKLISTS_PREGUNTASa.cs" />
+    <Compile Include="Clases\FN_CHECKLISTS_IMAGENES.cs" />
+    <Compile Include="Clases\FN_CHECKLISTS_COMPLETADOS.cs" />
+    <Compile Include="Clases\FN_DEPOSITO_DETALLE.cs" />
+    <Compile Include="Clases\FN_DEPOSITO_ENC.cs" />
+    <Compile Include="Clases\FN_HALLAZGO.cs" />
+    <Compile Include="Clases\FN_HALLAZGOS_ADJUNTOS.cs" />
+    <Compile Include="Clases\FN_CHECKLISTS.cs" />
+    <Compile Include="DemoRendicion.aspx.cs">
+      <DependentUpon>DemoRendicion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DemoRendicion.aspx.designer.cs">
+      <DependentUpon>DemoRendicion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\FN_OCPV_ADJUNTOS.cs" />
+    <Compile Include="Clases\FN_OC_ADJUNTOS.cs" />
+    <Compile Include="Clases\FN_OCPV_DETALLE.cs" />
+    <Compile Include="Clases\FN_OCPV_ENC.cs" />
+    <Compile Include="Clases\FN_OC_PROVEEDORES.cs" />
+    <Compile Include="Clases\FN_OC_DETALLE.cs" />
+    <Compile Include="Clases\FN_OC_ENC.cs" />
+    <Compile Include="Clases\FN_COMB_LOG.cs" />
+    <Compile Include="Clases\FN_FACT_VENTA_DET.cs" />
+    <Compile Include="Clases\FN_FACT_VENTA.cs" />
+    <Compile Include="Clases\FN_FACT_COMPRA_DET.cs" />
+    <Compile Include="Clases\FN_FACT_COMPRA.cs" />
+    <Compile Include="Clases\FN_GD_MANT_AGENDADAS.cs" />
+    <Compile Include="Depositos.aspx.cs">
+      <DependentUpon>Depositos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Depositos.aspx.designer.cs">
+      <DependentUpon>Depositos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FacturaVenta.aspx.cs">
+      <DependentUpon>FacturaVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FacturaVenta.aspx.designer.cs">
+      <DependentUpon>FacturaVenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FacturaCompra.aspx.cs">
+      <DependentUpon>FacturaCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FacturaCompra.aspx.designer.cs">
+      <DependentUpon>FacturaCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="COMPRA.aspx.cs">
+      <DependentUpon>COMPRA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="COMPRA.aspx.designer.cs">
+      <DependentUpon>COMPRA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GD_INDEX.aspx.cs">
+      <DependentUpon>GD_INDEX.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GD_INDEX.aspx.designer.cs">
+      <DependentUpon>GD_INDEX.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GD_NEUMATICOS.aspx.cs">
+      <DependentUpon>GD_NEUMATICOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GD_NEUMATICOS.aspx.designer.cs">
+      <DependentUpon>GD_NEUMATICOS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\FN_GD_NEUMATICOS.cs" />
+    <Compile Include="Clases\FN_GD_LOG_ARCHIVOS.cs" />
+    <Compile Include="Clases\FN_GD_CAMION_MANT.cs" />
+    <Compile Include="Clases\FN_GD_CAMION_DOCS.cs" />
+    <Compile Include="Clases\FN_GD_CAMION.cs" />
+    <Compile Include="Clases\FN_PROVEEDOR.cs" />
+    <Compile Include="Clases\FN_MANT_OT_REPEX.cs" />
+    <Compile Include="Clases\FN_MARCA_REPUESTOS.cs" />
+    <Compile Include="Clases\FN_PRODUCTO_CAT.cs" />
+    <Compile Include="Clases\FN_MANT_PRODUCTO.cs" />
+    <Compile Include="Clases\FN_ESTACION.cs" />
+    <Compile Include="Clases\FN_OBRAS.cs" />
+    <Compile Include="Clases\FN_OT.cs" />
+    <Compile Include="Clases\FN_REQUERIMIENTOS.cs" />
+    <Compile Include="Categoria_repuesto.aspx.cs">
+      <DependentUpon>Categoria_repuesto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Categoria_repuesto.aspx.designer.cs">
+      <DependentUpon>Categoria_repuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GD_CAMION.aspx.cs">
+      <DependentUpon>GD_CAMION.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GD_CAMION.aspx.designer.cs">
+      <DependentUpon>GD_CAMION.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GD_DASHBOARD.aspx.cs">
+      <DependentUpon>GD_DASHBOARD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GD_DASHBOARD.aspx.designer.cs">
+      <DependentUpon>GD_DASHBOARD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CombustibleControl.aspx.cs">
+      <DependentUpon>CombustibleControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CombustibleControl.aspx.designer.cs">
+      <DependentUpon>CombustibleControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="AUT_OC.aspx.cs">
+      <DependentUpon>AUT_OC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AUT_OC.aspx.designer.cs">
+      <DependentUpon>AUT_OC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Imprime_deposito.aspx.cs">
+      <DependentUpon>Imprime_deposito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Imprime_deposito.aspx.designer.cs">
+      <DependentUpon>Imprime_deposito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="imprimeChecklist.aspx.cs">
+      <DependentUpon>imprimeChecklist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="imprimeChecklist.aspx.designer.cs">
+      <DependentUpon>imprimeChecklist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Imprime_hallazgo.aspx.cs">
+      <DependentUpon>Imprime_hallazgo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Imprime_hallazgo.aspx.designer.cs">
+      <DependentUpon>Imprime_hallazgo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Imprime_ocpv.aspx.cs">
+      <DependentUpon>Imprime_ocpv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Imprime_ocpv.aspx.designer.cs">
+      <DependentUpon>Imprime_ocpv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Imprime_oc.aspx.cs">
+      <DependentUpon>Imprime_oc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Imprime_oc.aspx.designer.cs">
+      <DependentUpon>Imprime_oc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenesdeTrabajo.aspx.cs">
+      <DependentUpon>OrdenesdeTrabajo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrdenesdeTrabajo.aspx.designer.cs">
+      <DependentUpon>OrdenesdeTrabajo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Hallazgo.aspx.cs">
+      <DependentUpon>Hallazgo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hallazgo.aspx.designer.cs">
+      <DependentUpon>Hallazgo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Checklists.aspx.cs">
+      <DependentUpon>Checklists.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Checklists.aspx.designer.cs">
+      <DependentUpon>Checklists.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ordenes_Compra_Agro.aspx.cs">
+      <DependentUpon>Ordenes_Compra_Agro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ordenes_Compra_Agro.aspx.designer.cs">
+      <DependentUpon>Ordenes_Compra_Agro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ordenes_Compra.aspx.cs">
+      <DependentUpon>Ordenes_Compra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ordenes_Compra.aspx.designer.cs">
+      <DependentUpon>Ordenes_Compra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores_OC.aspx.cs">
+      <DependentUpon>Proveedores_OC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Proveedores_OC.aspx.designer.cs">
+      <DependentUpon>Proveedores_OC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores.aspx.cs">
+      <DependentUpon>Proveedores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Proveedores.aspx.designer.cs">
+      <DependentUpon>Proveedores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteDepositos.aspx.cs">
+      <DependentUpon>ReporteDepositos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReporteDepositos.aspx.designer.cs">
+      <DependentUpon>ReporteDepositos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte_OTZ.aspx.cs">
+      <DependentUpon>Reporte_OTZ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reporte_OTZ.aspx.designer.cs">
+      <DependentUpon>Reporte_OTZ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Repuestos.aspx.cs">
+      <DependentUpon>Repuestos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Repuestos.aspx.designer.cs">
+      <DependentUpon>Repuestos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marca_repuesto.aspx.cs">
+      <DependentUpon>Marca_repuesto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marca_repuesto.aspx.designer.cs">
+      <DependentUpon>Marca_repuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Estacion.aspx.cs">
+      <DependentUpon>Estacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Estacion.aspx.designer.cs">
+      <DependentUpon>Estacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Excel_Copec.aspx.cs">
+      <DependentUpon>Excel_Copec.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Excel_Copec.aspx.designer.cs">
+      <DependentUpon>Excel_Copec.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_OTZ.aspx.cs">
+      <DependentUpon>Modulo_OTZ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulo_OTZ.aspx.designer.cs">
+      <DependentUpon>Modulo_OTZ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Obra.aspx.cs">
+      <DependentUpon>Obra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Obra.aspx.designer.cs">
+      <DependentUpon>Obra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\FN_RAMPLA.cs" />
+    <Compile Include="Clases\FN_CLIENTE.cs" />
+    <Compile Include="Reporte_GT.aspx.cs">
+      <DependentUpon>Reporte_GT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reporte_GT.aspx.designer.cs">
+      <DependentUpon>Reporte_GT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Imprime_gt.aspx.cs">
+      <DependentUpon>Imprime_gt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Imprime_gt.aspx.designer.cs">
+      <DependentUpon>Imprime_gt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ingresar_Requerimiento.aspx.cs">
+      <DependentUpon>Ingresar_Requerimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ingresar_Requerimiento.aspx.designer.cs">
+      <DependentUpon>Ingresar_Requerimiento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="resumen_GT.aspx.cs">
+      <DependentUpon>resumen_GT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="resumen_GT.aspx.designer.cs">
+      <DependentUpon>resumen_GT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rampla.aspx.cs">
+      <DependentUpon>Rampla.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rampla.aspx.designer.cs">
+      <DependentUpon>Rampla.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\FN_CAMION.cs" />
+    <Compile Include="Clases\FN_ENC_OTZ.cs" />
+    <Compile Include="Clases\FN_GASTO_GENERAL.cs" />
+    <Compile Include="Clases\FN_CONDUCTOR.cs" />
+    <Compile Include="Camion.aspx.cs">
+      <DependentUpon>Camion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Camion.aspx.designer.cs">
+      <DependentUpon>Camion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Conductor.aspx.cs">
+      <DependentUpon>Conductor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Conductor.aspx.designer.cs">
+      <DependentUpon>Conductor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\FN_ENC_GT.cs" />
+    <Compile Include="Clases\FN_CARGA_COMBUSTIBLE.cs" />
+    <Compile Include="Modulo_GT.aspx.cs">
+      <DependentUpon>Modulo_GT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulo_GT.aspx.designer.cs">
+      <DependentUpon>Modulo_GT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente.aspx.cs">
+      <DependentUpon>Cliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente.aspx.designer.cs">
+      <DependentUpon>Cliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Requerimientos.aspx.cs">
+      <DependentUpon>Requerimientos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Requerimientos.aspx.designer.cs">
+      <DependentUpon>Requerimientos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Stock_Repuestos.aspx.cs">
+      <DependentUpon>Stock_Repuestos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Stock_Repuestos.aspx.designer.cs">
+      <DependentUpon>Stock_Repuestos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SUBE_ARCHIVOS.aspx.cs">
+      <DependentUpon>SUBE_ARCHIVOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SUBE_ARCHIVOS.aspx.designer.cs">
+      <DependentUpon>SUBE_ARCHIVOS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios.aspx.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuarios.aspx.designer.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\AMALIAFW.cs" />
+    <Compile Include="Clases\FN_USUARIOS.cs" />
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\css\" />
+    <Folder Include="Documentos\Camiones\DOCS\" />
+    <Folder Include="Documentos\Camiones\MANT\" />
+    <Folder Include="Documentos\Equipos\" />
+    <Folder Include="Documentos\FacturaCompra\" />
+    <Folder Include="Documentos\OC\" />
+    <Folder Include="Documentos\Personas\" />
+    <Folder Include="PDF_CHECKLIST\" />
+    <Folder Include="PDF_GT\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51183</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51183/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

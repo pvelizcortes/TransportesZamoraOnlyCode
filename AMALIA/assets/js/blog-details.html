@@ -1,0 +1,638 @@
+﻿<!doctype html>
+<html class="no-js " lang="en">
+
+<!-- Mirrored from thememakker.com/templates/infinity/main/blog-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 17 May 2018 04:31:31 GMT -->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+
+<title>:: InfiniO :: Blog Detail</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<!-- Favicon-->
+<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+<!-- Custom Css -->
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/blog.css">
+<link rel="stylesheet" href="assets/css/color_skins.css">
+</head>
+<body class="theme-purple">
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="m-t-30"><img class="zmdi-hc-spin" src="assets/images/logo.svg" width="48" height="48" alt="sQuare"></div>
+        <p>Please wait...</p>        
+    </div>
+</div>
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+
+<!-- Top Bar -->
+<nav class="top_navbar">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-12">
+                <div class="navbar-logo">
+                    <a href="javascript:void(0);" class="bars"></a>
+                    <a class="navbar-brand" href="index.html"><img src="assets/images/logo.svg" width="30" alt="InfiniO"><span class="m-l-10">InfiniO</span></a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="search_bar hidden-xs">
+                        <div class="input-group">                
+                            <input type="text" class="form-control" placeholder="Find your stuff...">
+                        </div>
+                    </li>
+                    <li class="dropdown notifications">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="icon-bell"></i><span class="label-count">5</span></a>
+                        <ul class="dropdown-menu pullDown">
+                            <li class="header">New Message</li>
+                            <li class="body">
+                                <ul class="menu list-unstyled">
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="media">
+                                                <img class="media-object" src="assets/images/xs/avatar5.jpg" alt="">
+                                                <div class="media-body">
+                                                    <span class="name">Alexander <span class="time">13min ago</span></span>
+                                                    <span class="message">Meeting with Shawn at Stark Tower by 8 o'clock.</span>                                        
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="media">
+                                                <img class="media-object" src="assets/images/xs/avatar6.jpg" alt="">
+                                                <div class="media-body">
+                                                    <span class="name">Grayson <span class="time">22min ago</span></span>
+                                                    <span class="message">You have 5 unread emails in your inbox.</span>                                        
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="media">
+                                                <img class="media-object" src="assets/images/xs/avatar3.jpg" alt="">
+                                                <div class="media-body">
+                                                    <span class="name">Sophia <span class="time">31min ago</span></span>
+                                                    <span class="message">OrderPlaced: You received a new oder from Tina.</span>                                        
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>                
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="media">
+                                                <img class="media-object" src="assets/images/xs/avatar4.jpg" alt="">
+                                                <div class="media-body">
+                                                    <span class="name">Isabella <span class="time">35min ago</span></span>
+                                                    <span class="message">Lara added a comment in Blazing Saddles.</span>                                        
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="media">
+                                                <img class="media-object" src="assets/images/xs/avatar8.jpg" alt="">
+                                                <div class="media-body">
+                                                    <span class="name">Sophia <span class="time">48min ago</span></span>
+                                                    <span class="message">OrderPlaced: You received a new oder from Tina.</span>                                        
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer"> <a href="javascript:void(0);">View All</a> </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown task hidden-sm"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="icon-flag"></i>
+                        <span class="label-count">5</span>
+                        </a>
+                        <ul class="dropdown-menu pullDown">
+                            <li class="header">Project</li>
+                            <li class="body">
+                                <ul class="menu tasks list-unstyled">
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <span class="text-muted">Clockwork Orange <span class="float-right">29%</span></span>
+                                            <div class="progress">
+                                                <div class="progress-bar l-turquoise" role="progressbar" aria-valuenow="29" aria-valuemin="0" aria-valuemax="100" style="width: 29%;"></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <span class="text-muted">Blazing Saddles <span class="float-right">78%</span></span>
+                                            <div class="progress">
+                                                <div class="progress-bar l-slategray" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" style="width: 78%;"></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <span class="text-muted">Project Archimedes <span class="float-right">45%</span></span>
+                                            <div class="progress">
+                                                <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%;"></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <span class="text-muted">Eisenhower X <span class="float-right">68%</span></span>
+                                            <div class="progress">
+                                                <div class="progress-bar l-coral" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: 68%;"></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <span class="text-muted">Oreo Admin Templates <span class="float-right">21%</span></span>
+                                            <div class="progress">
+                                                <div class="progress-bar l-amber" role="progressbar" aria-valuenow="21" aria-valuemin="0" aria-valuemax="100" style="width: 21%;"></div>
+                                            </div>
+                                        </a>
+                                    </li>                        
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="javascript:void(0);">View All</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown app_menu hidden-sm"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="icon-grid"></i></a>
+                        <ul class="dropdown-menu pullDown">
+                            <li>
+                                <ul>
+                                    <li><a href="mail-inbox.html"><i class="icon-envelope"></i><span>Mail</span></a></li>
+                                    <li><a href="contact.html"><i class="icon-list"></i><span>Contacts</span></a></li>
+                                    <li><a href="chat.html"><i class="icon-bubble"></i><span>Chat</span></a></li>
+                                    <li><a href="teams-board.html"><i class="icon-users"></i><span>Teams</span></a></li>
+                                    <li><a href="projects.html"><i class="icon-notebook"></i><span>Projects</span></a></li>
+                                    <li><a href="events.html"><i class="icon-calendar"></i><span>Calendar</span></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="chat.html" ><i class="icon-speech"></i></a></li>
+                    <li><a href="javascript:void(0);" class="fullscreen hidden-sm" data-provide="fullscreen"><i class=" icon-size-fullscreen"></i></a></li>
+                    <li class="dropdown profile">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                            <img class="rounded-circle" src="assets/images/profile_av.jpg" alt="User">
+                        </a>
+                        <ul class="dropdown-menu pullDown">
+                            <li>
+                                <div class="user-info">
+                                    <h6 class="user-name m-b-0">Alizee Thomas</h6>
+                                    <p class="user-position">Available</p>
+                                    <a title="facebook" href="javascript:void(0);"><i class="zmdi zmdi-facebook"></i></a>
+                                    <a title="twitter" href="javascript:void(0);"><i class="zmdi zmdi-twitter"></i></a>
+                                    <a title="instagram" href="javascript:void(0);"><i class="zmdi zmdi-instagram"></i></a>
+                                    <a title="linkedin" href="javascript:void(0);"><i class="zmdi zmdi-linkedin-box"></i></a>
+                                    <a title="dribbble" href="javascript:void(0);"><i class="zmdi zmdi-dribbble"></i></a>
+                                    <a title="google plus" href="javascript:void(0);"><i class="zmdi zmdi-google-plus-box"></i></a>
+                                </div>
+                            </li>
+                            <hr>
+                            <li><a href="profile.html"><i class="icon-user m-r-10"></i> <span>My Profile</span> <span class="badge badge-success float-right">80%</span></a></li>
+                            <li><a href="javascript:void(0);"><i class="icon-notebook m-r-10"></i><span>Taskboard</span> <span class="badge badge-info float-right">New</span></a></li>
+                            <hr>
+                            <li><a href="locked.html"><i class="icon-lock m-r-10"></i><span>Locked</span></a></li>
+                            <li><a href="sign-in.html"><i class="icon-power m-r-10"></i><span>Sign Out</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0);" class="js-right-sidebar"><i class="icon-equalizer"></i></a></li>
+                </ul>
+            </div>
+        </div>        
+    </div>
+</nav>
+
+<aside id="leftsidebar" class="sidebar h_menu">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-12">
+                <div class="menu">
+                    <ul class="list">
+                        <li class="header">MAIN</li>
+                        <li> <a href="index.html"><i class="icon-speedometer"></i><span>Dashboard</span></a></li>
+                        <li class="active open"><a href="javascript:void(0);" class="menu-toggle"><i class="icon-grid"></i><span>App</span></a>
+                            <ul class="ml-menu">
+                                <li><a href="mail-inbox.html">Inbox</a></li>
+                                <li><a href="chat.html">Chat</a></li>
+                                <li><a href="events.html">Calendar</a></li>
+                                <li><a href="file-dashboard.html">File Manager</a></li>
+                                <li><a href="contact.html">Contact list</a></li>
+                                <li class="active"><a href="blog-dashboard.html">Blog</a></li>
+                                <li><a href="app-ticket.html">Support Ticket</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0);" class="menu-toggle"><i class="icon-layers"></i><span>UI Elements</span></a>
+                            <ul class="ml-menu">
+                                <li><a href="ui-kit.html">UI KIT</a></li>                    
+                                <li><a href="ui-alerts.html">Alerts</a></li>                    
+                                <li><a href="ui-collapse.html">Collapse</a></li>
+                                <li><a href="ui-colors.html">Colors</a></li>
+                                <li><a href="ui-dialogs.html">Dialogs</a></li>
+                                <li><a href="ui-icons.html">Icons</a></li>                    
+                                <li><a href="ui-listgroup.html">List Group</a></li>
+                                <li><a href="ui-mediaobject.html">Media Object</a></li>
+                                <li><a href="ui-modals.html">Modals</a></li>
+                                <li><a href="ui-notifications.html">Notifications</a></li>                    
+                                <li><a href="ui-progressbars.html">Progress Bars</a></li>
+                                <li><a href="ui-rangesliders.html">Range Sliders</a></li>
+                                <li><a href="ui-sortablenestable.html">Sortable & Nestable</a></li>
+                                <li><a href="ui-tabs.html">Tabs</a></li>
+                                <li><a href="ui-waves.html">Waves</a></li>
+                            </ul>
+                        </li>
+                        <li class="header">FORMS, CHARTS, TABLES</li>
+                        <li><a href="javascript:void(0);" class="menu-toggle"><i class="icon-doc"></i><span>Forms</span></a>
+                            <ul class="ml-menu">
+                                <li><a href="form-basic.html">Basic Elements</a></li>
+                                <li><a href="form-advanced.html">Advanced Elements</a></li>
+                                <li><a href="form-examples.html">Form Examples</a></li>
+                                <li><a href="form-validation.html">Form Validation</a></li>
+                                <li><a href="form-wizard.html">Form Wizard</a></li>
+                                <li><a href="form-editors.html">Editors</a></li>
+                                <li><a href="form-upload.html">File Upload</a></li>
+                                <li><a href="form-img-cropper.html">Image Cropper</a></li>
+                                <li><a href="form-summernote.html">Summernote</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0);" class="menu-toggle"><i class="icon-tag"></i><span>Tables</span></a>
+                            <ul class="ml-menu">                        
+                                <li><a href="table-normal.html">Normal Tables</a></li>
+                                <li><a href="table-jquerydatatable.html">Jquery Datatables</a></li>
+                                <li><a href="table-editable.html">Editable Tables</a></li>
+                                
+                                <li><a href="table-color.html">Tables Color</a></li>
+                                <li><a href="table-filter.html">Tables Filter</a></li>
+                            </ul>
+                        </li>            
+                        <li><a href="javascript:void(0);" class="menu-toggle"><i class="icon-bar-chart"></i><span>Charts</span></a>
+                            <ul class="ml-menu">
+                                <li><a href="morris.html">Morris</a></li>
+                                <li><a href="flot.html">Flot</a></li>
+                                <li><a href="chartjs.html">ChartJS</a></li>
+                                <li><a href="sparkline.html">Sparkline</a></li>
+                                <li><a href="jquery-knob.html">Jquery Knob</a></li>
+                            </ul>
+                        </li>
+                        <li class="header">EXTRA COMPONENTS</li>                    
+                        <li><a href="javascript:void(0);" class="menu-toggle"><i class="icon-puzzle"></i><span>Widgets</span></a>
+                            <ul class="ml-menu">
+                                <li><a href="widgets-app.html">Apps Widgetse</a></li>
+                                <li><a href="widgets-data.html">Data Widgetse</a></li>
+                                <li><a href="widgets-chart.html">Chart Widgetse</a></li>
+                            </ul>
+                        </li>
+                        <li> <a href="javascript:void(0);" class="menu-toggle"><i class="icon-lock"></i><span>Authentication</span></a>
+                            <ul class="ml-menu">
+                                <li><a href="sign-in.html">Sign In</a></li>
+                                <li><a href="sign-up.html">Sign Up</a></li>
+                                <li><a href="forgot-password.html">Forgot Password</a></li>
+                                <li><a href="404.html">Page 404</a></li>
+                                <li><a href="403.html">Page 403</a></li>
+                                <li><a href="500.html">Page 500</a></li>
+                                <li><a href="503.html">Page 503</a></li>
+                                <li><a href="page-offline.html">Page Offline</a></li>
+                                <li><a href="locked.html">Locked Screen</a></li>
+                            </ul>
+                        </li>
+                        <li> <a href="javascript:void(0);" class="menu-toggle"><i class="icon-folder-alt"></i><span>Sample Pages</span></a>
+                            <ul class="ml-menu">
+                                <li><a href="blank.html">Blank Page</a></li>
+                                <li><a href="teams-board.html">Teams Board</a></li>
+                                <li><a href="projects.html">Projects List</a></li>
+                                <li><a href="image-gallery.html">Image Gallery</a></li>
+                                <li><a href="profile.html">Profile</a></li>
+                                <li><a href="timeline.html">Timeline</a></li>
+                                <li><a href="horizontal-timeline.html">Horizontal Timeline</a></li>
+                                <li><a href="pricing.html">Pricing</a></li>
+                                <li><a href="invoices.html">Invoices</a></li>
+                                <li><a href="faqs.html">FAQs</a></li>
+                                <li><a href="search-results.html">Search Results</a></li>
+                                <li><a href="helper-class.html">Helper Classes</a></li>
+                            </ul>
+                        </li>
+                        <li> <a href="javascript:void(0);" class="menu-toggle"><i class="icon-map"></i><span>Maps</span></a>
+                            <ul class="ml-menu">
+                                <li><a href="map-google.html">Google Map</a></li>
+                                <li><a href="map-yandex.html">YandexMap</a></li>
+                                <li><a href="map-jvectormap.html">jVectorMap</a></li>
+                            </ul>
+                        </li>                
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<!-- Right Sidebar -->
+<aside id="rightsidebar" class="right-sidebar">
+    <div class="slim_scroll">
+        <div class="card">
+            <h6>Skins</h6>
+            <ul class="choose-skin list-unstyled">
+                <li data-theme="purple" class="active">
+                    <div class="purple"></div>
+                </li>                   
+                <li data-theme="blue">
+                    <div class="blue"></div>
+                </li>
+                <li data-theme="cyan">
+                    <div class="cyan"></div>
+                </li>
+                <li data-theme="green">
+                    <div class="green"></div>
+                </li>
+                <li data-theme="orange">
+                    <div class="orange"></div>
+                </li>
+                <li data-theme="blush">
+                    <div class="blush"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="card theme-light-dark">
+            <h6>Left Menu</h6>
+            <button class="btn btn-default btn-block btn-round btn-simple t-light">Light</button>
+            <button class="btn btn-default btn-block btn-round t-dark">Dark</button>
+        </div> 
+        <div class="card">
+            <h6>General Settings</h6>
+            <ul class="setting-list list-unstyled">
+                <li>
+                    <div class="checkbox">
+                        <input id="checkbox1" type="checkbox">
+                        <label for="checkbox1">Report Panel Usage</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox">
+                        <input id="checkbox2" type="checkbox" checked="">
+                        <label for="checkbox2">Email Redirect</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox">
+                        <input id="checkbox3" type="checkbox" checked="">
+                        <label for="checkbox3">Notifications</label>
+                    </div>                        
+                </li>
+                <li>
+                    <div class="checkbox">
+                        <input id="checkbox4" type="checkbox" checked="">
+                        <label for="checkbox4">Auto Updates</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox">
+                        <input id="checkbox5" type="checkbox" checked="">
+                        <label for="checkbox5">Offline</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox">
+                        <input id="checkbox6" type="checkbox" checked="">
+                        <label for="checkbox6">Location Permission</label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</aside>
+
+<section class="content blog-page">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="body block-header">
+                        <div class="sub_menu">
+                            <a href="blog-post.html" class="btn btn-default btn-simple btn-round"><i class="zmdi zmdi-plus-circle"></i>New Post</a>
+                            <a href="blog-list.html" class="btn btn-default btn-simple btn-round"><i class="zmdi zmdi-sort-amount-desc"></i>Blog List</a>
+                            <a href="blog-grid.html" class="btn btn-default btn-simple btn-round"><i class="zmdi zmdi-grid"></i>Blog Grid</a>
+                            <a href="blog-details.html" class="btn btn-primary btn-simple btn-round"><i class="zmdi zmdi-label-alt"></i>Blog Single</a>                            
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-8 col-10">
+                                <h2>Blog Detail</h2>
+                                <ul class="breadcrumb p-l-0 p-b-0 ">
+                                    <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="blog-dashboard.html">Blog</a></li>
+                                    <li class="breadcrumb-item active">Blog Detail</li>
+                                </ul>
+                            </div>            
+                            <div class="col-lg-6 col-md-4 col-2 text-right">
+                                <div class="inlineblock text-center m-r-15 m-l-15 hidden-sm">
+                                    <div class="sparkline" data-type="bar" data-width="97%" data-height="28px" data-bar-Width="2" data-bar-Spacing="5" data-bar-Color="#706bd1">3,2,6,5,9,8,7,9,5,1,3,5,7,4,6</div>
+                                    <small>Page Views</small>
+                                </div>
+                                <div class="inlineblock text-center m-r-15 m-l-15 hidden-sm">
+                                    <div class="sparkline" data-type="bar" data-width="97%" data-height="28px" data-bar-Width="2" data-bar-Spacing="5" data-bar-Color="#191f28">1,3,5,7,4,6,3,2,6,5,9,8,7,9,5</div>
+                                    <small>Visitors</small>
+                                </div>
+                                <button class="btn btn-primary btn-icon btn-icon-mini btn-round sub_menu_btn float-right z-index m-l-10"><i class="zmdi zmdi-apps"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-lg-8 col-md-12">
+                <div class="card single_post">
+                    <div class="body">
+                        <h3 class="m-t-0 m-b-5"><a href="blog-details.html">All photographs are accurate. None of them is the truth</a></h3>
+                        <ul class="meta">
+                            <li><a href="javascript:void(0);"><i class="zmdi zmdi-account col-blue"></i>Posted By: John Smith</a></li>
+                            <li><a href="javascript:void(0);"><i class="zmdi zmdi-label col-red"></i>Photography</a></li>
+                            <li><a href="javascript:void(0);"><i class="zmdi zmdi-comment-text col-blue"></i>Comments: 3</a></li>
+                        </ul>
+                    </div>                    
+                    <div class="body">
+                        <div class="img-post m-b-15">
+                            <img src="assets/images/blog/blog-page-1.jpg" alt="Awesome Image">
+                            <div class="social_share">                            
+                                <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-facebook"></i></button>
+                                <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button>
+                                <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-instagram"></i></button>
+                            </div>
+                        </div>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal</p>
+                        <a href="blog-details.html" title="read more" class="btn btn-round btn-info">Read More</a>                        
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>Comments</strong> 3</h2>
+                    </div>
+                    <div class="body">
+                        <ul class="comment-reply list-unstyled">
+                            <li class="row clearfix">
+                                <div class="icon-box col-md-2 col-4"><img class="img-fluid img-thumbnail" src="assets/images/sm/avatar2.jpg" alt="Awesome Image"></div>
+                                <div class="text-box col-md-10 col-8 p-l-0 p-r0">
+                                    <h5 class="m-b-0">Gigi Hadid </h5>
+                                    <p>Why are there so many tutorials on how to decouple WordPress? how fast and easy it is to get it running (and keep it running!) and its massive ecosystem. </p>
+                                    <ul class="list-inline">
+                                        <li><a href="javascript:void(0);">Mar 09 2018</a></li>
+                                        <li><a href="javascript:void(0);">Reply</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="row clearfix">
+                                <div class="icon-box col-md-2 col-4"><img class="img-fluid img-thumbnail" src="assets/images/sm/avatar3.jpg" alt="Awesome Image"></div>
+                                <div class="text-box col-md-10 col-8 p-l-0 p-r0">
+                                    <h5 class="m-b-0">Christian Louboutin</h5>
+                                    <p>Great tutorial but few issues with it? If i try open post i get following errors. Please can you help me?</p>
+                                    <ul class="list-inline">
+                                        <li><a href="javascript:void(0);">Mar 12 2018</a></li>
+                                        <li><a href="javascript:void(0);">Reply</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="row clearfix">
+                                <div class="icon-box col-md-2 col-4"><img class="img-fluid img-thumbnail" src="assets/images/sm/avatar4.jpg" alt="Awesome Image"></div>
+                                <div class="text-box col-md-10 col-8 p-l-0 p-r0">
+                                    <h5 class="m-b-0">Kendall Jenner</h5>
+                                    <p>Very nice and informative article. In all the years I've done small and side-projects as a freelancer, I've ran into a few problems here and there.</p>
+                                    <ul class="list-inline">
+                                        <li><a href="javascript:void(0);">Mar 20 2018</a></li>
+                                        <li><a href="javascript:void(0);">Reply</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>                                        
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>Leave</strong> a reply <small>Your email address will not be published. Required fields are marked*</small></h2>
+                    </div>
+                    <div class="body">
+                        <div class="comment-form">
+                            <form class="row clearfix">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Your Name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Email Address">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <textarea rows="4" class="form-control no-resize" placeholder="Please type what you want..."></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-block btn-primary btn-round">SUBMIT</button>
+                                </div>                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 right-box">
+                <div class="card">
+                    <div class="body search">
+                        <div class="input-group m-b-0">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="input-group-addon">
+                                <i class="zmdi zmdi-search"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>Categories</strong> Clouds</h2>
+                    </div>
+                    <div class="body widget">
+                        <ul class="list-unstyled categories-clouds m-b-0">
+                            <li><a href="javascript:void(0);">eCommerce</a></li>
+                            <li><a href="javascript:void(0);">Microsoft Technologies</a></li>
+                            <li><a href="javascript:void(0);">Creative UX</a></li>
+                            <li><a href="javascript:void(0);">Wordpress</a></li>
+                            <li><a href="javascript:void(0);">Angular JS</a></li>
+                            <li><a href="javascript:void(0);">Enterprise Mobility</a></li>
+                            <li><a href="javascript:void(0);">Website Design</a></li>
+                            <li><a href="javascript:void(0);">HTML5</a></li>
+                            <li><a href="javascript:void(0);">Infographics</a></li>
+                            <li><a href="javascript:void(0);">Wordpress Development</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>Popular</strong> Posts</h2>                        
+                    </div>
+                    <div class="body widget popular-post">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="single_post">
+                                    <div class="img-post m-b-5">
+                                        <img src="assets/images/blog/blog-page-2.jpg" alt="Awesome Image">                                        
+                                    </div>
+                                    <p class="m-b-0">Apple Introduces Search Ads Basic</p>
+                                    <small class="text-muted">Dec 22, 2017</small>
+                                </div>
+                                <div class="single_post m-t-20">
+                                    <div class="img-post m-b-5">
+                                        <img src="assets/images/blog/blog-page-3.jpg" alt="Awesome Image">                                            
+                                    </div>
+                                    <p class="m-b-0">new rules, more cars, more races</p>
+                                    <small class="text-muted">Dec 20, 2017</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>Instagram</strong> Post</h2>
+                    </div>
+                    <div class="body widget">
+                        <ul class="list-unstyled instagram-plugin m-b-0">
+                            <li><a href="javascript:void(0);"><img src="assets/images/blog/05-img.jpg" alt="image description"></a></li>
+                            <li><a href="javascript:void(0);"><img src="assets/images/blog/06-img.jpg" alt="image description"></a></li>
+                            <li><a href="javascript:void(0);"><img src="assets/images/blog/07-img.jpg" alt="image description"></a></li>
+                            <li><a href="javascript:void(0);"><img src="assets/images/blog/08-img.jpg" alt="image description"></a></li>
+                            <li><a href="javascript:void(0);"><img src="assets/images/blog/09-img.jpg" alt="image description"></a></li>
+                            <li><a href="javascript:void(0);"><img src="assets/images/blog/10-img.jpg" alt="image description"></a></li>
+                            <li><a href="javascript:void(0);"><img src="assets/images/blog/11-img.jpg" alt="image description"></a></li>
+                            <li><a href="javascript:void(0);"><img src="assets/images/blog/12-img.jpg" alt="image description"></a></li>
+                            <li><a href="javascript:void(0);"><img src="assets/images/blog/13-img.jpg" alt="image description"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>Email</strong> Newsletter <small>Get our products/news earlier than others, let’s get in touch.</small></h2>
+                    </div>
+                    <div class="body widget newsletter">                        
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Enter Email">
+                            <span class="input-group-addon">
+                                <i class="zmdi zmdi-mail-send"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Jquery Core Js --> 
+<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
+<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
+
+<script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js --> 
+</body>
+
+<!-- Mirrored from thememakker.com/templates/infinity/main/blog-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 17 May 2018 04:31:35 GMT -->
+</html>

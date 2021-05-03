@@ -1,0 +1,364 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Amalia.master.cs" Inherits="AMALIA.Amalia" %>
+
+<!doctype html>
+<html class="no-js" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="Transportes Zamora">
+    <title>TRANSPORTES ZAMORA</title>
+    <!-- Favicon-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/plugins/sweetalert/sweetalert.css" />
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="assets/css/main1.css">
+    <link rel="stylesheet" href="assets/css/color_skins.css">
+    <a href="Amalia.Master">Amalia.Master</a>
+
+
+    <!-- JQuery DataTable Css -->
+    <link rel="stylesheet" href="assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css">
+    <link href="assets/jstree/themes/default/style.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- SORTABLE -->
+    <link href="assets/plugins/nestable/jquery-nestable.css" rel="stylesheet" />
+    <link href="assets/css/tzamora3.css" rel="stylesheet" />
+    <link href="assets/css/amalia3.css" rel="stylesheet" />
+    <!-- SELECTIZE -->
+    <link href="assets/selectize.css" rel="stylesheet" />
+    <link href="assets/selectize.bootstrap3.css" rel="stylesheet" />
+    <style>
+        .combopro {
+            color: black;
+        }
+
+        .badge-block {
+            width: 100% !important;
+        }
+
+        .modal-lg {
+            width: 90% !important;
+        }
+
+        .alert-visible {
+            z-index: 9999999999;
+        }
+
+        .text-menu-small {
+            font-size: 12px !important;
+        }
+    </style>
+</head>
+
+<body class="theme-purple">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="m-t-30">
+                <img class="zmdi-hc-spin" src="assets/images/logo.svg" width="48" height="48" alt="sQuare">
+            </div>
+            <p>Espere un momento ...</p>
+        </div>
+    </div>
+
+    <div class="page-loader-wrapper" id="relojito2" style="display: none">
+        <div class="loader">
+            <div class="m-t-30">
+                <img class="zmdi-hc-spin" src="assets/images/logo.svg" width="48" height="48" alt="sQuare">
+            </div>
+            <p>Cargando esto puede tardar un momento ...</p>
+        </div>
+    </div>
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+
+    <!-- Top Bar -->
+    <form runat="server" id="FORM1">
+        <asp:ScriptManager ID="ScriptManager2" runat="server">
+        </asp:ScriptManager>
+        <nav class="top_navbar">
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-12">
+                        <div class="navbar-logo">
+                            <a href="javascript:void(0);" class="bars"></a>
+                            <a class="navbar-brand" href="index.aspx">
+                                <img src="assets/images/logo.svg" width="30" alt="Transportes Zamora"><span class="m-l-10">TRANSPORTES ZAMORA | VIAJES</span></a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li id="keepalivelabel" style="color: white; font-size: small;"></li>
+                            <li style="color: white !important">Usuario:
+                                <asp:LoginName runat="server" Style="color: white !important" />
+                            </li>
+                            <li class="dropdown profile">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                    <img class="rounded-circle" src="assets/images/profile_av.jpg" alt="User">
+                                </a>
+                                <ul class="dropdown-menu pullDown">
+                                    <li>
+                                        <div class="user-info">
+                                            <asp:LoginName runat="server" />
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <asp:LoginStatus runat="server" />
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="javascript:void(0);" class="fullscreen hidden-sm" data-provide="fullscreen"><i class=" icon-size-fullscreen"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <aside id="leftsidebar" class="sidebar h_menu">
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-12">
+                        <div class="menu">
+                            <ul class="list">
+                                <li class="header">MENU</li>
+                                <div runat="server" id="DASHBOARD" style="display: none">
+                                    <li><a href="index.aspx"><i class="fa fa-home"></i><span class="text-menu-small"></span></a></li>
+                                </div>
+                                <li title="VIAJES"><a href="javascript:void(0);" class="menu-toggle"><i class="fa fa-truck"></i><span class="text-menu-small"></span></a>
+                                    <ul class="ml-menu">
+                                        <li class="text-purple"><span class="text-purple"><strong>VIAJES</strong></span></li>
+                                        <li><a href="Modulo_GT.aspx"><i class="fa fa-shipping-fast"></i><span class="text-purple">&nbsp;Módulo <strong>GT</strong></span></a></li>
+                                        <li><a href="Modulo_OTZ.aspx"><i class="fa fa-truck-loading"></i><span class="text-purple">&nbsp;Módulo <strong>OTZ</strong></span></a></li>
+                                        <li><a href="Conductor.aspx"><i class="fa fa-users"></i><span>&nbsp;Conductores</span></a></li>
+                                        <li><a href="Camion.aspx"><i class="fa fa-truck"></i><span>&nbsp;Camiones</span></a></li>
+                                        <li><a href="Rampla.aspx"><i class="fa fa-pallet"></i><span>&nbsp;Rampla</span></a></li>
+                                        <li><a href="Cliente.aspx"><i class="fa fa-user-tie"></i><span>&nbsp;Clientes</span></a></li>
+                                        <li><a href="Obra.aspx"><i class="fa fa-map-marker-alt"></i><span>&nbsp;Obras</span></a></li>
+                                        <li><a href="Estacion.aspx"><i class="fa fa-gas-pump"></i><span>&nbsp;Estaciones</span></a></li>
+                                    </ul>
+                                </li>
+
+                                <div runat="server" id="REPORTES" style="display: none">
+                                    <li title="INFORMES" text-menu-small><a href="javascript:void(0);" class="menu-toggle"><i class="fa fa-file"></i><span class="text-menu-small"></span></a>
+                                        <ul class="ml-menu">
+                                            <li class="text-purple"><span class="text-purple"><strong>INFORMES</strong></span></li>
+                                            <li><a href="ReporteDepositos.aspx"><i class="fa fa-file"></i><span>Gt - Depositos</span></a></li>
+                                            <li><a href="Reporte_GT.aspx"><i class="fa fa-file"></i><span>Reportes </span></a></li>
+                                            <li><a href="Reporte_OTZ.aspx"><i class="fa fa-file"></i><span>Excel OTZ's </span></a></li>
+                                            <li><a href="CombustibleControl.aspx"><i class="fa fa-gas-pump"></i><span>Surtidor Combustible </span></a></li>
+                                            <li><a href="Excel_Copec.aspx"><i class="fa fa-file"></i><span>Carga Combustible (COPEC) </span></a></li>
+                                        </ul>
+                                    </li>
+                                </div>
+                                <div runat="server" id="MANTENIMIENTO" style="display: none">
+                                    <li><a href="javascript:void(0);" class="menu-toggle"><i class="fa fa-wrench"></i><span class="text-menu-small"></span></a>
+                                        <ul class="ml-menu">
+                                            <li class="text-purple"><span class="text-purple"><strong>REQUERIMIENTOS / OT</strong></span></li>
+                                            <li><a href="Ingresar_Requerimiento.aspx"><i class="fa fa-plus"></i><span>&nbsp;Ingresar Requerimiento</span></a></li>
+                                            <li><a href="Requerimientos.aspx"><i class="fa fa-exclamation-circle"></i><span>&nbsp;Listado Requerimientos</span></a></li>
+                                            <li><a href="OrdenesdeTrabajo.aspx"><i class="fa fa-file-alt"></i><span>&nbsp;Ordenes de Trabajo</span></a></li>
+                                            <li><a href="Proveedores.aspx"><i class="fa fa-user"></i><span>&nbsp;Proveedores</span></a></li>
+                                        </ul>
+                                    </li>
+                                </div>
+
+                                <li><a href="javascript:void(0);" class="menu-toggle"><i class="fa fa-search"></i><span class="text-menu-small"></span></a>
+                                    <ul class="ml-menu">
+                                        <li class="text-purple"><span class="text-purple"><strong>HALLAZGOS</strong></span></li>
+                                        <li><a href="Hallazgo.aspx"><i class="fa fa-search"></i><span>&nbsp;Mantenedor Hallazgos</span></a></li>
+                                    </ul>
+                                </li>
+
+                                <div runat="server" id="DEPOSITOS" style="display: inline">
+                                    <li><a href="javascript:void(0);" class="menu-toggle"><i class="fa fa-hand-holding-usd"></i><span class="text-menu-small"></span></a>
+                                        <ul class="ml-menu">
+                                            <li class="text-purple"><span class="text-purple"><strong>DEPOSITOS</strong></span></li>
+                                            <li><a href="Depositos.aspx"><i class="fa fa-hand-holding-usd"></i><span>&nbsp;Mantenedor Depositos</span></a></li>
+                                        </ul>
+                                    </li>
+                                </div>
+                                <div runat="server" id="CHECKLISTS" style="display: inline">
+                                    <li><a href="javascript:void(0);" class="menu-toggle"><i class="fa fa-clipboard-check"></i><span class="text-menu-small"></span></a>
+                                        <ul class="ml-menu">
+                                            <li class="text-purple"><span class="text-purple"><strong>CHECKLISTS</strong></span></li>
+                                            <li><a href="CHECKLISTS.aspx"><i class="fa fa-clipboard-check"></i><span>&nbsp;Checklists Completados</span></a></li>
+                                        </ul>
+                                    </li>
+                                </div>
+                                <div runat="server" id="MENU_LEONEL" style="display: none">
+                                    <li><a href="javascript:void(0);" class="menu-toggle"><i class="fa fa-wrench"></i><span class="text-menu-small">MENU LEONEL </span></a>
+                                        <ul class="ml-menu">
+                                            <li><a href="GD_CAMION.aspx"><i class="fa fa-truck"></i><span>&nbsp;<strong>Camion</strong></span></a></li>
+                                        </ul>
+                                    </li>
+                                </div>
+                                <div runat="server" id="REPUESTOS" style="display: none">
+                                    <li><a href="javascript:void(0);" class="menu-toggle"><i class="fa fa-toolbox"></i><span class="text-menu-small"></span></a>
+                                        <ul class="ml-menu">
+                                            <li class="text-purple"><span class="text-purple"><strong>REPUESTOS</strong></span></li>
+                                            <li><a href="Repuestos.aspx"><i class="fa fa-cogs"></i><span>&nbsp;Repuestos</span></a></li>
+                                            <li><a href="STOCK_REPUESTOS.aspx"><i class="fa fa-list"></i><span>&nbsp;Stock Repuestos</span></a></li>
+                                            <li><a href="Marca_Repuesto.aspx"><i class="fa fa-cogs"></i><span>&nbsp;Marcas Repuestos</span></a></li>
+                                            <li><a href="Categoria_Repuesto.aspx"><i class="fa fa-cogs"></i><span>&nbsp;Categorías Repuestos</span></a></li>
+                                        </ul>
+                                    </li>
+                                </div>
+                                <li><a href="javascript:void(0);" class="menu-toggle"><i class="fa fa-file-invoice-dollar"></i><span class="text-menu-small"></span></a>
+                                    <ul class="ml-menu">
+                                        <li class="text-purple"><span class="text-purple"><strong>ORDENES DE COMPRA</strong></span></li>
+                                        <li><a href="Ordenes_Compra.aspx"><i class="fa fa-file-invoice"></i><span>&nbsp;OC T.Zamora</span></a></li>
+                                        <li><a href="Ordenes_Compra_Agro.aspx"><i class="fa fa-file-invoice"></i><span>&nbsp;OC Agro</span></a></li>
+                                        <li><a href="Proveedores_OC.aspx"><i class="fa fa-file-invoice"></i><span>&nbsp;Proveedores OC</span></a></li>
+                                    </ul>
+                                </li>
+                                <div runat="server" id="FACTURAS" style="display: none">
+                                    <li><a href="javascript:void(0);" class="menu-toggle"><i class="fa fa-file-invoice-dollar"></i><span class="text-menu-small"></span></a>
+                                        <ul class="ml-menu">
+                                            <li class="text-purple"><span class="text-purple"><strong>CENTRO DE COSTO</strong></span></li>
+                                            <li><a href="FacturaVenta.aspx"><i class="fa fa-file-invoice"></i><span>&nbsp;F. Ventas</span></a></li>
+                                            <li><a href="FacturaCompra.aspx"><i class="fa fa-file-invoice"></i><span>&nbsp;F. Compras</span></a></li>
+                                        </ul>
+                                    </li>
+                                </div>
+                                <div runat="server" id="CONFIGURACION" style="display: none">
+                                    <li><a href="javascript:void(0);" class="menu-toggle"><i class="fa fa-cogs"></i><span class="text-menu-small"></span></a>
+                                        <ul class="ml-menu">
+                                            <li class="text-purple"><span class="text-purple"><strong>CONFIGURACION</strong></span></li>
+                                            <li><a href="Usuarios.aspx"><i class="fa fa-lock"></i><span>Usuarios</span></a></li>
+                                        </ul>
+                                    </li>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!-- Main Content -->
+        <asp:ContentPlaceHolder runat="server" ID="BODY">
+        </asp:ContentPlaceHolder>
+    </form>
+    <!-- NO TOCAR -->
+    <script src="assets/bundles/libscripts.bundle.js"></script>
+    <script src="assets/bundles/vendorscripts.bundle.js"></script>
+    <script src="assets/bundles/mainscripts.bundle.js"></script>
+
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="assets/bundles/datatablescripts.bundle.js"></script>
+    <script src="assets/plugins/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
+    <script src="assets/plugins/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
+    <script src="assets/plugins/jquery-datatable/buttons/buttons.colVis.min.js"></script>
+    <script src="assets/plugins/jquery-datatable/buttons/buttons.html5.min.js"></script>
+    <script src="assets/plugins/jquery-datatable/buttons/buttons.print.min.js"></script>
+
+    <!-- NOTIFICACIONES -->
+    <script src="assets/plugins/bootstrap-notify/bootstrap-notify.js"></script>
+    <!-- DIALOGS Y ALERTS -->
+    <script src="assets/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="assets/js/pages/ui/dialogs.js"></script>
+    <!-- SELECTIZE -->
+    <script src="assets/selectize.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            jQuery.extend(jQuery.fn.dataTableExt.oSort, {
+                "date-uk-pre": function (a) {
+                    var ukDatea = a.split('/');
+                    return (ukDatea[2] + ukDatea[1] + ukDatea[0]) * 1;
+                },
+
+                "date-uk-asc": function (a, b) {
+                    return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+                },
+
+                "date-uk-desc": function (a, b) {
+                    return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+                }
+            });
+            setInterval(function () {
+                KeepAlive();
+            }, 5 * 60000);
+        });
+    </script>
+    <script>
+        function MostrarNotificacion(mensaje, flag) {
+            var color = 'bg-black';
+            if (flag == 0) { color = 'bg-red' };
+            if (flag == 1) { color = 'bg-green' };
+            if (flag == 2) { color = 'bg-black' };
+            var allowDismiss = true;
+
+            $.notify({
+                message: mensaje
+            },
+                {
+                    type: color,
+                    allow_dismiss: allowDismiss,
+                    newest_on_top: true,
+                    timer: 300,
+                    placement: {
+                        from: 'top',
+                        align: 'right'
+                    },
+                    z_index: 9999999999,
+                    animate: {
+                        enter: 'animated fadeInDown',
+                        exit: 'animated fadeOutUp'
+                    },
+                    template: '<div data-notify="container" class="alert-visible bootstrap-notify-container alert alert-dismissible {0} ' + (allowDismiss ? "p-r-35" : "") + '" role="alert">' +
+                        '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+                        '<span data-notify="icon"></span> ' +
+                        '<span data-notify="title">{1}</span> ' +
+                        '<span data-notify="message">{2}</span>' +
+                        '<div class="progress" data-notify="progressbar">' +
+                        '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+                        '</div>' +
+                        '<a href="{3}" target="{4}" data-notify="url"></a>' +
+                        '</div>'
+                });
+        }
+
+        function relojito(x) {
+            if (x) {
+                $(".page-loader-wrapper").fadeIn();
+            }
+            else {
+                $(".page-loader-wrapper").fadeOut();
+            }
+        }
+
+        function relojito2(x) {
+            if (x) {
+                $("#relojito2").fadeIn();
+            }
+            else {
+                $("#relojito2").fadeOut();
+            }
+        }
+
+        function KeepAlive() {
+            var parameters = new Object();
+            parameters.id_checklist = "x";
+            parameters = JSON.stringify(parameters);
+
+            $.ajax({
+                type: "POST",
+                url: "Index.aspx/KeepAlive",
+                data: parameters,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: true,
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                }
+            }).done(function (resp) {
+                console.log(resp);
+                document.getElementById("keepalivelabel").innerHTML = 'Mantener Sessión: ' + resp.d + ' | ';
+            });
+        }
+
+    </script>
+
+    <asp:ContentPlaceHolder runat="server" ID="CODIGO_JAVASCRIPT">
+    </asp:ContentPlaceHolder>
+</body>
+</html>

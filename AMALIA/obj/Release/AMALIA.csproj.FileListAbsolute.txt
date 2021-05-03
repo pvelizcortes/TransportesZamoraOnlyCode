@@ -1,0 +1,59 @@
+D:\WORK\FREELANCE\WEBS\AMALIA MANT\AMALIA\AMALIA\bin\AMALIA.dll.config
+D:\WORK\FREELANCE\WEBS\AMALIA MANT\AMALIA\AMALIA\bin\AMALIA.dll
+D:\WORK\FREELANCE\WEBS\AMALIA MANT\AMALIA\AMALIA\bin\AMALIA.pdb
+D:\WORK\FREELANCE\WEBS\AMALIA MANT\AMALIA\AMALIA\obj\Release\AMALIA.csprojResolveAssemblyReference.cache
+D:\WORK\FREELANCE\WEBS\AMALIA MANT\AMALIA\AMALIA\obj\Release\AMALIA.dll
+D:\WORK\FREELANCE\WEBS\AMALIA MANT\AMALIA\AMALIA\obj\Release\AMALIA.pdb
+D:\WORK\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\AMALIA.dll.config
+D:\WORK\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\AMALIA.dll
+D:\WORK\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\AMALIA.pdb
+D:\WORK\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\ClosedXML.dll
+D:\WORK\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\DocumentFormat.OpenXml.dll
+D:\WORK\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\itextsharp.dll
+D:\WORK\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\Newtonsoft.Json.dll
+D:\WORK\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\SpreadsheetLight.dll
+D:\WORK\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\ClosedXML.xml
+D:\WORK\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\DocumentFormat.OpenXml.xml
+D:\WORK\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\itextsharp.xml
+D:\WORK\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\Newtonsoft.Json.pdb
+D:\WORK\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\Newtonsoft.Json.xml
+D:\WORK\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\obj\Release\AMALIA.dll
+D:\WORK\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\obj\Release\AMALIA.pdb
+D:\WORK\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\obj\Release\AMALIA.csprojAssemblyReference.cache
+D:\WORK\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\obj\Release\AMALIA.csproj.CoreCompileInputs.cache
+D:\WORK\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\obj\Release\AMALIA.csproj.CopyComplete
+C:\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\obj\Release\AMALIA.csprojAssemblyReference.cache
+C:\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\obj\Release\AMALIA.dll
+C:\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\obj\Release\AMALIA.pdb
+C:\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\AMALIA.dll.config
+C:\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\AMALIA.dll
+C:\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\AMALIA.pdb
+C:\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\ClosedXML.dll
+C:\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\DocumentFormat.OpenXml.dll
+C:\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\itextsharp.dll
+C:\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\Newtonsoft.Json.dll
+C:\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\SpreadsheetLight.dll
+C:\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\ClosedXML.xml
+C:\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\DocumentFormat.OpenXml.xml
+C:\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\itextsharp.xml
+C:\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\Newtonsoft.Json.pdb
+C:\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\bin\Newtonsoft.Json.xml
+C:\FREELANCE\WEBS\Transportes Zamora\AMALIA\AMALIA\obj\Release\AMALIA.csproj.CopyComplete
+C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AMALIA\bin\AMALIA.dll.config
+C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AMALIA\bin\AMALIA.dll
+C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AMALIA\bin\AMALIA.pdb
+C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AMALIA\bin\ClosedXML.dll
+C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AMALIA\bin\DocumentFormat.OpenXml.dll
+C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AMALIA\bin\itextsharp.dll
+C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AMALIA\bin\Newtonsoft.Json.dll
+C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AMALIA\bin\SpreadsheetLight.dll
+C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AMALIA\bin\ClosedXML.xml
+C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AMALIA\bin\DocumentFormat.OpenXml.xml
+C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AMALIA\bin\itextsharp.xml
+C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AMALIA\bin\Newtonsoft.Json.pdb
+C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AMALIA\bin\Newtonsoft.Json.xml
+C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AMALIA\obj\Release\AMALIA.csprojAssemblyReference.cache
+C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AMALIA\obj\Release\AMALIA.csproj.CoreCompileInputs.cache
+C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AMALIA\obj\Release\AMALIA.csproj.CopyComplete
+C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AMALIA\obj\Release\AMALIA.dll
+C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AMALIA\obj\Release\AMALIA.pdb
