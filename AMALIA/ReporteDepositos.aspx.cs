@@ -111,15 +111,15 @@ namespace AMALIA
                 gt_hasta = "";
             }
 
-            string filtro = gt_desde + gt_hasta;                                       // antes + X.totaldescuentos
-            string query = "select X.*, (abs(X.dinero_entregado - abs(X.saldo_dinero_entregado) - X.totaldescuentos + X.totalsaldos) - X.dinero_entregado) as 'totalpendiente' from " +
+            string filtro = gt_desde + gt_hasta;                                       // (Rendido-(descuento-saldo)) // Antigua Formula  (abs(X.dinero_entregado - abs(X.saldo_dinero_entregado) - X.totaldescuentos + X.totalsaldos) - X.dinero_entregado) 
+            string query = "select X.*, (X.saldo_dinero_entregado-(X.totaldescuentos - X.totalsaldos)) as 'totalpendiente' from " +
                             " (" +
                             " select gt.num_correlativo, gt.saldo_dinero_entregado, convert(varchar,gt.fecha_inicio,103) as 'fecha_inicio', convert(varchar,gt.fecha_termino,103) as 'fecha_termino' " +
                             " , gt.dinero_entregado " +
                             " , gt.total_gastos " +
                             " , gt.id_camion " +
-                            " , (select isnull(SUM(valor), 0) from deposito_detalle where num_viaje = gt.num_correlativo and tipo = 'DESCUENTO') as 'totaldescuentos' " +
-                            " ,(select isnull(SUM(valor), 0) from deposito_detalle where num_viaje = gt.num_correlativo and tipo = 'SALDO') as 'totalsaldos' " +
+                            " , (select isnull(SUM(valor), 0) from deposito_detalle where num_viaje = gt.num_correlativo and tipo = 'DESCUENTO' and estado = 'DESCONTADO') as 'totaldescuentos' " +
+                            " ,(select isnull(SUM(valor), 0) from deposito_detalle where num_viaje = gt.num_correlativo and tipo = 'SALDO' and estado = 'DEPOSITADO' ) as 'totalsaldos' " +
                             " ,(select NOMBRE_COMPLETO from conductor where id_conductor = gt.id_conductor) as 'nombre_conductor' " +
                             " FROM enc_gt gt " +
                             " ) as X where 1=1 ";

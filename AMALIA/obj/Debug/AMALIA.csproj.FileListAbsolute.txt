@@ -85,3 +85,21 @@ C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AM
 C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AMALIA\obj\Debug\AMALIA.csproj.CopyComplete
 C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AMALIA\obj\Debug\AMALIA.dll
 C:\WorkArea\Freelance\Transportes Zamora\Web Sistema\TransportesZamora\AMALIA\AMALIA\obj\Debug\AMALIA.pdb
+C:\Freelance\TransportesZamora\TransportesZamora-master\AMALIA\AMALIA\bin\AMALIA.dll.config
+C:\Freelance\TransportesZamora\TransportesZamora-master\AMALIA\AMALIA\bin\AMALIA.dll
+C:\Freelance\TransportesZamora\TransportesZamora-master\AMALIA\AMALIA\bin\AMALIA.pdb
+C:\Freelance\TransportesZamora\TransportesZamora-master\AMALIA\AMALIA\bin\ClosedXML.dll
+C:\Freelance\TransportesZamora\TransportesZamora-master\AMALIA\AMALIA\bin\DocumentFormat.OpenXml.dll
+C:\Freelance\TransportesZamora\TransportesZamora-master\AMALIA\AMALIA\bin\itextsharp.dll
+C:\Freelance\TransportesZamora\TransportesZamora-master\AMALIA\AMALIA\bin\Newtonsoft.Json.dll
+C:\Freelance\TransportesZamora\TransportesZamora-master\AMALIA\AMALIA\bin\SpreadsheetLight.dll
+C:\Freelance\TransportesZamora\TransportesZamora-master\AMALIA\AMALIA\bin\ClosedXML.xml
+C:\Freelance\TransportesZamora\TransportesZamora-master\AMALIA\AMALIA\bin\DocumentFormat.OpenXml.xml
+C:\Freelance\TransportesZamora\TransportesZamora-master\AMALIA\AMALIA\bin\itextsharp.xml
+C:\Freelance\TransportesZamora\TransportesZamora-master\AMALIA\AMALIA\bin\Newtonsoft.Json.pdb
+C:\Freelance\TransportesZamora\TransportesZamora-master\AMALIA\AMALIA\bin\Newtonsoft.Json.xml
+C:\Freelance\TransportesZamora\TransportesZamora-master\AMALIA\AMALIA\obj\Debug\AMALIA.csprojAssemblyReference.cache
+C:\Freelance\TransportesZamora\TransportesZamora-master\AMALIA\AMALIA\obj\Debug\AMALIA.csproj.CoreCompileInputs.cache
+C:\Freelance\TransportesZamora\TransportesZamora-master\AMALIA\AMALIA\obj\Debug\AMALIA.csproj.CopyComplete
+C:\Freelance\TransportesZamora\TransportesZamora-master\AMALIA\AMALIA\obj\Debug\AMALIA.dll
+C:\Freelance\TransportesZamora\TransportesZamora-master\AMALIA\AMALIA\obj\Debug\AMALIA.pdb

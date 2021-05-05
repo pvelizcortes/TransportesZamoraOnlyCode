@@ -173,9 +173,10 @@
                                                                     </div>
                                                                     <div class="col-sm-6">
                                                                         <div class="form-group">
-                                                                            <asp:DropDownList ID="CB_CONDUCTOR" runat="server" CssClass="form-control combopro">
+                                                                            <asp:DropDownList ID="CB_CONDUCTOR" Enabled="false" runat="server" CssClass="form-control combopro">
                                                                                 <asp:ListItem Text="-- seleccione --" Value="0" Selected="True"></asp:ListItem>
                                                                             </asp:DropDownList>
+                                                                            <small>(Se manejará desde depositos)</small>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -185,9 +186,10 @@
                                                                     </div>
                                                                     <div class="col-sm-6">
                                                                         <div class="form-group">
-                                                                            <asp:DropDownList ID="CB_CONDUCTOR2" runat="server" CssClass="form-control combopro">
+                                                                            <asp:DropDownList ID="CB_CONDUCTOR2" Enabled="false" runat="server" CssClass="form-control combopro">
                                                                                 <asp:ListItem Text="-- seleccione --" Value="0" Selected="True"></asp:ListItem>
                                                                             </asp:DropDownList>
+                                                                              <small>(Se manejará desde depositos)</small>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -230,6 +232,16 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
+                                                            <div class="row clearfix">
+                                                                <div class="col-sm-4 form-control-label">
+                                                                    <label><b><i class="fa fa-calendar text-purple"></i>&nbsp;&nbsp;&nbsp;Fecha Creación</b></label>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <asp:TextBox runat="server" Enabled="false" TextMode="Date" ID="T_FECHA_CREACION" CssClass="input-sm"></asp:TextBox>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                             <div class="row clearfix">
                                                                 <div class="col-sm-4 form-control-label">
                                                                     <label><b><i class="fa fa-calendar text-purple"></i>&nbsp;&nbsp;&nbsp;Fecha Inicio</b></label>

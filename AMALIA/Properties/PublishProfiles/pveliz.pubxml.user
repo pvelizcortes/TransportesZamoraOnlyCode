@@ -6,17 +6,17 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>E:\WorkingArea\Publicaciones\TransportesZamora</_PublishTargetUrl>
+    <_PublishTargetUrl>c:\Publicaciones\TransportesZamora</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Amalia.Master">
-      <publishTime>03/05/2021 01:22:23</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="AmaliaGD.Master">
-      <publishTime>12/13/2020 16:18:59</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="assets/angular.min.js">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="assets/css/amalia.css">
       <publishTime>07/19/2020 01:19:33</publishTime>
@@ -25,61 +25,61 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/16/2019 01:33:45</publishTime>
     </File>
     <File Include="assets/number-divider.js">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="assets/selectize.bootstrap3.css">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="assets/selectize.css">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="assets/selectize.min.js">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="AUT_OC.aspx">
-      <publishTime>12/13/2020 16:18:59</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="banner.jpg">
-      <publishTime>11/04/2020 10:53:24</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="bin/AMALIA.dll">
-      <publishTime>03/05/2021 18:22:36</publishTime>
+      <publishTime>05/03/2021 12:47:37</publishTime>
     </File>
     <File Include="bin/AMALIA.pdb">
-      <publishTime>03/05/2021 18:22:36</publishTime>
+      <publishTime>05/03/2021 12:47:37</publishTime>
     </File>
     <File Include="bin/ClosedXML.dll">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="bin/DocumentFormat.OpenXml.dll">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="bin/itextsharp.dll">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.pdb">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="bin/SpreadsheetLight.dll">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Camion.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Captura.PNG">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Categoria_repuesto.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Checklist.aspx">
-      <publishTime>01/03/2021 21:34:55</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Checklists.aspx">
-      <publishTime>12/17/2020 16:40:39</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Clases/FN_GD_CAMION_MANT.cs">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -88,169 +88,169 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>11/29/2019 03:52:45</publishTime>
     </File>
     <File Include="Cliente.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="CombustibleControl.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="COMPRA.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Conductor.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="DemoRendicion.aspx">
-      <publishTime>12/13/2020 16:18:59</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Depositos.aspx">
-      <publishTime>03/05/2021 17:47:36</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Estacion.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Excel_Copec.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="FacturaCompra.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="FacturaVenta.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Formulario.aspx">
       <publishTime>08/11/2018 17:28:02</publishTime>
     </File>
     <File Include="GD_CAMION.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="GD_DASHBOARD.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="GD_INDEX.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="GD_NEUMATICOS.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Hallazgo.aspx">
-      <publishTime>04/11/2020 11:13:09</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="imprimeChecklist.aspx">
-      <publishTime>12/17/2020 01:45:14</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Imprime_deposito.aspx">
-      <publishTime>11/11/2020 18:14:10</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Imprime_gt.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Imprime_hallazgo.aspx">
-      <publishTime>10/29/2020 01:18:05</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Imprime_oc.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Imprime_ocpv.aspx">
-      <publishTime>08/25/2020 19:59:35</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Index.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Ingresar_Requerimiento.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Librerias/ClosedXML.dll">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Librerias/DocumentFormat.OpenXml.dll">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Librerias/itextsharp.dll">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Librerias/Newtonsoft.Json.dll">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Librerias/Newtonsoft.Json.pdb">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Librerias/SpreadsheetLight.dll">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Login.aspx">
-      <publishTime>12/13/2020 16:18:59</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="logozamoraoc.jpg">
-      <publishTime>08/11/2020 21:48:13</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Marca_repuesto.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Modulo_GT.aspx">
-      <publishTime>03/05/2021 17:51:41</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Modulo_OTZ.aspx">
-      <publishTime>03/05/2021 00:30:24</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Obra.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="OrdenesdeTrabajo.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Ordenes_Compra.aspx">
-      <publishTime>10/30/2020 16:27:26</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Ordenes_Compra_Agro.aspx">
-      <publishTime>08/25/2020 19:59:35</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>08/11/2020 21:48:13</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Proveedores.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Proveedores_OC.aspx">
-      <publishTime>10/21/2020 17:01:23</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Rampla.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Registro.aspx">
       <publishTime>07/11/2018 01:54:12</publishTime>
     </File>
     <File Include="ReporteDepositos.aspx">
-      <publishTime>03/03/2021 23:27:15</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Reporte_GT.aspx">
-      <publishTime>02/03/2021 23:39:58</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Reporte_OTZ.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Repuestos.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Requerimientos.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="resumen_GT.aspx">
-      <publishTime>08/11/2020 21:48:13</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Stock_Repuestos.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="SUBE_ARCHIVOS.aspx">
-      <publishTime>12/13/2020 01:21:36</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Usuarios.aspx">
-      <publishTime>08/11/2020 21:48:12</publishTime>
+      <publishTime>04/29/2021 12:31:14</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/05/2021 16:59:12</publishTime>
+      <publishTime>05/03/2021 12:47:37</publishTime>
     </File>
   </ItemGroup>
 </Project>
