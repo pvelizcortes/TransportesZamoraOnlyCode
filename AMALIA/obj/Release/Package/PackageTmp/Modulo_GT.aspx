@@ -117,7 +117,7 @@
                                                             <asp:BoundField HeaderText="Ganancia" DataField="saldo_total" ItemStyle-Font-Bold="true" DataFormatString="{0:C0}" />
                                                             <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="" ItemStyle-HorizontalAlign="Center">
                                                                 <ItemTemplate>
-                                                                    <asp:LinkButton ToolTip="Borrar" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="Borrar" OnClientClick="return confirm('Desea eliminar el registro seleccionado?');">
+                                                                    <asp:LinkButton ToolTip="Borrar" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="Borrar" OnClientClick="return confirm('Desea eliminar la GT seleccionada? las OTZ asociadas se eliminarán automaticamente.');">
                                                                    <i class="icon-trash"></i>
                                                                     </asp:LinkButton>
                                                                 </ItemTemplate>
@@ -406,7 +406,7 @@
                                                                             <asp:BoundField HeaderText="Factura" DataField="d_factura" />
                                                                             <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="">
                                                                                 <ItemTemplate>
-                                                                                    <asp:LinkButton runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="Borrar" OnClientClick="return confirm('Desea eliminar el registro seleccionado?');">
+                                                                                    <asp:LinkButton runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="Borrar" OnClientClick="return confirm('Desea eliminar la OTZ seleccionada?');">
                                                                                     <i class="icon-trash"></i>
                                                                                     </asp:LinkButton>
                                                                                 </ItemTemplate>

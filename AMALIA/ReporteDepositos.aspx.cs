@@ -118,8 +118,8 @@ namespace AMALIA
                             " , gt.dinero_entregado " +
                             " , gt.total_gastos " +
                             " , gt.id_camion " +
-                            " , (select isnull(SUM(valor), 0) from deposito_detalle where num_viaje = gt.num_correlativo and tipo = 'DESCUENTO' and estado = 'DESCONTADO') as 'totaldescuentos' " +
-                            " ,(select isnull(SUM(valor), 0) from deposito_detalle where num_viaje = gt.num_correlativo and tipo = 'SALDO' and estado = 'DEPOSITADO' ) as 'totalsaldos' " +
+                            " , (select isnull(SUM(valor), 0) from deposito_detalle where num_viaje = gt.num_correlativo and tipo = 'DESCUENTO') as 'totaldescuentos' " +
+                            " ,(select isnull(SUM(valor), 0) from deposito_detalle where num_viaje = gt.num_correlativo and tipo = 'SALDO') as 'totalsaldos' " +
                             " ,(select NOMBRE_COMPLETO from conductor where id_conductor = gt.id_conductor) as 'nombre_conductor' " +
                             " FROM enc_gt gt " +
                             " ) as X where 1=1 ";
@@ -166,14 +166,14 @@ namespace AMALIA
                     {
                         html_tabla += "<td><span class='badge badge-success'>OK</span></td>";
                     }
-                    else if (totalgastosgenerales == 0)
-                    {
-                        html_tabla += "<td><span class='badge badge-warning'>PENDIENTE</span></td>";
-                    }
                     else if (totalpendiente == 0)
                     {
                         html_tabla += "<td><span class='badge badge-success'>OK</span></td>";
-                    }                    
+                    }                 
+                    else if (totalgastosgenerales == 0)
+                    {
+                        html_tabla += "<td><span class='badge badge-warning'>PENDIENTE</span></td>";
+                    }                                 
                     else 
                     {
                         html_tabla += "<td><span class='badge badge-danger'>ERROR</span></td>";

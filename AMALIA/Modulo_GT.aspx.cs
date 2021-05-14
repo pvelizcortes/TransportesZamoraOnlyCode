@@ -18,7 +18,7 @@ namespace AMALIA
         {
             if (!IsPostBack)
             {
-                
+
                 if (!HttpContext.Current.User.Identity.IsAuthenticated)
                 {
                     Response.Redirect("Login.aspx");
@@ -39,7 +39,7 @@ namespace AMALIA
                     }
                     if (usuario.usuario != "jbrantes" && usuario.usuario != "gestay" && usuario.usuario != "festay")
                     {
-                        CHK_ENTREGADO.Attributes.Add("onclick", "return false;");                       
+                        CHK_ENTREGADO.Attributes.Add("onclick", "return false;");
                     }
 
                     LlenarCombos();
@@ -55,8 +55,8 @@ namespace AMALIA
                     {
                         G_PRINCIPAL.DataSource = FN_ENC_GT.LLENADTVISTATOP();
                         G_PRINCIPAL.DataBind();
-                      
-                    }                                      
+
+                    }
                 }
             }
             else
@@ -326,7 +326,7 @@ namespace AMALIA
                         objeto_mantenedor.dinero_entregado = int.Parse(T_DINERO_ENTREGADO.Text);
                         //if (T_SOBREDEPOSITO.Text != "")
                         //{
-                            objeto_mantenedor.sobre_deposito = 0;
+                        objeto_mantenedor.sobre_deposito = 0;
                         //}
                         if (T_DINERO_DEVUELTO.Text != "")
                         {
@@ -410,22 +410,31 @@ namespace AMALIA
                 //Borrar
                 if (e.CommandName == "Borrar")
                 {
-                    int id = int.Parse((G_PRINCIPAL.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[0].ToString()));
-                    OBJ_ENC_GT tabla = new OBJ_ENC_GT();
-                    tabla.ID_GT = id;
-                    FN_ENC_GT.DELETE(ref tabla);
-                    if (tabla._respok)
+                    string user = HttpContext.Current.User.Identity.Name;
+                    if (user == "festay" || user == "felipe")
                     {
-                        OBJ_ENC_OTZ otz = new OBJ_ENC_OTZ();
-                        OBJ_GASTO_GENERAL gasto = new OBJ_GASTO_GENERAL();
-                        OBJ_CARGA_COMBUSTIBLE combus = new OBJ_CARGA_COMBUSTIBLE();
-                        gasto.id_gt = id;
-                        combus.id_gt = id;
-                        otz.id_gt = id;
-                        FN_ENC_OTZ.DELETE(ref otz);
-                        FN_CARGA_COMBUSTIBLE.DELETE(ref combus);
-                        FN_GASTO_GENERAL.DELETE(ref gasto);
-                        LlenarGrilla();
+                        int id = int.Parse((G_PRINCIPAL.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[0].ToString()));
+                        OBJ_ENC_GT tabla = new OBJ_ENC_GT();
+                        tabla.ID_GT = id;
+                        FN_ENC_GT.DELETE(ref tabla);
+                        if (tabla._respok)
+                        {
+                            OBJ_ENC_OTZ otz = new OBJ_ENC_OTZ();
+                            OBJ_GASTO_GENERAL gasto = new OBJ_GASTO_GENERAL();
+                            OBJ_CARGA_COMBUSTIBLE combus = new OBJ_CARGA_COMBUSTIBLE();
+                            gasto.id_gt = id;
+                            combus.id_gt = id;
+                            otz.id_gt = id;
+                            FN_ENC_OTZ.DELETEWITHGT(ref otz);
+                            FN_CARGA_COMBUSTIBLE.DELETEWITHGT(ref combus);
+                            FN_GASTO_GENERAL.DELETEWITHGT(ref gasto);
+                            LlenarGrilla();
+                            alert("GT Eliminada con éxito", 1);
+                        }
+                    }
+                    else
+                    {
+                        alert("Ud no tiene los permisos para eliminar GT", 0);
                     }
                 }
                 if (e.CommandName == "EstadoDineroEntregado")
@@ -464,7 +473,7 @@ namespace AMALIA
                     {
                         alert("Ud no tiene permisos para cambiar este estado", 0);
                     }
-                    
+
                 }
             }
             catch (Exception ex)
@@ -681,15 +690,25 @@ namespace AMALIA
                 //Borrar
                 if (e.CommandName == "Borrar")
                 {
-                    int id = int.Parse((G_OTZ.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[0].ToString()));
-                    OBJ_ENC_OTZ tabla = new OBJ_ENC_OTZ();
-                    tabla.ID_OTZ = id;
-                    FN_ENC_OTZ.DELETE(ref tabla);
-                    if (tabla._respok)
+                    string user = HttpContext.Current.User.Identity.Name;
+                    if (user == "festay" || user == "felipe")
                     {
-                        totalesotz();
-                        LlenarGrillaOTZ();
+                        int id = int.Parse((G_OTZ.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[0].ToString()));
+                        OBJ_ENC_OTZ tabla = new OBJ_ENC_OTZ();
+                        tabla.ID_OTZ = id;
+                        FN_ENC_OTZ.DELETE(ref tabla);
+                        if (tabla._respok)
+                        {
+                            totalesotz();
+                            LlenarGrillaOTZ();
+                            alert("OTZ Eliminada con éxito", 1);
+                        }
                     }
+                    else
+                    {
+                        alert("Ud no tiene los permisos para eliminar OTZ's", 0);
+                    }
+                 
                 }
             }
             catch (Exception ex)
@@ -731,7 +750,7 @@ namespace AMALIA
                 T_OTZ_FLETE_DE_TERCERO.Text = objeto_mantenedor.flete_de_tercero.ToString();
                 T_OTZ_OTROS.Text = objeto_mantenedor.otros.ToString();
                 T_OTZ_OTROS_DETALLE.Text = objeto_mantenedor.detalle_otros.ToString();
-              
+
                 T_OTZ_SOL_OC.Text = objeto_mantenedor.d_sol_oc;
                 T_OTZ_OT.Text = objeto_mantenedor.d_ot;
                 T_OTZ_EEPP.Text = objeto_mantenedor.d_eepp;
@@ -747,7 +766,7 @@ namespace AMALIA
 
                 UP_OTZ.Update();
             }
-            
+
         }
 
         protected void B_GUARDAR_OTZ_Click(object sender, EventArgs e)

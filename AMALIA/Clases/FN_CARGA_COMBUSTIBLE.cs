@@ -245,5 +245,32 @@ namespace AMALIAFW
             return dt;
         }
 
+        public static void DELETEWITHGT(ref OBJ_CARGA_COMBUSTIBLE objeto)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connex))
+                {
+                    conn.Open();
+                    string sql = @"DELETE FROM " + nombre_tabla + " WHERE ID_GT = @ID_GT";
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        // CAMBIAR AQUI //
+                        // **************************************** **************************************** **************************************** //   
+                        cmd.Parameters.AddWithValue("@ID_GT", objeto.id_gt);
+                        // **************************************** **************************************** **************************************** //  
+                        cmd.ExecuteNonQuery();
+                        objeto._respok = true;
+                        objeto._respdet = " Eliminación exitosa ";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                objeto._respok = false;
+                objeto._respdet = ex.Message;
+            }
+        }
+
     }
 }
