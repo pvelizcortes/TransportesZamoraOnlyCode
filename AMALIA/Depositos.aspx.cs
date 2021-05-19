@@ -130,7 +130,7 @@ namespace AMALIA
             cbConductor.DataBind();
             cbConductor.Items.Insert(0, new ListItem("-- SELECCIONE --", "-1"));
 
-            
+
         }
 
         protected void B_NUEVO_Click(object sender, EventArgs e)
@@ -166,8 +166,8 @@ namespace AMALIA
                     if (us.id_perfil == 2 || us.usuario == "festay" || us.usuario == "mzapata" || us.id_perfil == 4 || us.usuario == "gestay")
                     {
                         int id = int.Parse((G_PRINCIPAL.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[0].ToString()));
-                        int idDetalle = int.Parse((G_PRINCIPAL.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[1].ToString()));
-                        COMPLETAR_DETALLE(id, idDetalle);
+                        int idDetalle = int.Parse((G_PRINCIPAL.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[1].ToString()));                        
+                        COMPLETAR_DETALLE(id, idDetalle);                       
                     }
                     else
                     {
@@ -324,7 +324,7 @@ namespace AMALIA
             try
             {
                 gDetalle.DataSource = FN_DEPOSITO_DETALLE.LLENADTVISTA(" where id_deposito = " + id_deposito);
-                gDetalle.DataBind();
+                gDetalle.DataBind();          
             }
             catch (Exception ex)
             {
@@ -353,10 +353,10 @@ namespace AMALIA
             else if (cbConductor.SelectedValue == "-1")
             {
                 alert("Seleccione un conductor.", 0);
-            }            
+            }           
             else
             {
-                
+
                 FN_USUARIOS.BUSCARCONUSUARIO(ref usuario);
 
                 OBJ_DEPOSITO_DETALLE fac = new OBJ_DEPOSITO_DETALLE();
@@ -466,8 +466,11 @@ namespace AMALIA
                     //editar
                     if (e.CommandName == "Editar")
                     {
+                        int correlativoGt = int.Parse((gDetalle.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[4].ToString()));
                         int id = int.Parse((gDetalle.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[0].ToString()));
                         COMPLETAR_DETALLE2(id);
+                        tComentarioAdmin.Focus();
+                        alert("Editando Viaje: " + correlativoGt, 1);
                     }
                     //borrar
                     if (e.CommandName == "Borrar")
@@ -505,7 +508,7 @@ namespace AMALIA
             int idDeposito = int.Parse(T_ID.Text);
             DataTable DtGt = db.consultar("select distinct num_viaje from deposito_detalle where id_deposito = " + idDeposito);
             db.Scalar("update deposito_detalle set estado = 'DEPOSITADO', usuario_admin = '" + HttpContext.Current.User.Identity.Name + "', monto_depositado = valor, fecha_admin = getdate() where id_deposito = " + idDeposito);
-            foreach(DataRow dr in DtGt.Rows)
+            foreach (DataRow dr in DtGt.Rows)
             {
                 int numCorrelativo = Convert.ToInt32(dr[0].ToString());
                 CalcularDineroEntregado(numCorrelativo);
@@ -649,11 +652,11 @@ namespace AMALIA
             DataTable dt = new DataTable();
             DataTable dtCorrelativos = db.consultar("select distinct num_viaje from deposito_detalle where id_deposito = " + idDeposito);
             db.Scalar("delete from deposito_detalle where id_deposito = " + idDeposito);
-            db.Scalar("delete from deposito_enc where id_deposito = " + idDeposito);           
-            foreach(DataRow dr in dtCorrelativos.Rows)
+            db.Scalar("delete from deposito_enc where id_deposito = " + idDeposito);
+            foreach (DataRow dr in dtCorrelativos.Rows)
             {
                 int numCorrelativo = Convert.ToInt32(dr[0].ToString());
-                CalcularDineroEntregado(numCorrelativo);                    
+                CalcularDineroEntregado(numCorrelativo);
             }
 
             LlenarGrilla(false);
@@ -676,10 +679,10 @@ namespace AMALIA
                 int saldo_dinero = int.Parse(db.Scalar("select (dinero_entregado - total_gastos - dinero_devuelto) from enc_gt where num_correlativo = " + correlativoGt).ToString());
                 db.Scalar("update enc_gt set saldo_dinero_entregado = " + saldo_dinero + " where num_correlativo = " + correlativoGt);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
-            }         
+            }
         }
 
         private void CambiaConductorEnGt(int id_conductor, int correlativo_gt)
@@ -701,11 +704,11 @@ namespace AMALIA
             DataTable dt = new DataTable();
             dt = db.consultar(sql);
 
-            foreach(DataRow dr in dt.Rows)
+            foreach (DataRow dr in dt.Rows)
             {
                 int numCorrelativo = Convert.ToInt32(dr[0].ToString());
                 CalcularDineroEntregado(numCorrelativo);
             }
         }
-    }   
+    }
 }

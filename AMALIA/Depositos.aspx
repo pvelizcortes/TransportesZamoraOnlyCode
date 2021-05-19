@@ -7,6 +7,14 @@
             text-align: left !important;
             font-size: 11px !important;
         }
+        .combo-bold{
+            font-weight:bold !important;
+            color:black;
+        }
+        .combo-disabled{            
+            color:gray;
+            font-style:italic;
+        }
     </style>
     <section class="content">
         <div class="container">
@@ -39,7 +47,7 @@
                                                                                 <b><small>+ INGRESAR NUEVO DEPOSITO</small></b>
                                                         </asp:LinkButton>
 
-                                                       <%-- <asp:LinkButton CssClass="btn btn-sm btn-primary" ClientIDMode="AutoID" runat="server" ID="LinkButton1" OnClick="LinkButton1_Click">
+                                                        <%-- <asp:LinkButton CssClass="btn btn-sm btn-primary" ClientIDMode="AutoID" runat="server" ID="LinkButton1" OnClick="LinkButton1_Click">
                                                                                 <b><small>RECALCULAR</small></b>
                                                         </asp:LinkButton>--%>
                                                     </div>
@@ -48,21 +56,25 @@
                                                 <div class="row clearfix">
                                                     <div class="col-sm-2">
                                                         FECHA DESDE:
+                                                       
                                                         <br />
                                                         <asp:TextBox runat="server" ID="FILTRA_FECHA_DESDE" CssClass="form-control" TextMode="Date"></asp:TextBox>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         FECHA HASTA:
+                                                       
                                                         <br />
                                                         <asp:TextBox runat="server" ID="FILTRA_FECHA_HASTA" CssClass="form-control" TextMode="Date"></asp:TextBox>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         SOLICITANTE:
+                                                       
                                                         <br />
                                                         <asp:DropDownList runat="server" ID="CB_USUARIOS" CssClass="form-control"></asp:DropDownList>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         CONDUCTOR:
+                                                       
                                                         <br />
                                                         <asp:DropDownList runat="server" ID="CB_CONDUCTOR" CssClass="form-control"></asp:DropDownList>
                                                     </div>
@@ -70,6 +82,7 @@
                                                 <div class="row clearfix">
                                                     <div class="col-sm-2">
                                                         TIPO:
+                                                       
                                                         <br />
                                                         <asp:DropDownList runat="server" ID="CB_TIPO" CssClass="form-control">
                                                             <asp:ListItem Selected="True" Text="-- Seleccione --" Value="-1"></asp:ListItem>
@@ -82,10 +95,13 @@
                                                             <asp:ListItem Text="DESCUENTO" Value="DESCUENTO"></asp:ListItem>
                                                             <asp:ListItem Text="VARIOS" Value="VARIOS"></asp:ListItem>
                                                             <asp:ListItem Text="OTRO" Value="OTRO"></asp:ListItem>
+                                                            <asp:ListItem Text="FONDO POR RENDIR" Value="FONDO POR RENDIR"></asp:ListItem>
+                                                            <asp:ListItem Text="VIATICO" Value="BONO"></asp:ListItem>
                                                         </asp:DropDownList>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         ESTADO:
+                                                       
                                                         <br />
                                                         <asp:DropDownList runat="server" ID="CB_ESTADO" CssClass="form-control">
                                                             <asp:ListItem Selected="True" Text="-- Seleccione --" Value="-1"></asp:ListItem>
@@ -102,7 +118,7 @@
                                                 <hr />
                                                 <div class="row">
                                                     <div class="col-sm-12 table-responsive">
-                                                        <asp:GridView DataKeyNames="idDeposito, id_detalle_deposito, estado, diferencia" ClientIDMode="AutoID" runat="server" ID="G_PRINCIPAL"
+                                                        <asp:GridView DataKeyNames="idDeposito, id_detalle_deposito, estado, diferencia, num_viaje" ClientIDMode="AutoID" runat="server" ID="G_PRINCIPAL"
                                                             CssClass="table table-bordered tablaprincipal table-hover js-exportable" Font-Size="12px" OnRowCommand="G_PRINCIPAL_RowCommand"
                                                             AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" OnRowDataBound="G_PRINCIPAL_RowDataBound">
                                                             <HeaderStyle CssClass="thead-dark" />
@@ -144,6 +160,7 @@
                                                             </Columns>
                                                             <EmptyDataTemplate>
                                                                 No se encontraron resultados.
+                                                           
                                                             </EmptyDataTemplate>
                                                         </asp:GridView>
                                                     </div>
@@ -216,6 +233,7 @@
                                                                     </Columns>
                                                                     <EmptyDataTemplate>
                                                                         No se encontraron resultados.
+                                                                   
                                                                     </EmptyDataTemplate>
                                                                 </asp:GridView>
                                                                 <asp:LinkButton runat="server" ID="bNuevoDetalle" OnClick="bNuevoDetalle_Click" CssClass="btn btn-sm btn-primary">Agregar Nuevo Deposito <i class="fa fa-plus"></i></asp:LinkButton>
@@ -250,15 +268,18 @@
                                                                 <div class="form-group">
                                                                     <small><b>Tipo</b></small>
                                                                     <asp:DropDownList runat="server" ID="cbTipo" CssClass="form-control">
-                                                                        <asp:ListItem Text="DEPOSITO" Value="DEPOSITO" Selected="True"></asp:ListItem>
-                                                                        <asp:ListItem Text="BONO" Value="BONO"></asp:ListItem>
-                                                                        <asp:ListItem Text="DOBLE CONDUCTOR" Value="DOBLE CONDUCTOR"></asp:ListItem>
-                                                                        <asp:ListItem Text="PRESTAMO" Value="PRESTAMO"></asp:ListItem>
-                                                                        <asp:ListItem Text="SALDO" Value="SALDO"></asp:ListItem>
-                                                                        <asp:ListItem Text="SOBRE" Value="SOBRE"></asp:ListItem>
-                                                                        <asp:ListItem Text="DESCUENTO" Value="DESCUENTO"></asp:ListItem>
-                                                                        <asp:ListItem Text="VARIOS" Value="VARIOS"></asp:ListItem>
-                                                                        <asp:ListItem Text="OTRO" Value="OTRO"></asp:ListItem>
+                                                                        <asp:ListItem Text="FONDO POR RENDIR" Value="FONDO POR RENDIR" Selected="True" class="combo-bold"></asp:ListItem>
+                                                                        <asp:ListItem Text="VIATICO" Value="BONO" class="combo-bold"></asp:ListItem>
+                                                                        <asp:ListItem Text="-- NO DISPONIBLES --" Value="-1" class="combo-disabled" disabled="disabled"></asp:ListItem>
+                                                                        <asp:ListItem Text="DEPOSITO" Value="DEPOSITO" class="combo-disabled" disabled="disabled"></asp:ListItem>
+                                                                        <asp:ListItem Text="BONO" Value="BONO" class="combo-disabled" disabled="disabled"></asp:ListItem>
+                                                                        <asp:ListItem Text="DOBLE CONDUCTOR" Value="DOBLE CONDUCTOR" class="combo-disabled" disabled="disabled"></asp:ListItem>
+                                                                        <asp:ListItem Text="PRESTAMO" Value="PRESTAMO" class="combo-disabled" disabled="disabled"></asp:ListItem>
+                                                                        <asp:ListItem Text="SALDO" Value="SALDO" class="combo-disabled" disabled="disabled"></asp:ListItem>
+                                                                        <asp:ListItem Text="SOBRE" Value="SOBRE" class="combo-disabled" disabled="disabled"></asp:ListItem>
+                                                                        <asp:ListItem Text="DESCUENTO" Value="DESCUENTO" class="combo-disabled" disabled="disabled"></asp:ListItem>
+                                                                        <asp:ListItem Text="VARIOS" Value="VARIOS" class="combo-disabled" disabled="disabled"></asp:ListItem>
+                                                                        <asp:ListItem Text="OTRO" Value="OTRO" class="combo-disabled" disabled="disabled"></asp:ListItem>
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
@@ -270,7 +291,7 @@
                                                                     <asp:TextBox runat="server" CssClass="form-control" TextMode="Number" ID="tValor"></asp:TextBox>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-sm-6">
+                                                            <div class="col-sm-3">
                                                                 <div class="form-group">
                                                                     <small><b>Comentario</b></small>
                                                                     <asp:TextBox runat="server" CssClass="form-control" ID="tComentario"></asp:TextBox>
@@ -310,7 +331,7 @@
                                                             <div class="col-sm-3">
                                                                 <br />
                                                                 <asp:LinkButton runat="server" ID="bAgregarDetalle" Visible="false" OnClick="bAgregarDetalle_Click" CssClass="btn btn-block  btn-primary">GUARDAR <i class="fa fa-save"></i></asp:LinkButton>
-                                                                <small><i class="fa fa-info"></i> (Recordar que la GT debe existir en el sistema antes de agregar depositos).</small>
+                                                                <small><i class="fa fa-info"></i>(Recordar que la GT debe existir en el sistema antes de agregar depositos).</small>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -340,25 +361,27 @@
         });
 
         function Datatables() {
-            var table = $('#<%= G_PRINCIPAL.ClientID %>')[0].rows.length;
-            if (table > 1) {
-                $('#<%= G_PRINCIPAL.ClientID %>').DataTable({
-                    destroy: true,
-                    "pageLength": 50,
-                    stateSave: true,
-                    dom: 'lBfrtip',
-                    buttons: [
-                        'copy',
-                        'print'
-                    ],
-                    "language": {
-                        "url": "assets/Spanish.json"
-                    },
-                    columnDefs: [{
-                        type: 'date-uk',
-                        targets: [3]
-                    }]
-                });
+            var table = $('#<%= G_PRINCIPAL.ClientID %>');
+            if (table[0] != null && table[0] != undefined) {
+                if (table[0].rows.length > 1) {
+                    $('#<%= G_PRINCIPAL.ClientID %>').DataTable({
+                        destroy: true,
+                        "pageLength": 50,
+                        stateSave: true,
+                        dom: 'lBfrtip',
+                        buttons: [
+                            'copy',
+                            'print'
+                        ],
+                        "language": {
+                            "url": "assets/Spanish.json"
+                        },
+                        columnDefs: [{
+                            type: 'date-uk',
+                            targets: [3]
+                        }]
+                    });
+                }
             }
         }
 
