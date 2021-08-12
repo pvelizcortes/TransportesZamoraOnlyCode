@@ -20,7 +20,7 @@ using System.Net.Mail;
 namespace CRM
 {
 
-    public partial class Imprime_gt : System.Web.UI.Page
+    public partial class Imprime_gt_new : System.Web.UI.Page
     {
 
         protected void Page_Load(object sender, EventArgs e)
@@ -63,6 +63,30 @@ namespace CRM
                         FN_ENC_GT.LLENAOBJETO(ref lagt);
                         if (lagt._respok)
                         {
+                            // VALORES DEPOSITOS DETALLE
+                            DataTable dtValores = db.consultar("select " +
+                                " (select isnull(SUM(valor), 0) as 'valor' from deposito_Detalle where estado = 'DEPOSITADO' " +
+                                " and num_viaje = " + lagt.num_correlativo + " and tipo = 'FONDO POR RENDIR') as 'fondoporrendir' " +
+                                " , (select isnull(SUM(valor), 0) as 'valor' from deposito_Detalle where estado = 'DEPOSITADO' " +
+                                " and num_viaje = " + lagt.num_correlativo + " and tipo = 'VIATICO') as 'viatico' " +
+                                " , (select isnull(SUM(valor), 0) as 'valor' from deposito_Detalle where estado = 'DEPOSITADO' " +
+                                " and num_viaje = " + lagt.num_correlativo + " and tipo = 'SALDO FONDO POR RENDIR') as 'saldofondoporrendir' " +
+                                " , (select isnull(SUM(valor), 0) as 'valor' from deposito_Detalle where estado = 'DEPOSITADO' " +
+                                " and num_viaje = " + lagt.num_correlativo + " and tipo = 'SALDO VIATICO') as 'saldoviatico' ");
+
+                            int FondoPorRendir = int.Parse(dtValores.Rows[0]["fondoporrendir"].ToString());
+                            int Viatico = int.Parse(dtValores.Rows[0]["viatico"].ToString());                           
+
+                            // VALORES SALDOS GT
+                            DataTable dtGastos = db.consultar(" select (SELECT ISNULL(SUM(VALOR),0) FROM GASTO_GENERAL WHERE TIPO_GASTO = 2 AND ID_GT = " + lagt.ID_GT + ") as 'gastoviatico' " +
+                            " , (SELECT ISNULL(SUM(VALOR), 0) FROM GASTO_GENERAL WHERE TIPO_GASTO <> 2 AND ID_GT = " + lagt.ID_GT + ") as 'gastosinviatico'; ");
+
+                            int gastoFXR = int.Parse(dtGastos.Rows[0]["gastosinviatico"].ToString());
+                            int gastosViaticos = int.Parse(dtGastos.Rows[0]["gastoviatico"].ToString());
+
+                            int SaldoFondoPorRendir = FondoPorRendir - gastoFXR;
+                            int SaldoViatico = Viatico - gastosViaticos;
+
                             // DT
                             DataTable dt = FN_ENC_GT.LLENADTVISTA(" where id_gt = " + id_gt);
                             // INFO
@@ -184,33 +208,55 @@ namespace CRM
                             enc_td00.HorizontalAlignment = Element.ALIGN_LEFT;
                             enc_td00.BorderWidth = 0;
                             encabezado.AddCell(enc_td00);
-
-                            PdfPCell enc_td7 = new PdfPCell(new Phrase("Dinero Entregado:", _standardFont_bold));
+                            //
+                            PdfPCell enc_td7 = new PdfPCell(new Phrase("Fondo por Rendir:", _standardFont_bold));
                             enc_td7.HorizontalAlignment = Element.ALIGN_LEFT;
                             enc_td7.BorderWidth = 0;
                             encabezado.AddCell(enc_td7);
-                            PdfPCell enc_td77 = new PdfPCell(new Phrase("$ " + int.Parse(dt.Rows[0]["dinero_entregado"].ToString()).ToString("#,##0"), _standardFont));
+                            PdfPCell enc_td77 = new PdfPCell(new Phrase("$ " + FondoPorRendir.ToString("#,##0"), _standardFont));
                             enc_td77.HorizontalAlignment = Element.ALIGN_LEFT;
                             enc_td77.BorderWidth = 0;
                             encabezado.AddCell(enc_td77);
 
-                            PdfPCell enc_td8 = new PdfPCell(new Phrase("Saldo:", _standardFont_bold));
+                            PdfPCell enc_tdB = new PdfPCell(new Phrase("Viáticos:", _standardFont_bold));
+                            enc_tdB.HorizontalAlignment = Element.ALIGN_LEFT;
+                            enc_tdB.BorderWidth = 0;
+                            encabezado.AddCell(enc_tdB);
+                            PdfPCell enc_tdBV = new PdfPCell(new Phrase("$ " + Viatico.ToString("#,##0"), _standardFont));
+                            enc_tdBV.HorizontalAlignment = Element.ALIGN_LEFT;
+                            enc_tdBV.BorderWidth = 0;
+                            encabezado.AddCell(enc_tdBV);
+                            //                          
+
+                            PdfPCell enc_td8 = new PdfPCell(new Phrase("Saldo Fondo x Rendir:", _standardFont_bold));
                             enc_td8.HorizontalAlignment = Element.ALIGN_LEFT;
                             enc_td8.BorderWidth = 0;
                             encabezado.AddCell(enc_td8);
-                            PdfPCell enc_td88 = new PdfPCell(new Phrase("$ " + int.Parse(dt.Rows[0]["saldo_dinero_entregado_new"].ToString()).ToString("#,##0"), _standardFont));
+                            PdfPCell enc_td88 = new PdfPCell(new Phrase("$ " + SaldoFondoPorRendir.ToString("#,##0"), _standardFont));
                             enc_td88.HorizontalAlignment = Element.ALIGN_LEFT;
                             enc_td88.BorderWidth = 0;
                             encabezado.AddCell(enc_td88);
+                          
 
-                            PdfPCell enc_tdF = new PdfPCell(new Phrase("Observación:", _standardFont_bold));
-                            enc_tdF.HorizontalAlignment = Element.ALIGN_LEFT;
-                            enc_tdF.BorderWidth = 0;
-                            encabezado.AddCell(enc_tdF);
-                            PdfPCell enc_tdFF = new PdfPCell(new Phrase(dt.Rows[0]["observacion"].ToString(), _standardFont));
-                            enc_tdFF.HorizontalAlignment = Element.ALIGN_LEFT;
-                            enc_tdFF.BorderWidth = 0;
-                            encabezado.AddCell(enc_tdFF);
+
+                            PdfPCell enc_td_saldoviatico = new PdfPCell(new Phrase("Saldo Viatico:", _standardFont_bold));
+                            enc_td_saldoviatico.HorizontalAlignment = Element.ALIGN_LEFT;
+                            enc_td_saldoviatico.BorderWidth = 0;
+                            encabezado.AddCell(enc_td_saldoviatico);
+                            PdfPCell enc_td_saldoviatico2 = new PdfPCell(new Phrase("$ " + SaldoViatico.ToString("#,##0"), _standardFont));
+                            enc_td_saldoviatico2.HorizontalAlignment = Element.ALIGN_LEFT;
+                            enc_td_saldoviatico2.BorderWidth = 0;
+                            encabezado.AddCell(enc_td_saldoviatico2);
+
+
+                            PdfPCell enc_tdA2 = new PdfPCell(new Phrase("Dinero Devuelto:", _standardFont_bold));
+                            enc_tdA2.HorizontalAlignment = Element.ALIGN_LEFT;
+                            enc_tdA2.BorderWidth = 0;
+                            encabezado.AddCell(enc_tdA2);
+                            PdfPCell enc_tdAA2 = new PdfPCell(new Phrase("$ " + int.Parse(dt.Rows[0]["dinero_devuelto"].ToString()).ToString("#,##0"), _standardFont));
+                            enc_tdAA2.HorizontalAlignment = Element.ALIGN_LEFT;
+                            enc_tdAA2.BorderWidth = 0;
+                            encabezado.AddCell(enc_tdAA2);
 
                             PdfPCell enc_td111 = new PdfPCell(new Phrase("Estado:", _standardFont_bold));
                             enc_td111.HorizontalAlignment = Element.ALIGN_LEFT;
@@ -221,6 +267,17 @@ namespace CRM
                             enc_td1111.BorderWidth = 0;
                             encabezado.AddCell(enc_td1111);
 
+
+                            PdfPCell enc_tdF = new PdfPCell(new Phrase("Observación:", _standardFont_bold));
+                            enc_tdF.HorizontalAlignment = Element.ALIGN_LEFT;
+                            enc_tdF.BorderWidth = 0;
+                            encabezado.AddCell(enc_tdF);
+                            PdfPCell enc_tdFF = new PdfPCell(new Phrase(dt.Rows[0]["observacion"].ToString(), _standardFont));
+                            enc_tdFF.HorizontalAlignment = Element.ALIGN_LEFT;
+                            enc_tdFF.BorderWidth = 0;
+                            encabezado.AddCell(enc_tdFF);
+
+                           
                             doc.Add(encabezado);
                             doc.Add(espacio);
                             // OTZ       
@@ -391,7 +448,7 @@ namespace CRM
                                     }
 
                                     double rendimiento = kms_rec / double.Parse(dr_combustible["LITROS_CARGADOS"].ToString());
-                                    
+
                                     PdfPCell td_otz6 = new PdfPCell(new Phrase(dr_combustible["LITROS_CARGADOS"].ToString(), _standardFont));
                                     td_otz6.HorizontalAlignment = Element.ALIGN_CENTER;
                                     tablaCombustible.AddCell(td_otz6);

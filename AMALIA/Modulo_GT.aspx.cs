@@ -510,14 +510,27 @@ namespace AMALIA
                 T_KM_INICIAL.Text = objeto_mantenedor.km_inicial.ToString();
                 T_KM_FINAL.Text = objeto_mantenedor.km_final.ToString();
                 T_OBSERVACION.Text = objeto_mantenedor.observacion;
-                if (objeto_mantenedor.saldo_dinero_entregado >= 0)
+                // NUEVO CALCULO SALDO
+                int saldo_dinero_entregado_new = 0;
+                if (objeto_mantenedor.ID_GT > 13155)
                 {
-                    T_SALDO_DEPOSITO.Text = objeto_mantenedor.saldo_dinero_entregado.ToString("#,##0");
+                    saldo_dinero_entregado_new = Convert.ToInt32(db.Scalar(" select ISNULL(sum(valor),0) as 'valor'  from deposito_detalle where num_viaje = " + objeto_mantenedor.num_correlativo +
+                                                          " and tipo in ('SALDO FONDO POR RENDIR',  'SALDO VIATICO') " +
+                                                          " and estado = 'DEPOSITADO' ").ToString());
+                }
+                else
+                {
+                    saldo_dinero_entregado_new = int.Parse(db.Scalar("select (dinero_entregado - total_gastos - dinero_devuelto) from enc_gt where num_correlativo = " + objeto_mantenedor.num_correlativo).ToString());
+                }
+
+                if (saldo_dinero_entregado_new >= 0)
+                {
+                    T_SALDO_DEPOSITO.Text = saldo_dinero_entregado_new.ToString("#,##0");
                     T_SALDO_DEPOSITO.ForeColor = System.Drawing.Color.Green;
                 }
                 else
                 {
-                    T_SALDO_DEPOSITO.Text = objeto_mantenedor.saldo_dinero_entregado.ToString("#,##0");
+                    T_SALDO_DEPOSITO.Text = saldo_dinero_entregado_new.ToString("#,##0");
                     T_SALDO_DEPOSITO.ForeColor = System.Drawing.Color.Red;
                 }
                 if (objeto_mantenedor.entregado == "Entregado")
@@ -565,7 +578,18 @@ namespace AMALIA
                 {
                     if (T_DINERO_ENTREGADO.Text != "")
                     {
-                        saldo_dinero = int.Parse(db.Scalar("select (dinero_entregado - total_gastos - dinero_devuelto) from enc_gt where id_gt = " + T_ID.Text).ToString());
+                        int id_gt = Convert.ToInt32(T_ID.Text);                   
+                        if (id_gt > 13155)
+                        {
+                            saldo_dinero = Convert.ToInt32(db.Scalar(" select ISNULL(sum(valor),0) as 'valor'  from deposito_detalle where num_viaje = " + NUM_GT.Text +
+                                                                  " and tipo in ('SALDO FONDO POR RENDIR',  'SALDO VIATICO') " +
+                                                                  " and estado = 'DEPOSITADO' ").ToString());
+                        }
+                        else
+                        {
+                            saldo_dinero = int.Parse(db.Scalar("select (dinero_entregado - total_gastos - dinero_devuelto) from enc_gt where num_correlativo = " + NUM_GT.Text).ToString());
+                        }
+                        
                         if (saldo_dinero >= 0)
                         {
                             T_SALDO_DEPOSITO.Text = saldo_dinero.ToString("#,##0");
@@ -708,7 +732,7 @@ namespace AMALIA
                     {
                         alert("Ud no tiene los permisos para eliminar OTZ's", 0);
                     }
-                 
+
                 }
             }
             catch (Exception ex)
@@ -1361,7 +1385,19 @@ namespace AMALIA
                 db.Scalar("update enc_gt set total_gastos = (select ISNULL(SUM(valor),0) as 'suma' from gasto_general where id_gt = " + T_ID.Text + ") where id_gt = " + T_ID.Text);
                 int saldo_final = int.Parse(db.Scalar("select (total_flete - total_gastos - total_precio_combustible) from enc_gt where id_gt = " + T_ID.Text).ToString());
                 db.Scalar("update enc_gt set saldo_total = " + saldo_final + " where id_gt = " + T_ID.Text);
-                int saldo_dinero = int.Parse(db.Scalar("select (dinero_entregado - total_gastos) from enc_gt where id_gt = " + T_ID.Text).ToString());
+                int id_gt = Convert.ToInt32(T_ID.Text);
+                int saldo_dinero = 0;
+                if (id_gt > 13155)
+                {
+                    saldo_dinero = Convert.ToInt32(db.Scalar(" select ISNULL(sum(valor),0) as 'valor'  from deposito_detalle where num_viaje = " + NUM_GT.Text +
+                                                          " and tipo in ('SALDO FONDO POR RENDIR',  'SALDO VIATICO') " +
+                                                          " and estado = 'DEPOSITADO' ").ToString());
+                }
+                else
+                {
+                    saldo_dinero = int.Parse(db.Scalar("select (dinero_entregado - total_gastos - dinero_devuelto) from enc_gt where num_correlativo = " + NUM_GT.Text).ToString());
+                }
+                //= int.Parse(db.Scalar("select (dinero_entregado - total_gastos) from enc_gt where id_gt = " + T_ID.Text).ToString());
                 db.Scalar("update enc_gt set saldo_dinero_entregado = " + saldo_dinero + " where id_gt = " + T_ID.Text);
 
                 if (saldo_dinero >= 0)

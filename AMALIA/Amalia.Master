@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta name="description" content="Transportes Zamora">
-    <title>TRANSPORTES ZAMORA</title>
+    <title> TRANSPORTES ZAMORA</title>
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
@@ -85,7 +85,7 @@
                         <div class="navbar-logo">
                             <a href="javascript:void(0);" class="bars"></a>
                             <a class="navbar-brand" href="index.aspx">
-                                <img src="assets/images/logo.svg" width="30" alt="Transportes Zamora"><span class="m-l-10">TRANSPORTES ZAMORA | VIAJES</span></a>
+                                <img src="assets/images/logo.svg" width="30" alt="Transportes Zamora"><span class="m-l-10"> TRANSPORTES ZAMORA | VIAJES</span></a>
                         </div>
                         <ul class="nav navbar-nav">
                             <li id="keepalivelabel" style="color: white; font-size: small;"></li>
@@ -141,6 +141,7 @@
                                     <li title="INFORMES" text-menu-small><a href="javascript:void(0);" class="menu-toggle"><i class="fa fa-file"></i><span class="text-menu-small"></span></a>
                                         <ul class="ml-menu">
                                             <li class="text-purple"><span class="text-purple"><strong>INFORMES</strong></span></li>
+                                            <li><a href="NuevoReporteDepositos.aspx"><i class="fa fa-file"></i><span>FXR - VIATICOS (NUEVO)</span></a></li>
                                             <li><a href="ReporteDepositos.aspx"><i class="fa fa-file"></i><span>Gt - Depositos</span></a></li>
                                             <li><a href="Reporte_GT.aspx"><i class="fa fa-file"></i><span>Reportes </span></a></li>
                                             <li><a href="Reporte_OTZ.aspx"><i class="fa fa-file"></i><span>Excel OTZ's </span></a></li>
@@ -350,8 +351,7 @@
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
 
                 }
-            }).done(function (resp) {
-                console.log(resp);
+            }).done(function (resp) {                
                 document.getElementById("keepalivelabel").innerHTML = 'Mantener Sessión: ' + resp.d + ' | ';
             });
         }

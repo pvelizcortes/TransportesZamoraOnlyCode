@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" EnableEventValidation="false" MasterPageFile="~/Amalia.Master" AutoEventWireup="true" CodeBehind="ReporteDepositos.aspx.cs" Inherits="AMALIA.ReporteDepositos" %>
+﻿<%@ Page Title="" Language="C#" EnableEventValidation="false" MasterPageFile="~/Amalia.Master" AutoEventWireup="true" CodeBehind="NuevoReporteDepositos.aspx.cs" Inherits="AMALIA.NuevoReporteDepositos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BODY" runat="server">
     <section class="content">
@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="col-sm-2">
                                     <br />
-                                    <asp:LinkButton runat="server" ID="B_FILTRAR" ClientIDMode="AutoID" OnClick="B_FILTRAR_Click" OnClientClick="relojito(true);" CssClass="btn btn-primary btn-sm btn-round"><i class="fa fa-search"></i> GENERAR</asp:LinkButton>
+                                    <asp:LinkButton runat="server" ID="B_FILTRAR" ClientIDMode="AutoID" OnClick="B_FILTRAR_Click" CssClass="btn btn-primary btn-sm btn-round"><i class="fa fa-search"></i> GENERAR</asp:LinkButton>
                                 </div>
                             </div>                         
                         </div>

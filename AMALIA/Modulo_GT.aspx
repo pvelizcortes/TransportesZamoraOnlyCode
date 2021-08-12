@@ -68,7 +68,7 @@
                                                 </div>
                                                 <hr />
                                                 <div class="body table-responsive">
-                                                    <asp:GridView DataKeyNames="ID_GT, saldo_total, id_estado, saldo_dinero_entregado, entregado" OnRowDataBound="G_PRINCIPAL_RowDataBound" ClientIDMode="AutoID" runat="server" ID="G_PRINCIPAL" CssClass="table table-bordered tablaprincipal table-hover js-exportable table-condensed" OnRowCommand="G_PRINCIPAL_RowCommand" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true">
+                                                    <asp:GridView DataKeyNames="ID_GT, saldo_total, id_estado, saldo_dinero_entregado_new, entregado" OnRowDataBound="G_PRINCIPAL_RowDataBound" ClientIDMode="AutoID" runat="server" ID="G_PRINCIPAL" CssClass="table table-bordered tablaprincipal table-hover js-exportable table-condensed" OnRowCommand="G_PRINCIPAL_RowCommand" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true">
                                                         <HeaderStyle CssClass="thead-dark" />
                                                         <Columns>
                                                             <asp:BoundField HeaderText="ID_GT" DataField="ID_GT" Visible="false" />
@@ -106,7 +106,7 @@
                                                             <asp:BoundField HeaderText="Rendimiento" DataField="rendimiento" DataFormatString="{0:N3}" />
                                                             <asp:BoundField HeaderText="Dinero Entregado" DataField="dinero_entregado" DataFormatString="{0:C0}" ItemStyle-Font-Bold="true" />
                                                             <%--<asp:BoundField HeaderText="Sobre Deposito" DataField="sobre_deposito" DataFormatString="{0:C0}" ItemStyle-Font-Bold="true" />--%>
-                                                            <asp:BoundField HeaderText="Saldo" DataField="saldo_dinero_entregado" ItemStyle-Font-Bold="true" DataFormatString="{0:C0}" />
+                                                            <asp:BoundField HeaderText="Saldo" DataField="saldo_dinero_entregado_new" ItemStyle-Font-Bold="true" DataFormatString="{0:C0}" />
                                                             <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Estado" ItemStyle-HorizontalAlign="Center">
                                                                 <ItemTemplate>
                                                                     <div id="div_entregado" runat="server"></div>
@@ -1102,13 +1102,23 @@
         }
 
         function ImprimeGT(id_gt) {
-            var win = window.open('Imprime_gt.aspx?num_gt=' + id_gt, '_blank');
+            if (id_gt > 13155) {
+                var win = window.open('Imprime_gt_new.aspx?num_gt=' + id_gt, '_blank');
+            }
+            else {
+                var win = window.open('Imprime_gt.aspx?num_gt=' + id_gt, '_blank');
+            }           
             win.focus();
         }
 
         function ImprimeGT2() {
             var id_gt = $('#<%= T_ID.ClientID %>').val();
-            var win = window.open('Imprime_gt.aspx?num_gt=' + id_gt, '_blank');
+            if (id_gt > 13155) {
+                var win = window.open('Imprime_gt_new.aspx?num_gt=' + id_gt, '_blank');
+            }
+            else {
+                var win = window.open('Imprime_gt.aspx?num_gt=' + id_gt, '_blank');
+            }            
             win.focus();
         }
 

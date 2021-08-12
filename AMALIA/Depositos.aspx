@@ -7,13 +7,15 @@
             text-align: left !important;
             font-size: 11px !important;
         }
-        .combo-bold{
-            font-weight:bold !important;
-            color:black;
+
+        .combo-bold {
+            font-weight: bold !important;
+            color: black;
         }
-        .combo-disabled{            
-            color:gray;
-            font-style:italic;
+
+        .combo-disabled {
+            color: gray;
+            font-style: italic;
         }
     </style>
     <section class="content">
@@ -47,7 +49,7 @@
                                                                                 <b><small>+ INGRESAR NUEVO DEPOSITO</small></b>
                                                         </asp:LinkButton>
 
-                                                        <%-- <asp:LinkButton CssClass="btn btn-sm btn-primary" ClientIDMode="AutoID" runat="server" ID="LinkButton1" OnClick="LinkButton1_Click">
+                                                     <%--   <asp:LinkButton CssClass="btn btn-sm btn-primary" ClientIDMode="AutoID" runat="server" ID="LinkButton1" OnClick="LinkButton1_Click">
                                                                                 <b><small>RECALCULAR</small></b>
                                                         </asp:LinkButton>--%>
                                                     </div>
@@ -86,6 +88,12 @@
                                                         <br />
                                                         <asp:DropDownList runat="server" ID="CB_TIPO" CssClass="form-control">
                                                             <asp:ListItem Selected="True" Text="-- Seleccione --" Value="-1"></asp:ListItem>
+                                                            <asp:ListItem Text="FONDO POR RENDIR" Value="FONDO POR RENDIR"></asp:ListItem>
+                                                            <asp:ListItem Text="VIATICO" Value="VIATICO"></asp:ListItem>
+                                                            <asp:ListItem Text="SALDO FONDO POR RENDIR" Value="SALDO FONDO POR RENDIR"></asp:ListItem>
+                                                            <asp:ListItem Text="SALDO VIATICO" Value="SALDO VIATICO"></asp:ListItem>
+                                                            <asp:ListItem Text="DESCUENTO FONDO POR RENDIR" Value="DESCUENTO FONDO POR RENDIR"></asp:ListItem>
+                                                            <asp:ListItem Text="DESCUENTO VIATICO" Value="DESCUENTO VIATICO"></asp:ListItem>
                                                             <asp:ListItem Text="DEPOSITO" Value="DEPOSITO"></asp:ListItem>
                                                             <asp:ListItem Text="BONO" Value="BONO"></asp:ListItem>
                                                             <asp:ListItem Text="DOBLE CONDUCTOR" Value="DOBLE CONDUCTOR"></asp:ListItem>
@@ -269,15 +277,22 @@
                                                                     <small><b>Tipo</b></small>
                                                                     <asp:DropDownList runat="server" ID="cbTipo" CssClass="form-control">
                                                                         <asp:ListItem Text="FONDO POR RENDIR" Value="FONDO POR RENDIR" Selected="True" class="combo-bold"></asp:ListItem>
-                                                                        <asp:ListItem Text="VIATICO" Value="BONO" class="combo-bold"></asp:ListItem>
+                                                                        <asp:ListItem Text="VIATICO" Value="VIATICO" class="combo-bold"></asp:ListItem>
+                                                                        <asp:ListItem Text="SALDO FONDO POR RENDIR" Value="SALDO FONDO POR RENDIR" class="combo-bold"></asp:ListItem>
+                                                                        <asp:ListItem Text="SALDO VIATICO" Value="SALDO VIATICO" class="combo-bold"></asp:ListItem>
+                                                                        <asp:ListItem Text="DESCUENTO FONDO POR RENDIR" Value="DESCUENTO FONDO POR RENDIR" class="combo-bold"></asp:ListItem>
+                                                                        <asp:ListItem Text="DESCUENTO VIATICO" Value="DESCUENTO VIATICO" class="combo-bold"></asp:ListItem>
+                                                                        <asp:ListItem Text="-- ANTIGUOS --" Value="-1" class="combo-disabled" disabled="disabled"></asp:ListItem>
+                                                                        <asp:ListItem Text="SALDO" Value="SALDO" class="combo-bold"></asp:ListItem>
+                                                                        <asp:ListItem Text="DESCUENTO" Value="DESCUENTO" class="combo-bold"></asp:ListItem>
                                                                         <asp:ListItem Text="-- NO DISPONIBLES --" Value="-1" class="combo-disabled" disabled="disabled"></asp:ListItem>
                                                                         <asp:ListItem Text="DEPOSITO" Value="DEPOSITO" class="combo-disabled" disabled="disabled"></asp:ListItem>
                                                                         <asp:ListItem Text="BONO" Value="BONO" class="combo-disabled" disabled="disabled"></asp:ListItem>
                                                                         <asp:ListItem Text="DOBLE CONDUCTOR" Value="DOBLE CONDUCTOR" class="combo-disabled" disabled="disabled"></asp:ListItem>
                                                                         <asp:ListItem Text="PRESTAMO" Value="PRESTAMO" class="combo-disabled" disabled="disabled"></asp:ListItem>
-                                                                        <asp:ListItem Text="SALDO" Value="SALDO" class="combo-disabled" disabled="disabled"></asp:ListItem>
+
                                                                         <asp:ListItem Text="SOBRE" Value="SOBRE" class="combo-disabled" disabled="disabled"></asp:ListItem>
-                                                                        <asp:ListItem Text="DESCUENTO" Value="DESCUENTO" class="combo-disabled" disabled="disabled"></asp:ListItem>
+
                                                                         <asp:ListItem Text="VARIOS" Value="VARIOS" class="combo-disabled" disabled="disabled"></asp:ListItem>
                                                                         <asp:ListItem Text="OTRO" Value="OTRO" class="combo-disabled" disabled="disabled"></asp:ListItem>
                                                                     </asp:DropDownList>

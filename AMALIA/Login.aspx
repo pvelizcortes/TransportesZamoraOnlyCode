@@ -8,7 +8,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta name="description" content="CLoud Mant, Mantenimiento en la Nube.">
 
-    <title>TRANSPORTES ZAMORA | INGRESO </title>
+    <title> TRANSPORTES ZAMORA | INGRESO </title>
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
@@ -27,7 +27,7 @@
                             <div class="company_detail">
                                 <h4 class="logo">
                                     <img src="assets/images/logo.svg" alt="Logo">
-                                    TRANSPORTES ZAMORA | ERP </h4>
+                                     TRANSPORTES ZAMORA | ERP </h4>
                             </div>
                         </div>
                     </div>

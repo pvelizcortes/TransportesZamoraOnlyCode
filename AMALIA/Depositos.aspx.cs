@@ -534,7 +534,7 @@ namespace AMALIA
             FN_DEPOSITO_DETALLE.LLENAOBJETO(ref fact);
             if (fact._respok)
             {
-                lblDetalle.Text = "Editando deposito.";
+                lblDetalle.Text = "Editando deposito: " + fact.num_viaje;
                 T_ID_DETALLE.Text = id.ToString();
                 tNumViaje.Text = fact.num_viaje.ToString();
                 tFecha.Text = fact.fecha_viaje.ToString("yyyy-MM-dd");
@@ -672,12 +672,17 @@ namespace AMALIA
             {
                 DBUtil db = new DBUtil();
                 int valor = Convert.ToInt32(db.Scalar(" select ISNULL(sum(valor),0) as 'valor'  from deposito_detalle where num_viaje = " + correlativoGt +
-                                                        " and tipo != 'SALDO' " +
-                                                        " and tipo != 'DESCUENTO' " +
+                                                        " and tipo in ('FONDO POR RENDIR', 'VIATICO', 'DEPOSITO', 'BONO', 'DOBLE CONDUCTOR', 'PRESTAMO', 'SOBRE', 'VARIOS', 'OTRO') " +                                                      
                                                         " and estado = 'DEPOSITADO' ").ToString());
+
+                //int valorSaldos = Convert.ToInt32(db.Scalar(" select ISNULL(sum(valor),0) as 'valor'  from deposito_detalle where num_viaje = " + correlativoGt +
+                //                                      " and tipo in ('SALDO FONDO POR RENDIR',  'SALDO VIATICO') " +
+                //                                      " and estado = 'DEPOSITADO' ").ToString());
+
+
                 db.Scalar("update enc_gt set dinero_entregado = " + valor + " where num_correlativo = " + correlativoGt);
-                int saldo_dinero = int.Parse(db.Scalar("select (dinero_entregado - total_gastos - dinero_devuelto) from enc_gt where num_correlativo = " + correlativoGt).ToString());
-                db.Scalar("update enc_gt set saldo_dinero_entregado = " + saldo_dinero + " where num_correlativo = " + correlativoGt);
+                //int saldo_dinero = int.Parse(db.Scalar("select (dinero_entregado - total_gastos - dinero_devuelto) from enc_gt where num_correlativo = " + correlativoGt).ToString());
+                //db.Scalar("update enc_gt set saldo_dinero_entregado = " + valorSaldos + " where num_correlativo = " + correlativoGt);
             }
             catch (Exception ex)
             {
@@ -694,12 +699,13 @@ namespace AMALIA
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             DBUtil db = new DBUtil();
-            string sql = "  SELECT distinct num_viaje " +
-                          " FROM DEPOSITO_DETALLE " +
-                          " where num_viaje >= 3993  " +
-                          " and tipo not in ('SALDO', 'DESCUENTO') " +
-                          " and estado = 'DEPOSITADO' " +
-                          " order by num_viaje desc ";
+            //string sql = "   select distinct num_viaje from deposito_detalle where fecha_viaje = convert(date,'11-08-2021',103)  order by num_viaje ";
+            string sql = "   select distinct num_viaje " +
+            " FROM DEPOSITO_DETALLE " +
+            " where num_viaje in (5098)  " +
+            //" and tipo not in ('SALDO', 'DESCUENTO', 'SALDO FONDO POR RENDIR', 'SALDO VIATICO' ) " +
+            //" and estado = 'DEPOSITADO' " +
+            " order by num_viaje desc ";
 
             DataTable dt = new DataTable();
             dt = db.consultar(sql);
