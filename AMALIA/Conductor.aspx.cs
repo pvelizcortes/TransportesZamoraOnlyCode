@@ -24,12 +24,26 @@ namespace AMALIA
                 }
                 else
                 {
+                    B_NUEVO.Visible = ValidateUser();
                     LlenarGrilla();
                 }
             }
             else
             {
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "grid", "<script>javascript:Datatables();</script>", false);
+            }
+        }
+
+        public bool ValidateUser()
+        {
+            string usuario = HttpContext.Current.User.Identity.Name;
+            if (usuario == "lbelmar" || usuario == "festay" || usuario == "gestay" || usuario == "felipe")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -77,7 +91,7 @@ namespace AMALIA
                         if (T_FECHA_NACIMIENTO.Text != "")
                         {
                             objeto_mantenedor.fecha_nacimiento = DateTime.Parse(T_FECHA_NACIMIENTO.Text);
-                        }                       
+                        }
                         FN_CONDUCTOR.UPDATE(ref objeto_mantenedor);
                         if (objeto_mantenedor._respok)
                         {
@@ -125,11 +139,19 @@ namespace AMALIA
                 //editar
                 if (e.CommandName == "Editar")
                 {
-                    int id = int.Parse((G_PRINCIPAL.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[0].ToString()));
-                    COMPLETAR_DETALLE(id);
-                    // MOSTRAR / OCULTAR PANEL
-                    PANEL_PRINCIPAL.Visible = false;
-                    PANEL_DETALLE1.Visible = true;
+                    if (ValidateUser())
+                    {
+                        int id = int.Parse((G_PRINCIPAL.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[0].ToString()));
+                        COMPLETAR_DETALLE(id);
+                        // MOSTRAR / OCULTAR PANEL
+                        PANEL_PRINCIPAL.Visible = false;
+                        PANEL_DETALLE1.Visible = true;
+                    }
+                    else
+                    {
+                        alert("Ud no tiene permisos para editar", 0);
+                    }
+
                 }
                 //Borrar
                 if (e.CommandName == "Borrar")
@@ -141,32 +163,39 @@ namespace AMALIA
                     if (tabla._respok)
                     {
                         LlenarGrilla();
-                    }                
+                    }
                 }
                 if (e.CommandName == "Cambiarestado")
                 {
-                    int id = int.Parse((G_PRINCIPAL.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[0].ToString()));
-                    string estado = G_PRINCIPAL.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[1].ToString();
-                    OBJ_CONDUCTOR tabla = new OBJ_CONDUCTOR();
-                    tabla.ID_cONDUCTOR = id;
-                    FN_CONDUCTOR.LLENAOBJETO(ref tabla);
-                    if (tabla._respok)
+                    if (ValidateUser())
                     {
-                        if (estado == "ACTIVO")
-                        {
-                            tabla.activo = "INACTIVO";
-                        }
-                        else
-                        {
-                            tabla.activo = "ACTIVO";
-                        }                      
-                        FN_CONDUCTOR.UPDATE(ref tabla);
+                        int id = int.Parse((G_PRINCIPAL.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[0].ToString()));
+                        string estado = G_PRINCIPAL.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[1].ToString();
+                        OBJ_CONDUCTOR tabla = new OBJ_CONDUCTOR();
+                        tabla.ID_cONDUCTOR = id;
+                        FN_CONDUCTOR.LLENAOBJETO(ref tabla);
                         if (tabla._respok)
                         {
-                            LlenarGrilla();
+                            if (estado == "ACTIVO")
+                            {
+                                tabla.activo = "INACTIVO";
+                            }
+                            else
+                            {
+                                tabla.activo = "ACTIVO";
+                            }
+                            FN_CONDUCTOR.UPDATE(ref tabla);
+                            if (tabla._respok)
+                            {
+                                LlenarGrilla();
+                            }
                         }
                     }
-                }                
+                    else
+                    {
+                        alert("Ud no tiene permisos para cambiar estado al conductor", 0);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -191,7 +220,7 @@ namespace AMALIA
                 T_TELEFONO.Text = objeto_mantenedor.telefono;
                 T_TELEFONO2.Text = objeto_mantenedor.telefono2;
                 T_DIRECCION.Text = objeto_mantenedor.direccion;
-                T_FECHA_NACIMIENTO.Text = objeto_mantenedor.fecha_nacimiento.ToString("yyyy-MM-dd");  
+                T_FECHA_NACIMIENTO.Text = objeto_mantenedor.fecha_nacimiento.ToString("yyyy-MM-dd");
             }
         }
 

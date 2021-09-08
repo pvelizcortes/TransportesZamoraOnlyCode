@@ -59,18 +59,18 @@
                                                             <asp:BoundField HeaderText="Estado" DataField="activo" />
                                                             <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="" ItemStyle-HorizontalAlign="Center">
                                                                 <ItemTemplate>
-                                                                    <asp:LinkButton runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="Cambiarestado">
+                                                                    <asp:LinkButton runat="server" ToolTip="Cambiar estado Activo / Inactivo" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="Cambiarestado">
                                                                    <i class="icon-refresh"></i>
                                                                     </asp:LinkButton>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
-                                                            <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="" ItemStyle-HorizontalAlign="Center">
+                                                            <%--<asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="" ItemStyle-HorizontalAlign="Center">
                                                                 <ItemTemplate>
                                                                     <asp:LinkButton runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="Borrar" OnClientClick="return confirm('Desea eliminar el registro seleccionado?');">
                                                                    <i class="icon-trash"></i>
                                                                     </asp:LinkButton>
                                                                 </ItemTemplate>
-                                                            </asp:TemplateField>
+                                                            </asp:TemplateField>--%>
                                                         </Columns>
                                                         <EmptyDataTemplate>
                                                             No se encontraron resultados.

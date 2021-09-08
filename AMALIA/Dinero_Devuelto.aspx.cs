@@ -8,9 +8,9 @@ using System.Web.UI.HtmlControls;
 
 namespace AMALIA
 {
-    public partial class Depositos : System.Web.UI.Page
+    public partial class Dinero_Devuelto : System.Web.UI.Page
     {
-        public static string objeto_mantenedor_global = "Deposito";
+        public static string objeto_mantenedor_global = "Dinero Devuelto";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -25,7 +25,7 @@ namespace AMALIA
                     us.usuario = HttpContext.Current.User.Identity.Name;
                     FN_USUARIOS.BUSCARCONUSUARIO(ref us);
 
-                    if (us.usuario == "festay" || us.usuario == "gestay" || us.usuario == "mzapata")
+                    if (us.usuario == "festay" || us.usuario == "gestay")
                     {
                         divAdmin.Visible = true;
                         bAgregarDetalle.Visible = true;
@@ -40,12 +40,6 @@ namespace AMALIA
                     {
                         bBorrarDeposito.Visible = true;
                     }
-                    //if (us.usuario == "jbrantes")
-                    //{
-                    //    cbTipo.Items.Clear();
-                    //    cbTipo.Items.Add(new ListItem("SALDO", "SALDO"));
-                    //    cbTipo.Items.Add(new ListItem("DESCUENTO", "DESCUENTO"));
-                    //}
 
                     CargarCombos();
                     LlenarGrillaInicio();
@@ -54,7 +48,6 @@ namespace AMALIA
             else
             {
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "gridoc", "<script>javascript:Datatables();</script>", false);
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "relojitofalse", "<script>javascript:relojito(false);</script>", false);
             }
         }
 
@@ -71,7 +64,7 @@ namespace AMALIA
             DataTable dt = new DataTable();
             if (inicio)
             {
-                dt = FN_DEPOSITO_ENC.LLENADTVISTAINICIO();
+                dt = FN_DINERO_DEVUELTO_ENC.LLENADTVISTAINICIO();
             }
             else
             {
@@ -92,24 +85,15 @@ namespace AMALIA
                 {
                     filtro += " and id_conductor = '" + CB_CONDUCTOR.SelectedValue + "'";
                 }
-                string inSelect = "";
-                foreach (ListItem x in CB_TIPO.Items)
+                if (CB_TIPO.SelectedValue != "-1")
                 {
-                    if (x.Selected)
-                    {
-                        inSelect += inSelect == "" ? "'" + x.Value + "'" : ", '" + x.Value + "'";
-                    }
+                    filtro += " and tipo = '" + CB_TIPO.SelectedValue + "'";
                 }
-                if (inSelect != "")
-                {
-                    filtro += " and tipo in (" + inSelect + ") ";
-                }
-
                 if (CB_ESTADO.SelectedValue != "-1")
                 {
                     filtro += " and estado = '" + CB_ESTADO.SelectedValue + "'";
                 }
-                dt = FN_DEPOSITO_ENC.LLENADTVISTA(filtro);
+                dt = FN_DINERO_DEVUELTO_ENC.LLENADTVISTA(filtro);
             }
 
             G_PRINCIPAL.DataSource = dt;
@@ -147,16 +131,16 @@ namespace AMALIA
         {
             LIMPIARCAMPOS();
 
-            OBJ_DEPOSITO_ENC enc = new OBJ_DEPOSITO_ENC();
+            OBJ_DINERO_DEVUELTO_ENC enc = new OBJ_DINERO_DEVUELTO_ENC();
             enc.usuario = HttpContext.Current.User.Identity.Name;
-            FN_DEPOSITO_ENC.getCorrelativo(ref enc);
+            FN_DINERO_DEVUELTO_ENC.getCorrelativo(ref enc);
             if (enc._respok)
             {
-                T_ID.Text = enc.ID_DEPOSITO.ToString();
+                T_ID.Text = enc.ID_DINERO_DEVUELTO.ToString();
                 tNumOperacion.Text = enc.num_operacion.ToString();
                 PANEL_ENC.Visible = true;
                 PANEL_PRINCIPAL.Visible = false;
-                COMPLETAR_DETALLE(enc.ID_DEPOSITO);
+                COMPLETAR_DETALLE(enc.ID_DINERO_DEVUELTO);
                 divDetalle.Visible = false;
             }
 
@@ -181,7 +165,7 @@ namespace AMALIA
                     }
                     else
                     {
-                        alert("Ud no tiene permisos para editar depositos", 0);
+                        alert("Ud no tiene permisos para editar dineros devueltos", 0);
                     }
 
                 }
@@ -190,16 +174,15 @@ namespace AMALIA
                 {
                     int id = int.Parse((G_PRINCIPAL.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[0].ToString()));
                     int num_correlativo = int.Parse((G_PRINCIPAL.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[4].ToString()));
-                    OBJ_DEPOSITO_ENC enc = new OBJ_DEPOSITO_ENC();
-                    enc.ID_DEPOSITO = id;
-                    FN_DEPOSITO_ENC.DELETE(ref enc);
+                    OBJ_DINERO_DEVUELTO_ENC enc = new OBJ_DINERO_DEVUELTO_ENC();
+                    enc.ID_DINERO_DEVUELTO = id;
+                    FN_DINERO_DEVUELTO_ENC.DELETE(ref enc);
                     if (enc._respok)
                     {
                         DBUtil db = new DBUtil();
-                        db.Scalar("delete from deposito_detalle where id_deposito = " + id.ToString());
+                        db.Scalar("delete from dinero_devuelto_detalle where ID_DINERO_DEVUELTO = " + id.ToString());
                         CheckLastDepositoGt(num_correlativo);
                         LlenarGrilla(false);
-
                     }
                 }
 
@@ -213,10 +196,10 @@ namespace AMALIA
         public void COMPLETAR_DETALLE(int id, int id_detalle = 0)
         {
             LIMPIARCAMPOS();
-            OBJ_DEPOSITO_ENC fact = new OBJ_DEPOSITO_ENC();
-            fact.ID_DEPOSITO = id;
+            OBJ_DINERO_DEVUELTO_ENC fact = new OBJ_DINERO_DEVUELTO_ENC();
+            fact.ID_DINERO_DEVUELTO = id;
 
-            FN_DEPOSITO_ENC.LLENAOBJETO(ref fact);
+            FN_DINERO_DEVUELTO_ENC.LLENAOBJETO(ref fact);
             if (fact._respok)
             {
                 T_ID.Text = id.ToString();
@@ -276,8 +259,9 @@ namespace AMALIA
                 else if (control is CheckBoxList)
                     ((CheckBoxList)control).ClearSelection();
                 else if (control is RadioButton)
-                    ((RadioButton)control).Checked = false;               
-                    
+                    ((RadioButton)control).Checked = false;
+                else if (control is CheckBox)
+                    ((CheckBox)control).Checked = false;
                 else if (control.HasControls())
                     CleanControl(control.Controls);
             }
@@ -331,11 +315,11 @@ namespace AMALIA
             LlenarGrilla(false);
         }
 
-        public void LlenarGrillaDetalle(int id_deposito)
+        public void LlenarGrillaDetalle(int ID_DINERO_DEVUELTO)
         {
             try
             {
-                gDetalle.DataSource = FN_DEPOSITO_DETALLE.LLENADTVISTA(" where id_deposito = " + id_deposito);
+                gDetalle.DataSource = FN_DINERO_DEVUELTO_DETALLE.LLENADTVISTA(" where ID_DINERO_DEVUELTO = " + ID_DINERO_DEVUELTO);
                 gDetalle.DataBind();
             }
             catch (Exception ex)
@@ -362,7 +346,7 @@ namespace AMALIA
                 }
                 else if (tValor.Text == "")
                 {
-                    alert("Ingrese el valor ($).", 0);
+                    alert("Ingrese el solicitante.", 0);
                 }
                 else if (cbConductor.SelectedValue == "-1")
                 {
@@ -377,12 +361,12 @@ namespace AMALIA
 
                     FN_USUARIOS.BUSCARCONUSUARIO(ref usuario);
 
-                    OBJ_DEPOSITO_DETALLE fac = new OBJ_DEPOSITO_DETALLE();
-                    FN_DEPOSITO_DETALLE.PREPARAOBJETO(ref fac);
+                    OBJ_DINERO_DEVUELTO_DETALLE fac = new OBJ_DINERO_DEVUELTO_DETALLE();
+                    FN_DINERO_DEVUELTO_DETALLE.PREPARAOBJETO(ref fac);
                     if (T_ID_DETALLE.Text == "")
                     {
                         // NUEVO   
-                        fac.id_deposito = int.Parse(T_ID.Text);
+                        fac.id_dinero_devuelto = int.Parse(T_ID.Text);
                         fac.num_viaje = int.Parse(tNumViaje.Text);
                         fac.fecha_viaje = DateTime.Parse(tFecha.Text);
                         fac.id_conductor = int.Parse(cbConductor.SelectedValue);
@@ -390,7 +374,7 @@ namespace AMALIA
                         fac.tipo = cbTipo.SelectedValue;
                         fac.valor = int.Parse(tValor.Text);
                         fac.comentario = tComentario.Text;
-                        fac.estado = "NO DEPOSITADO";
+                        fac.estado = "PENDIENTE";
                         // ADMIN
                         if (divAdmin.Visible)
                         {
@@ -408,28 +392,28 @@ namespace AMALIA
                             fac.usuario_admin = HttpContext.Current.User.Identity.Name;
                         }
 
-                        FN_DEPOSITO_DETALLE.INSERT(ref fac);
+                        FN_DINERO_DEVUELTO_DETALLE.INSERT(ref fac);
                         if (fac._respok)
                         {
                             CalcularDineroEntregado(fac.num_viaje);
                             LlenarGrilla(false);
-                            LlenarGrillaDetalle(fac.id_deposito);
+                            LlenarGrillaDetalle(fac.id_dinero_devuelto);
                             CambiaConductorEnGt(fac.id_conductor, fac.num_viaje);
                             alert("Guardado con éxito", 1);
 
                         }
                         else
                         {
-                            alert("Problemas al guardar el deposito", 0);
+                            alert("Problemas al guardar el dinero devuelto", 0);
                         }
                     }
                     else
                     {
-                        fac.ID_DETALLE_DEPOSITO = int.Parse(T_ID_DETALLE.Text);
-                        FN_DEPOSITO_DETALLE.LLENAOBJETO(ref fac);
+                        fac.ID_DETALLE_DINERO_DEVUELTO = int.Parse(T_ID_DETALLE.Text);
+                        FN_DINERO_DEVUELTO_DETALLE.LLENAOBJETO(ref fac);
                         if (fac._respok)
                         {
-                            fac.id_deposito = int.Parse(T_ID.Text);
+                            fac.id_dinero_devuelto = int.Parse(T_ID.Text);
                             fac.num_viaje = int.Parse(tNumViaje.Text);
                             fac.fecha_viaje = DateTime.Parse(tFecha.Text);
                             fac.id_conductor = int.Parse(cbConductor.SelectedValue);
@@ -437,7 +421,7 @@ namespace AMALIA
                             fac.tipo = cbTipo.SelectedValue;
                             fac.valor = int.Parse(tValor.Text);
                             fac.comentario = tComentario.Text;
-                            fac.estado = "NO DEPOSITADO";
+                            fac.estado = "PENDIENTE";
                             // ADMIN
                             if (divAdmin.Visible)
                             {
@@ -455,31 +439,23 @@ namespace AMALIA
                                 fac.usuario_admin = HttpContext.Current.User.Identity.Name;
                             }
                             // MODIFICAR
-                            FN_DEPOSITO_DETALLE.UPDATE(ref fac);
+                            FN_DINERO_DEVUELTO_DETALLE.UPDATE(ref fac);
                             if (fac._respok)
                             {
                                 CalcularDineroEntregado(fac.num_viaje);
                                 LlenarGrilla(false);
-                                LlenarGrillaDetalle(fac.id_deposito);
+                                LlenarGrillaDetalle(fac.id_dinero_devuelto);
                                 CambiaConductorEnGt(fac.id_conductor, fac.num_viaje);
                                 alert("Modificado con éxito", 1);
                             }
                             else
                             {
-                                alert("Problemas al modificar el deposito", 0);
+                                alert("Problemas al modificar el dinero devuelto", 0);
                             }
                         }
                     }
-                    if (chk_mantener_datos.Visible == true && chk_mantener_datos.Checked)
-                    {
-                        LimpiarCamposDetalle(false);                        
-                    }
-                    else
-                    {
-                        LimpiarCamposDetalle();
-                        divDetalle.Visible = false;
-                    }
-                    
+                    LimpiarCamposDetalle();
+                    divDetalle.Visible = false;
                 }
             }
             catch (Exception ex)
@@ -511,14 +487,14 @@ namespace AMALIA
                         int id = int.Parse((gDetalle.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[0].ToString()));
                         int idDeposito = int.Parse((gDetalle.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[1].ToString()));
                         int CorrelativoGT = int.Parse((gDetalle.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[4].ToString()));
-                        OBJ_DEPOSITO_DETALLE enc = new OBJ_DEPOSITO_DETALLE();
-                        enc.ID_DETALLE_DEPOSITO = id;
-                        FN_DEPOSITO_DETALLE.DELETE(ref enc);
+                        OBJ_DINERO_DEVUELTO_DETALLE enc = new OBJ_DINERO_DEVUELTO_DETALLE();
+                        enc.ID_DETALLE_DINERO_DEVUELTO = id;
+                        FN_DINERO_DEVUELTO_DETALLE.DELETE(ref enc);
                         if (enc._respok)
                         {
                             CalcularDineroEntregado(CorrelativoGT);
                             CheckLastDepositoGt(CorrelativoGT);
-                            alert("Deposito eliminado con éxito", 1);
+                            alert("Dinero Devuelto eliminado con éxito", 1);
                             LlenarGrillaDetalle(idDeposito);
                             LlenarGrilla(false);
                         }
@@ -526,7 +502,7 @@ namespace AMALIA
                 }
                 else
                 {
-                    alert("Ud no tiene permisos para borrar/editar depositos", 0);
+                    alert("Ud no tiene permisos para borrar/editar dineros devueltos", 0);
                 }
             }
             catch (Exception ex)
@@ -539,8 +515,8 @@ namespace AMALIA
         {
             DBUtil db = new DBUtil();
             int idDeposito = int.Parse(T_ID.Text);
-            DataTable DtGt = db.consultar("select distinct num_viaje from deposito_detalle where id_deposito = " + idDeposito);
-            db.Scalar("update deposito_detalle set estado = 'DEPOSITADO', usuario_admin = '" + HttpContext.Current.User.Identity.Name + "', monto_depositado = valor, fecha_admin = getdate() where id_deposito = " + idDeposito);
+            DataTable DtGt = db.consultar("select distinct num_viaje from dinero_devuelto_detalle where id_dinero_devuelto = " + idDeposito);
+            db.Scalar("update dinero_devuelto_detalle set estado = 'APROBADO', usuario_admin = '" + HttpContext.Current.User.Identity.Name + "', monto_depositado = valor, fecha_admin = getdate() where id_dinero_devuelto = " + idDeposito);
             foreach (DataRow dr in DtGt.Rows)
             {
                 int numCorrelativo = Convert.ToInt32(dr[0].ToString());
@@ -548,27 +524,26 @@ namespace AMALIA
             }
             LlenarGrillaDetalle(idDeposito);
             LlenarGrilla(false);
-            alert("El estado de los depositos fue cambiado correctamente.", 1);
+            alert("El estado del dinero devuelto fue cambiado correctamente.", 1);
         }
 
         protected void bNuevoDetalle_Click(object sender, EventArgs e)
         {
             LimpiarCamposDetalle();
-            lblDetalle.Text = "Agregando nuevo deposito.";
+            lblDetalle.Text = "Agregando nuevo dinero devuelto.";
             divDetalle.Visible = true;
-            chk_mantener_datos.Visible = true;
         }
 
         public void COMPLETAR_DETALLE2(int id)
         {
             LimpiarCamposDetalle();
-            OBJ_DEPOSITO_DETALLE fact = new OBJ_DEPOSITO_DETALLE();
-            fact.ID_DETALLE_DEPOSITO = id;
+            OBJ_DINERO_DEVUELTO_DETALLE fact = new OBJ_DINERO_DEVUELTO_DETALLE();
+            fact.ID_DETALLE_DINERO_DEVUELTO = id;
 
-            FN_DEPOSITO_DETALLE.LLENAOBJETO(ref fact);
+            FN_DINERO_DEVUELTO_DETALLE.LLENAOBJETO(ref fact);
             if (fact._respok)
             {
-                lblDetalle.Text = "Editando deposito: " + fact.num_viaje;
+                lblDetalle.Text = "Editando dinero devuelto: " + fact.num_viaje;
                 T_ID_DETALLE.Text = id.ToString();
                 tNumViaje.Text = fact.num_viaje.ToString();
                 tFecha.Text = fact.fecha_viaje.ToString("yyyy-MM-dd");
@@ -577,9 +552,6 @@ namespace AMALIA
                 tValor.Text = fact.valor.ToString();
                 tComentario.Text = fact.comentario;
                 divDetalle.Visible = true;
-                tNumViaje.Enabled = false;
-                cbConductor.Enabled = true;
-                b_search_gt.Visible = false;
                 if (divAdmin.Visible)
                 {
                     tComentarioAdmin.Text = fact.comentario_admin;
@@ -593,26 +565,17 @@ namespace AMALIA
             }
         }
 
-        public void LimpiarCamposDetalle(bool borrarEncabezado = true)
+        public void LimpiarCamposDetalle()
         {
-            if (borrarEncabezado)
-            {
-                tNumViaje.Text = "";
-                cbConductor.SelectedValue = "-1";
-                cbConductor.Enabled = false;
-                cbTipo.SelectedIndex = 0;
-                tNumViaje.Enabled = true;
-                b_search_gt.Visible = true;
-                b_clean_gt.Visible = false;
-                chk_mantener_datos.Visible = false;
-            }
-            T_ID_DETALLE.Text = "";  
+            T_ID_DETALLE.Text = "";
+            tNumViaje.Text = "";
+            cbConductor.SelectedValue = "-1";
+            cbTipo.SelectedIndex = 0;
             tValor.Text = "";
             tComentario.Text = "";
             tComentarioAdmin.Text = "";
             tMontoDepositadoAdmin.Text = "0";
-            cbEstadoAdmin.SelectedValue = "NO DEPOSITADO";          
-            
+            cbEstadoAdmin.SelectedValue = "PENDIENTE";
         }
 
         protected void gDetalle_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -624,17 +587,13 @@ namespace AMALIA
 
                 // ESTADO
                 HtmlGenericControl spnHtml = (HtmlGenericControl)e.Row.FindControl("div_estado");
-                if (estado == "DEPOSITADO")
+                if (estado == "APROBADO")
                 {
-                    spnHtml.InnerHtml = "<span class='badge badge-success'>DEPOSITADO</span>";
+                    spnHtml.InnerHtml = "<span class='badge badge-success'>APROBADO</span>";
                 }
-                else if (estado == "NO DEPOSITADO")
+                else if (estado == "PENDIENTE")
                 {
-                    spnHtml.InnerHtml = "<span class='badge badge-danger'>NO DEPOSITADO</span>";
-                }
-                else if (estado == "DESCONTADO")
-                {
-                    spnHtml.InnerHtml = "<span class='badge badge-warning'>DESCONTADO</span>";
+                    spnHtml.InnerHtml = "<span class='badge badge-danger'>PENDIENTE</span>";
                 }
                 else
                 {
@@ -662,17 +621,13 @@ namespace AMALIA
 
                 // ESTADO
                 HtmlGenericControl spnHtml = (HtmlGenericControl)e.Row.FindControl("div_estado");
-                if (estado == "DEPOSITADO")
+                if (estado == "APROBADO")
                 {
-                    spnHtml.InnerHtml = "<span class='badge badge-success'>DEPOSITADO</span>";
+                    spnHtml.InnerHtml = "<span class='badge badge-success'>APROBADO</span>";
                 }
-                else if (estado == "NO DEPOSITADO")
+                else if (estado == "PENDIENTE")
                 {
-                    spnHtml.InnerHtml = "<span class='badge badge-danger'>NO DEPOSITADO</span>";
-                }
-                else if (estado == "DESCONTADO")
-                {
-                    spnHtml.InnerHtml = "<span class='badge badge-warning'>DESCONTADO</span>";
+                    spnHtml.InnerHtml = "<span class='badge badge-danger'>PENDIENTE</span>";
                 }
                 else
                 {
@@ -694,15 +649,15 @@ namespace AMALIA
         protected void bBorrarDeposito_Click(object sender, EventArgs e)
         {
             DBUtil db = new DBUtil();
-            int idDeposito = int.Parse(T_ID.Text);            
-            DataTable dtCorrelativos = db.consultar("select distinct num_viaje from deposito_detalle where id_deposito = " + idDeposito);
-            db.Scalar("delete from deposito_detalle where id_deposito = " + idDeposito);
-            db.Scalar("delete from deposito_enc where id_deposito = " + idDeposito);
+            int idDineroDevuelto = int.Parse(T_ID.Text);
+            DataTable dt = new DataTable();
+            DataTable dtCorrelativos = db.consultar("select distinct num_viaje from dinero_devuelto_detalle where id_dinero_devuelto = " + idDineroDevuelto);
+            db.Scalar("delete from dinero_devuelto_detalle where id_dinero_devuelto = " + idDineroDevuelto);
+            db.Scalar("delete from dinero_devuelto_enc where id_dinero_devuelto = " + idDineroDevuelto);
             foreach (DataRow dr in dtCorrelativos.Rows)
             {
                 int numCorrelativo = Convert.ToInt32(dr[0].ToString());
                 CalcularDineroEntregado(numCorrelativo);
-                CheckLastDepositoGt(numCorrelativo);
             }
 
             LlenarGrilla(false);
@@ -717,18 +672,10 @@ namespace AMALIA
             try
             {
                 DBUtil db = new DBUtil();
-                int valor = Convert.ToInt32(db.Scalar(" select ISNULL(sum(valor),0) as 'valor'  from deposito_detalle where num_viaje = " + correlativoGt +
-                                                        " and tipo in ('FONDO POR RENDIR', 'VIATICO', 'DEPOSITO', 'BONO', 'DOBLE CONDUCTOR', 'PRESTAMO', 'SOBRE', 'VARIOS', 'OTRO') " +
-                                                        " and estado = 'DEPOSITADO' ").ToString());
+                int valor = Convert.ToInt32(db.Scalar(" select ISNULL(sum(valor),0) as 'valor'  from dinero_devuelto_detalle where num_viaje = " + correlativoGt +
+                                                        " and estado = 'APROBADO' ").ToString());
+                db.Scalar("update enc_gt set dinero_devuelto = " + valor + " where num_correlativo = " + correlativoGt);
 
-                //int valorSaldos = Convert.ToInt32(db.Scalar(" select ISNULL(sum(valor),0) as 'valor'  from deposito_detalle where num_viaje = " + correlativoGt +
-                //                                      " and tipo in ('SALDO FONDO POR RENDIR',  'SALDO VIATICO') " +
-                //                                      " and estado = 'DEPOSITADO' ").ToString());
-
-
-                db.Scalar("update enc_gt set dinero_entregado = " + valor + " where num_correlativo = " + correlativoGt);
-                //int saldo_dinero = int.Parse(db.Scalar("select (dinero_entregado - total_gastos - dinero_devuelto) from enc_gt where num_correlativo = " + correlativoGt).ToString());
-                //db.Scalar("update enc_gt set saldo_dinero_entregado = " + valorSaldos + " where num_correlativo = " + correlativoGt);
             }
             catch (Exception ex)
             {
@@ -740,27 +687,6 @@ namespace AMALIA
         {
             DBUtil db = new DBUtil();
             db.Scalar("update enc_gt set id_conductor = " + id_conductor + " where num_correlativo = " + correlativo_gt);
-        }
-
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            DBUtil db = new DBUtil();
-            //string sql = "   select distinct num_viaje from deposito_detalle where fecha_viaje = convert(date,'11-08-2021',103)  order by num_viaje ";
-            string sql = "   select distinct num_viaje " +
-            " FROM DEPOSITO_DETALLE " +
-            " where num_viaje in (5098)  " +
-            //" and tipo not in ('SALDO', 'DESCUENTO', 'SALDO FONDO POR RENDIR', 'SALDO VIATICO' ) " +
-            //" and estado = 'DEPOSITADO' " +
-            " order by num_viaje desc ";
-
-            DataTable dt = new DataTable();
-            dt = db.consultar(sql);
-
-            foreach (DataRow dr in dt.Rows)
-            {
-                int numCorrelativo = Convert.ToInt32(dr[0].ToString());
-                CalcularDineroEntregado(numCorrelativo);
-            }
         }
 
         public bool ValidarConductorGt(int id_conductor, int num_viaje)
@@ -784,58 +710,26 @@ namespace AMALIA
 
         protected void b_search_gt_Click(object sender, EventArgs e)
         {
-            try
+            int num_viaje = Convert.ToInt32(tNumViaje.Text);
+            OBJ_ENC_GT gt = new OBJ_ENC_GT();
+            gt.num_correlativo = num_viaje;
+            FN_ENC_GT.LLENAOBJETOCORRELATIVO(ref gt);
+            if (gt._respok)
             {
-                int num_viaje = Convert.ToInt32(tNumViaje.Text);
-                OBJ_ENC_GT gt = new OBJ_ENC_GT();
-                gt.num_correlativo = num_viaje;
-                FN_ENC_GT.LLENAOBJETOCORRELATIVO(ref gt);
-                if (gt._respok)
+                if (gt.id_conductor != 0)
                 {
-                    if (gt.id_conductor != 0)
-                    {
-                        cbConductor.SelectedValue = gt.id_conductor.ToString();
-                        alert("Se encontró conductor en la GT " + tNumViaje.Text, 1);
-                        cbConductor.Enabled = false;
-
-                        b_search_gt.Visible = false;
-                        b_clean_gt.Visible = true;
-                        tNumViaje.Enabled = false;
-                    }
-                    else
-                    {
-                        alert("Aun no se registra un conductor en la GT: " + tNumViaje.Text + " por favor seleccione un conductor. ", 1);
-                        cbConductor.Enabled = true;
-                        cbConductor.SelectedValue = "-1";
-
-                        b_search_gt.Visible = false;
-                        b_clean_gt.Visible = true;
-                        tNumViaje.Enabled = false;
-                    }
+                    cbConductor.SelectedValue = gt.id_conductor.ToString();
+                    alert("Se encontró conductor en la GT " + tNumViaje.Text, 1);
                 }
                 else
                 {
-                    alert("Numero GT ingresado no existe aun en sistema: " + tNumViaje.Text, 0);
-                    cbConductor.SelectedValue = "-1";
-                    cbConductor.Enabled = false;
+                    alert("Aun no se registra un conductor en la GT: " + tNumViaje.Text, 1);
                 }
             }
-            catch (Exception ex)
+            else
             {
-
+                alert("Problemas al buscar el conductor de la GT: " + tNumViaje.Text, 1);
             }
-
-        }
-
-        protected void b_clean_gt_Click(object sender, EventArgs e)
-        {
-            cbConductor.SelectedValue = "-1";
-            cbConductor.Enabled = false;
-            tNumViaje.Text = "";
-            b_search_gt.Visible = true;
-            b_clean_gt.Visible = false;
-            tNumViaje.Enabled = true;
-
         }
 
         protected void CheckLastDepositoGt(int num_correlativo)

@@ -87,8 +87,11 @@ namespace CRM
                             int SaldoFondoPorRendir = FondoPorRendir - gastoFXR;
                             int SaldoViatico = Viatico - gastosViaticos;
 
+                          
+
                             // DT
                             DataTable dt = FN_ENC_GT.LLENADTVISTA(" where id_gt = " + id_gt);
+                            int dineroDevuelto = int.Parse(dt.Rows[0]["dinero_devuelto"].ToString());
                             // INFO
                             doc.SetPageSize(PageSize.A4);
                             doc.SetMargins(10f, 5f, 5f, 5f);
@@ -232,7 +235,7 @@ namespace CRM
                             enc_td8.HorizontalAlignment = Element.ALIGN_LEFT;
                             enc_td8.BorderWidth = 0;
                             encabezado.AddCell(enc_td8);
-                            PdfPCell enc_td88 = new PdfPCell(new Phrase("$ " + SaldoFondoPorRendir.ToString("#,##0"), _standardFont));
+                            PdfPCell enc_td88 = new PdfPCell(new Phrase("$ " + (SaldoFondoPorRendir - dineroDevuelto).ToString("#,##0"), _standardFont));
                             enc_td88.HorizontalAlignment = Element.ALIGN_LEFT;
                             enc_td88.BorderWidth = 0;
                             encabezado.AddCell(enc_td88);
@@ -253,7 +256,7 @@ namespace CRM
                             enc_tdA2.HorizontalAlignment = Element.ALIGN_LEFT;
                             enc_tdA2.BorderWidth = 0;
                             encabezado.AddCell(enc_tdA2);
-                            PdfPCell enc_tdAA2 = new PdfPCell(new Phrase("$ " + int.Parse(dt.Rows[0]["dinero_devuelto"].ToString()).ToString("#,##0"), _standardFont));
+                            PdfPCell enc_tdAA2 = new PdfPCell(new Phrase("$ " + dineroDevuelto.ToString("#,##0"), _standardFont));
                             enc_tdAA2.HorizontalAlignment = Element.ALIGN_LEFT;
                             enc_tdAA2.BorderWidth = 0;
                             encabezado.AddCell(enc_tdAA2);

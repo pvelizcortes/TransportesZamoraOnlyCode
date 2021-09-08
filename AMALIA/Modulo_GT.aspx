@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" EnableEventValidation="false" MasterPageFile="~/Amalia.Master" AutoEventWireup="true" CodeBehind="Modulo_GT.aspx.cs" Inherits="AMALIA.Modulo_GT" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BODY" runat="server">
-    
+
     <section class="content">
         <div class="container">
             <div class="row clearfix">
@@ -17,7 +17,8 @@
                                         <ContentTemplate>
                                             <span style="font-size: large"><strong><i class="fa fa-shipping-fast"></i>&nbsp;Modulo GT </strong></span>
                                             &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                                                    <asp:LinkButton runat="server" ID="B_NUEVO" ClientIDMode="AutoID" CssClass="btn btn-primary btn-sm" OnClick="B_NUEVO_Click"><i class="fa fa-shipping-fast"></i>&nbsp;CREAR NUEVO VIAJE</asp:LinkButton>
+                                                   
+                                            <asp:LinkButton runat="server" ID="B_NUEVO" ClientIDMode="AutoID" CssClass="btn btn-primary btn-sm" OnClick="B_NUEVO_Click"><i class="fa fa-shipping-fast"></i>&nbsp;CREAR NUEVO VIAJE</asp:LinkButton>
                                             <ul class="breadcrumb p-l-0 p-b-0 float-right">
                                                 <li class="breadcrumb-item"><a href="index.aspx"><i class="icon-home"></i></a></li>
                                                 <li class="breadcrumb-item"><a href="index.aspx">Index</a></li>
@@ -43,21 +44,25 @@
                                                 <div class="row clearfix">
                                                     <div class="col-sm-2">
                                                         FECHA DESDE:
+                                                       
                                                         <br />
                                                         <asp:TextBox runat="server" ID="FILTRA_FECHA_DESDE" CssClass="form-control" TextMode="Date"></asp:TextBox>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         FECHA HASTA:
+                                                       
                                                         <br />
                                                         <asp:TextBox runat="server" ID="FILTRA_FECHA_HASTA" CssClass="form-control" TextMode="Date"></asp:TextBox>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         GT DESDE:
+                                                       
                                                         <br />
                                                         <asp:TextBox runat="server" ID="FILTRA_GT_DESDE" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         GT HASTA:
+                                                       
                                                         <br />
                                                         <asp:TextBox runat="server" ID="FILTRA_GT_HASTA" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                                     </div>
@@ -79,12 +84,14 @@
                                                                     </asp:LinkButton>
                                                                     &nbsp;
                                                                     &nbsp;
-                                                                     <asp:LinkButton ToolTip="Resumen" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="Resumen" OnClientClick='<%# String.Format("return ResumenGT({0});", Eval("ID_GT")) %>'>
+                                                                    
+                                                                    <asp:LinkButton ToolTip="Resumen" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="Resumen" OnClientClick='<%# String.Format("return ResumenGT({0});", Eval("ID_GT")) %>'>
                                                                    <i class="fa fa-eye"></i>
                                                                      </asp:LinkButton>
                                                                     &nbsp;
                                                                     &nbsp;
-                                                                     <asp:LinkButton ToolTip="Imprimir PDF" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="Print" OnClientClick='<%# String.Format("return ImprimeGT({0});", Eval("ID_GT")) %>'>
+                                                                    
+                                                                    <asp:LinkButton ToolTip="Imprimir PDF" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="Print" OnClientClick='<%# String.Format("return ImprimeGT({0});", Eval("ID_GT")) %>'>
                                                                    <i class="fa fa-print"></i>
                                                                      </asp:LinkButton>
                                                                 </ItemTemplate>
@@ -126,6 +133,7 @@
                                                         </Columns>
                                                         <EmptyDataTemplate>
                                                             No se encontraron resultados.
+                                                       
                                                         </EmptyDataTemplate>
                                                     </asp:GridView>
                                                 </div>
@@ -189,7 +197,7 @@
                                                                             <asp:DropDownList ID="CB_CONDUCTOR2" Enabled="false" runat="server" CssClass="form-control combopro">
                                                                                 <asp:ListItem Text="-- seleccione --" Value="0" Selected="True"></asp:ListItem>
                                                                             </asp:DropDownList>
-                                                                              <small>(Se manejará desde depositos)</small>
+                                                                            <small>(Se manejará desde depositos)</small>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -294,7 +302,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                           <%-- <div class="row clearfix">
+                                                            <%-- <div class="row clearfix">
                                                                 <div class="col-sm-4 form-control-label">
                                                                     <label><b><i class="fa fa-dollar-sign  text-purple"></i>&nbsp;&nbsp;&nbsp;Sobre Depósito</b></label>
                                                                 </div>
@@ -311,7 +319,7 @@
                                                                 </div>
                                                                 <div class="col-sm-6">
                                                                     <div class="form-group">
-                                                                        <asp:TextBox runat="server" ID="T_DINERO_DEVUELTO" TextMode="Number" Font-Bold="true" CssClass="tz-input"></asp:TextBox>
+                                                                        <asp:TextBox runat="server" ID="T_DINERO_DEVUELTO" TextMode="Number" Font-Bold="true" CssClass="tz-input" ReadOnly="true"></asp:TextBox>
                                                                         <br />
                                                                     </div>
                                                                 </div>
@@ -328,6 +336,7 @@
                                                                             <asp:CheckBox runat="server" ID="CHK_ENTREGADO" ClientIDMode="Static" />
                                                                             <label for="CHK_ENTREGADO">
                                                                                 Entregado
+                                                                           
                                                                             </label>
                                                                         </div>
                                                                     </div>
@@ -357,7 +366,8 @@
                                                         <div class="row">
                                                             <div class="col-sm-12">
                                                                 <span style="font-size: large"><i class="fa fa-truck-loading"></i>&nbsp;Servicios <strong>OTZ</strong> </span>&nbsp;&nbsp;
-                                                                       <asp:LinkButton runat="server" ID="B_AGREGAR_OTZ" OnClick="B_AGREGAR_OTZ_Click" CssClass="btn btn-primary btn-sm">+ AGREGAR</asp:LinkButton>
+                                                                      
+                                                                <asp:LinkButton runat="server" ID="B_AGREGAR_OTZ" OnClick="B_AGREGAR_OTZ_Click" CssClass="btn btn-primary btn-sm">+ AGREGAR</asp:LinkButton>
                                                             </div>
                                                         </div>
                                                         <div class="row">
@@ -414,6 +424,7 @@
                                                                         </Columns>
                                                                         <EmptyDataTemplate>
                                                                             No se encontraron resultados.
+                                                                       
                                                                         </EmptyDataTemplate>
                                                                     </asp:GridView>
                                                                 </div>
@@ -425,7 +436,8 @@
                                                         <div class="row">
                                                             <div class="col-sm-12">
                                                                 <span style="font-size: large"><i class="material-icons">local_gas_station</i>&nbsp;Gasto de <strong>Combustible </strong></span>&nbsp;&nbsp;  
-                                                            <asp:LinkButton runat="server" ID="ABRE_MODAL_COMBUSTIBLE" OnClick="AGREGAR_COMBUSTIBLE_Click" CssClass="btn btn-primary btn-sm">+ AGREGAR</asp:LinkButton>
+                                                           
+                                                                <asp:LinkButton runat="server" ID="ABRE_MODAL_COMBUSTIBLE" OnClick="AGREGAR_COMBUSTIBLE_Click" CssClass="btn btn-primary btn-sm">+ AGREGAR</asp:LinkButton>
                                                             </div>
                                                         </div>
                                                         <div class="row">
@@ -459,6 +471,7 @@
                                                                         </Columns>
                                                                         <EmptyDataTemplate>
                                                                             No se encontraron resultados.
+                                                                       
                                                                         </EmptyDataTemplate>
                                                                     </asp:GridView>
                                                                 </div>
@@ -470,7 +483,8 @@
                                                         <div class="row">
                                                             <div class="col-sm-12">
                                                                 <span style="font-size: large"><i class="material-icons">attach_money</i>&nbsp;Gastos <strong>Generales </strong></span>&nbsp;&nbsp;
-                                                                       <asp:LinkButton runat="server" ID="B_AGREGAR_GASTOGRAL" OnClick="B_AGREGAR_GASTOGRAL_Click" CssClass="btn btn-primary btn-sm">+ AGREGAR</asp:LinkButton>
+                                                                      
+                                                                <asp:LinkButton runat="server" ID="B_AGREGAR_GASTOGRAL" OnClick="B_AGREGAR_GASTOGRAL_Click" CssClass="btn btn-primary btn-sm">+ AGREGAR</asp:LinkButton>
                                                             </div>
                                                         </div>
                                                         <div class="row">
@@ -500,6 +514,7 @@
                                                                         </Columns>
                                                                         <EmptyDataTemplate>
                                                                             No se encontraron resultados.
+                                                                       
                                                                         </EmptyDataTemplate>
                                                                     </asp:GridView>
                                                                 </div>
@@ -742,7 +757,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                         <div class="row clearfix">
+                                        <div class="row clearfix">
                                             <div class="col-sm-4 form-control-label">
                                                 <label class="font-bold col-green">Carga / Descarga (+$) </label>
                                             </div>
@@ -1107,7 +1122,7 @@
             }
             else {
                 var win = window.open('Imprime_gt.aspx?num_gt=' + id_gt, '_blank');
-            }           
+            }
             win.focus();
         }
 
@@ -1118,7 +1133,7 @@
             }
             else {
                 var win = window.open('Imprime_gt.aspx?num_gt=' + id_gt, '_blank');
-            }            
+            }
             win.focus();
         }
 

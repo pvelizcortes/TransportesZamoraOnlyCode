@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" EnableEventValidation="false" MasterPageFile="~/Amalia.Master" AutoEventWireup="true" CodeBehind="Depositos.aspx.cs" Inherits="AMALIA.Depositos" %>
+﻿<%@ Page Title="" Language="C#" EnableEventValidation="false" MasterPageFile="~/Amalia.Master" AutoEventWireup="true" CodeBehind="Dinero_Devuelto.aspx.cs" Inherits="AMALIA.Dinero_Devuelto" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BODY" runat="server">
 
@@ -29,7 +29,7 @@
                                     <ul class="breadcrumb p-l-0 p-b-0 float-right">
                                         <li class="breadcrumb-item"><a href="index.aspx"><i class="icon-home"></i></a></li>
                                         <li class="breadcrumb-item"><a href="index.aspx">Index</a></li>
-                                        <li class="breadcrumb-item active">Depositos</li>
+                                        <li class="breadcrumb-item active">Dinero Devuelto</li>
                                     </ul>
                                 </div>
                             </div>
@@ -46,7 +46,7 @@
                                                 <div class="row clearfix">
                                                     <div class="col-sm-12">
                                                         <asp:LinkButton CssClass="btn btn-sm btn-primary" ClientIDMode="AutoID" runat="server" ID="B_NUEVO" OnClick="B_NUEVO_Click" Visible="false">
-                                                                                <b><small>+ INGRESAR NUEVO DEPOSITO</small></b>
+                                                                                <b><small>+ INGRESAR NUEVO DINERO DEVUELTO</small></b>
                                                         </asp:LinkButton>
 
                                                         <%--   <asp:LinkButton CssClass="btn btn-sm btn-primary" ClientIDMode="AutoID" runat="server" ID="LinkButton1" OnClick="LinkButton1_Click">
@@ -83,35 +83,29 @@
                                                 </div>
                                                 <div class="row clearfix">
                                                     <div class="col-sm-2">
-                                                        TIPO:                                                       
+                                                        TIPO:
+                                                       
                                                         <br />
-                                                        <div class="dropdown">
-                                                            <button class="btn btn-primary btn-sm dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                FILTRAR POR TIPO <i class="fa fa-caret-down"></i>
-                                                            </button>
-                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                <asp:CheckBoxList runat="server" ID="CB_TIPO" SelectionMode="Multiple">
-                                                                    <asp:ListItem class="dropdown-item" Text="FONDO POR RENDIR" Value="FONDO POR RENDIR"></asp:ListItem>
-                                                                    <asp:ListItem class="dropdown-item" Text="VIATICO" Value="VIATICO"></asp:ListItem>
-                                                                    <asp:ListItem class="dropdown-item" Text="SALDO FONDO POR RENDIR" Value="SALDO FONDO POR RENDIR"></asp:ListItem>
-                                                                    <asp:ListItem class="dropdown-item" Text="SALDO VIATICO" Value="SALDO VIATICO"></asp:ListItem>
-                                                                    <asp:ListItem class="dropdown-item" Text="DESCUENTO FONDO POR RENDIR" Value="DESCUENTO FONDO POR RENDIR"></asp:ListItem>
-                                                                    <asp:ListItem class="dropdown-item" Text="DESCUENTO VIATICO" Value="DESCUENTO VIATICO"></asp:ListItem>
-                                                                    <asp:ListItem class="dropdown-item" Text="DEPOSITO" Value="DEPOSITO"></asp:ListItem>
-                                                                    <asp:ListItem class="dropdown-item" Text="BONO" Value="BONO"></asp:ListItem>
-                                                                    <asp:ListItem class="dropdown-item" Text="DOBLE CONDUCTOR" Value="DOBLE CONDUCTOR"></asp:ListItem>
-                                                                    <asp:ListItem class="dropdown-item" Text="PRESTAMO" Value="PRESTAMO"></asp:ListItem>
-                                                                    <asp:ListItem class="dropdown-item" Text="SALDO" Value="SALDO"></asp:ListItem>
-                                                                    <asp:ListItem class="dropdown-item" Text="SOBRE" Value="SOBRE"></asp:ListItem>
-                                                                    <asp:ListItem class="dropdown-item" Text="DESCUENTO" Value="DESCUENTO"></asp:ListItem>
-                                                                    <asp:ListItem class="dropdown-item" Text="VARIOS" Value="VARIOS"></asp:ListItem>
-                                                                    <asp:ListItem class="dropdown-item" Text="OTRO" Value="OTRO"></asp:ListItem>
-                                                                    <asp:ListItem class="dropdown-item" Text="FONDO POR RENDIR" Value="FONDO POR RENDIR"></asp:ListItem>
-                                                                    <asp:ListItem class="dropdown-item" Text="VIATICO" Value="BONO"></asp:ListItem>
-                                                                </asp:CheckBoxList>
-                                                            </div>
-                                                        </div>
-
+                                                        <asp:DropDownList runat="server" ID="CB_TIPO" CssClass="form-control">
+                                                            <asp:ListItem Selected="True" Text="-- Seleccione --" Value="-1"></asp:ListItem>
+                                                            <asp:ListItem Text="FONDO POR RENDIR" Value="FONDO POR RENDIR"></asp:ListItem>
+                                                            <asp:ListItem Text="VIATICO" Value="VIATICO"></asp:ListItem>
+                                                            <asp:ListItem Text="SALDO FONDO POR RENDIR" Value="SALDO FONDO POR RENDIR"></asp:ListItem>
+                                                            <asp:ListItem Text="SALDO VIATICO" Value="SALDO VIATICO"></asp:ListItem>
+                                                            <asp:ListItem Text="DESCUENTO FONDO POR RENDIR" Value="DESCUENTO FONDO POR RENDIR"></asp:ListItem>
+                                                            <asp:ListItem Text="DESCUENTO VIATICO" Value="DESCUENTO VIATICO"></asp:ListItem>
+                                                            <asp:ListItem Text="DINERO DEVUELTO" Value="DINERO DEVUELTO"></asp:ListItem>
+                                                            <asp:ListItem Text="BONO" Value="BONO"></asp:ListItem>
+                                                            <asp:ListItem Text="DOBLE CONDUCTOR" Value="DOBLE CONDUCTOR"></asp:ListItem>
+                                                            <asp:ListItem Text="PRESTAMO" Value="PRESTAMO"></asp:ListItem>
+                                                            <asp:ListItem Text="SALDO" Value="SALDO"></asp:ListItem>
+                                                            <asp:ListItem Text="SOBRE" Value="SOBRE"></asp:ListItem>
+                                                            <asp:ListItem Text="DESCUENTO" Value="DESCUENTO"></asp:ListItem>
+                                                            <asp:ListItem Text="VARIOS" Value="VARIOS"></asp:ListItem>
+                                                            <asp:ListItem Text="OTRO" Value="OTRO"></asp:ListItem>
+                                                            <asp:ListItem Text="FONDO POR RENDIR" Value="FONDO POR RENDIR"></asp:ListItem>
+                                                            <asp:ListItem Text="VIATICO" Value="BONO"></asp:ListItem>
+                                                        </asp:DropDownList>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         ESTADO:
@@ -126,13 +120,13 @@
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <br />
-                                                        <asp:LinkButton runat="server" ID="B_FILTRAR" ClientIDMode="AutoID" OnClick="B_FILTRAR_Click" CssClass="btn btn-primary btn-sm btn-round" OnClientClick="relojito(true);"><i class="fa fa-search"></i> FILTRAR</asp:LinkButton>
+                                                        <asp:LinkButton runat="server" ID="B_FILTRAR" ClientIDMode="AutoID" OnClick="B_FILTRAR_Click" CssClass="btn btn-primary btn-sm btn-round"><i class="fa fa-search"></i> FILTRAR</asp:LinkButton>
                                                     </div>
                                                 </div>
                                                 <hr />
                                                 <div class="row">
                                                     <div class="col-sm-12 table-responsive">
-                                                        <asp:GridView DataKeyNames="idDeposito, id_detalle_deposito, estado, diferencia, num_viaje" ClientIDMode="AutoID" runat="server" ID="G_PRINCIPAL"
+                                                        <asp:GridView DataKeyNames="idDineroDevuelto, id_detalle_dinero_devuelto, estado, diferencia, num_viaje" ClientIDMode="AutoID" runat="server" ID="G_PRINCIPAL"
                                                             CssClass="table table-bordered tablaprincipal table-hover js-exportable" Font-Size="12px" OnRowCommand="G_PRINCIPAL_RowCommand"
                                                             AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" OnRowDataBound="G_PRINCIPAL_RowDataBound">
                                                             <HeaderStyle CssClass="thead-dark" />
@@ -146,13 +140,13 @@
                                                                 </asp:TemplateField>--%>
                                                                 <asp:TemplateField HeaderText="OPERACIÓN" ItemStyle-Font-Bold="true" ItemStyle-HorizontalAlign="Center">
                                                                     <ItemTemplate>
-                                                                        <asp:LinkButton runat="server" ToolTip="Editar Deposito" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="Editar" CssClass="text-purple">
+                                                                        <asp:LinkButton runat="server" ToolTip="Editar Dinero Devuelto" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="Editar" CssClass="text-purple">
                                                                                  <b style="font-size:14px"><%# Eval("num_operacion") %> </b>                                                                          
                                                                         </asp:LinkButton>
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
-                                                                <asp:BoundField DataField="id_detalle_deposito" Visible="false" />
-                                                                <asp:BoundField DataField="idDeposito" Visible="false" />
+                                                                <asp:BoundField DataField="id_detalle_dinero_devuelto" Visible="false" />
+                                                                <asp:BoundField DataField="idDineroDevuelto" Visible="false" />
                                                                 <asp:BoundField DataField="num_viaje" HeaderText="VIAJE" />
                                                                 <asp:BoundField DataField="fecha_viaje" HeaderText="FECHA" DataFormatString="{0:dd/MM/yyyy}" />
                                                                 <asp:BoundField DataField="usuario" HeaderText="SOLICITANTE" />
@@ -196,16 +190,16 @@
                                                         </div>
                                                         <div class="col-sm-10">
                                                             <br />
-                                                            <asp:LinkButton runat="server" ID="bAprobarTodas" OnClick="bAprobarTodas_Click" OnClientClick="return confirm('Esta seguro(a) de marcar todos los depositos como Depositados?');" CssClass="btn btn-sm btn-primary">Marcar todos como depositado &nbsp;<i class="fa fa-check"></i></asp:LinkButton>
+                                                            <asp:LinkButton runat="server" ID="bAprobarTodas" OnClick="bAprobarTodas_Click" OnClientClick="return confirm('Esta seguro(a) de marcar todos los dineros devueltos como Depositados?');" CssClass="btn btn-sm btn-primary">Marcar todos como depositado &nbsp;<i class="fa fa-check"></i></asp:LinkButton>
                                                             <div class="btn btn-info btn-sm" onclick="ImprimeOC2();">Imprimir <i class="fa fa-print"></i></div>
-                                                            <asp:LinkButton runat="server" ID="bBorrarDeposito" OnClick="bBorrarDeposito_Click" OnClientClick="return confirm('Esta seguro(a) de eliminar la operación y todas sus solicitudes de deposito?');" CssClass="btn btn-sm btn-danger" Visible="false">Eliminar operación y solicitudes &nbsp;<i class="fa fa-times"></i></asp:LinkButton>
+                                                            <asp:LinkButton runat="server" ID="bBorrarDeposito" OnClick="bBorrarDeposito_Click" OnClientClick="return confirm('Esta seguro(a) de eliminar la operación y todas sus solicitudes de devolución de dinero?');" CssClass="btn btn-sm btn-danger" Visible="false">Eliminar operación y solicitudes &nbsp;<i class="fa fa-times"></i></asp:LinkButton>
                                                         </div>
                                                     </div>
                                                     <div class="row  clearfix">
                                                         <div class="col-sm-12">
                                                             <div class="table-responsive">
-                                                                <h6>Depositos:</h6>
-                                                                <asp:GridView DataKeyNames="id_detalle_deposito, id_deposito, estado, diferencia, num_viaje" ClientIDMode="AutoID" runat="server"
+                                                                <h6>Dinero Devuelto:</h6>
+                                                                <asp:GridView DataKeyNames="id_detalle_dinero_devuelto, id_dinero_devuelto, estado, diferencia, num_viaje" ClientIDMode="AutoID" runat="server"
                                                                     ID="gDetalle" CssClass="table tablaprincipal table-bordered table-condensed table-sm"
                                                                     OnRowCommand="gDetalle_RowCommand" OnRowDataBound="gDetalle_RowDataBound" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true"
                                                                     Font-Size="Small">
@@ -218,8 +212,8 @@
                                                                                 </asp:LinkButton>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
-                                                                        <asp:BoundField DataField="id_detalle_deposito" Visible="false" />
-                                                                        <asp:BoundField DataField="id_deposito" Visible="false" />
+                                                                        <asp:BoundField DataField="id_detalle_dinero_devuelto" Visible="false" />
+                                                                        <asp:BoundField DataField="id_dinero_devuelto" Visible="false" />
                                                                         <asp:BoundField DataField="num_viaje" HeaderText="VIAJE" />
                                                                         <asp:BoundField DataField="fecha_viaje" HeaderText="FECHA" DataFormatString="{0:dd/MM/yyyy}" />
                                                                         <asp:BoundField DataField="usuario" HeaderText="SOLICITANTE" />
@@ -250,15 +244,14 @@
                                                                    
                                                                     </EmptyDataTemplate>
                                                                 </asp:GridView>
-                                                                <asp:LinkButton runat="server" ID="bNuevoDetalle" OnClick="bNuevoDetalle_Click" CssClass="btn btn-sm btn-primary">Agregar Nuevo Deposito <i class="fa fa-plus"></i></asp:LinkButton>
+                                                                <asp:LinkButton runat="server" ID="bNuevoDetalle" OnClick="bNuevoDetalle_Click" CssClass="btn btn-sm btn-primary">Agregar Nuevo Dinero Devuelto <i class="fa fa-plus"></i></asp:LinkButton>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div id="divDetalle" runat="server" visible="false">
                                                         <hr />
-                                                        <asp:Label runat="server" ID="lblDetalle" Text="Agregando nuevo deposito:" Font-Size="Large" Font-Bold="true" CssClass="text-purple"></asp:Label>
-                                                        <asp:CheckBox CssClass="ml-4 checkbox checkbox-primary"  runat="server" ID="chk_mantener_datos" ClientIDMode="Predictable" Checked="true" Text="Mantener Datos?" Visible="false" />
-                                                      <br />
+                                                        <asp:Label runat="server" ID="lblDetalle" Text="Agregando nuevo dinero devuelto:" Font-Size="Large" Font-Bold="true" CssClass="text-purple"></asp:Label>
+                                                        <br />
                                                         <br />
                                                         <div class="row clearfix">
                                                             <div class="col-sm-2 pr-0 mr-0">
@@ -271,7 +264,6 @@
                                                                 <div class="form-group">
                                                                     <br />
                                                                     <asp:LinkButton runat="server" ID="b_search_gt" OnClick="b_search_gt_Click" CssClass="btn btn-primary btn-sm btn-round" ToolTip="Buscar conductor de la GT"><i class="fa fa-search"></i></asp:LinkButton>
-                                                                    <asp:LinkButton runat="server" ID="b_clean_gt" OnClick="b_clean_gt_Click" CssClass="btn btn-warning btn-sm btn-round" ToolTip="Cambiar por otra GT" Visible="false"><i class="fa fa-times"></i></asp:LinkButton>
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-3">
@@ -286,33 +278,17 @@
                                                                     <asp:DropDownList runat="server" ID="cbConductor" CssClass="form-control" Enabled="false"></asp:DropDownList>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row clearfix">
                                                             <div class="col-sm-3">
                                                                 <div class="form-group">
                                                                     <small><b>Tipo</b></small>
                                                                     <asp:DropDownList runat="server" ID="cbTipo" CssClass="form-control">
-                                                                        <asp:ListItem Text="FONDO POR RENDIR" Value="FONDO POR RENDIR" Selected="True" class="combo-bold"></asp:ListItem>
-                                                                        <asp:ListItem Text="VIATICO" Value="VIATICO" class="combo-bold"></asp:ListItem>
-                                                                        <asp:ListItem Text="SALDO FONDO POR RENDIR" Value="SALDO FONDO POR RENDIR" class="combo-bold"></asp:ListItem>
-                                                                        <asp:ListItem Text="SALDO VIATICO" Value="SALDO VIATICO" class="combo-bold"></asp:ListItem>
-                                                                        <asp:ListItem Text="DESCUENTO FONDO POR RENDIR" Value="DESCUENTO FONDO POR RENDIR" class="combo-bold"></asp:ListItem>
-                                                                        <asp:ListItem Text="DESCUENTO VIATICO" Value="DESCUENTO VIATICO" class="combo-bold"></asp:ListItem>
-                                                                        <asp:ListItem Text="-- ANTIGUOS --" Value="-1" class="combo-disabled" disabled="disabled"></asp:ListItem>
-                                                                        <asp:ListItem Text="SALDO" Value="SALDO" class="combo-bold"></asp:ListItem>
-                                                                        <asp:ListItem Text="DESCUENTO" Value="DESCUENTO" class="combo-bold"></asp:ListItem>
-                                                                        <asp:ListItem Text="-- NO DISPONIBLES --" Value="-1" class="combo-disabled" disabled="disabled"></asp:ListItem>
-                                                                        <asp:ListItem Text="DEPOSITO" Value="DEPOSITO" class="combo-disabled" disabled="disabled"></asp:ListItem>
-                                                                        <asp:ListItem Text="BONO" Value="BONO" class="combo-disabled" disabled="disabled"></asp:ListItem>
-                                                                        <asp:ListItem Text="DOBLE CONDUCTOR" Value="DOBLE CONDUCTOR" class="combo-disabled" disabled="disabled"></asp:ListItem>
-                                                                        <asp:ListItem Text="PRESTAMO" Value="PRESTAMO" class="combo-disabled" disabled="disabled"></asp:ListItem>
-                                                                        <asp:ListItem Text="SOBRE" Value="SOBRE" class="combo-disabled" disabled="disabled"></asp:ListItem>
-                                                                        <asp:ListItem Text="VARIOS" Value="VARIOS" class="combo-disabled" disabled="disabled"></asp:ListItem>
-                                                                        <asp:ListItem Text="OTRO" Value="OTRO" class="combo-disabled" disabled="disabled"></asp:ListItem>
+                                                                        <asp:ListItem Text="TRANSFERENCIA" Value="TRANSFERENCIA" Selected="True" class="combo-bold"></asp:ListItem>
+                                                                        <asp:ListItem Text="EFECTIVO" Value="EFECTIVO" class="combo-bold"></asp:ListItem>
                                                                     </asp:DropDownList>
                                                                 </div>
                                                             </div>
-
+                                                        </div>
+                                                        <div class="row clearfix">
                                                             <div class="col-sm-3">
                                                                 <div class="form-group">
                                                                     <small><b>Valor ($)</b></small>
@@ -346,10 +322,8 @@
                                                                     <div class="form-group">
                                                                         <small><b>Estado</b></small>
                                                                         <asp:DropDownList runat="server" ID="cbEstadoAdmin" CssClass="form-control">
-                                                                            <asp:ListItem Text="NO DEPOSITADO" Value="NO DEPOSITADO" Selected="True"></asp:ListItem>
-                                                                            <asp:ListItem Text="DEPOSITADO" Value="DEPOSITADO"></asp:ListItem>
-                                                                            <asp:ListItem Text="DESCONTADO" Value="DESCONTADO"></asp:ListItem>
-                                                                            <asp:ListItem Text="NULO" Value="NULO"></asp:ListItem>
+                                                                            <asp:ListItem Text="PENDIENTE" Value="PENDIENTE" Selected="True"></asp:ListItem>
+                                                                            <asp:ListItem Text="APROBADO" Value="APROBADO"></asp:ListItem>
                                                                         </asp:DropDownList>
                                                                     </div>
                                                                 </div>
@@ -359,7 +333,7 @@
                                                             <div class="col-sm-3">
                                                                 <br />
                                                                 <asp:LinkButton runat="server" ID="bAgregarDetalle" Visible="false" OnClick="bAgregarDetalle_Click" CssClass="btn btn-block  btn-primary">GUARDAR <i class="fa fa-save"></i></asp:LinkButton>
-                                                                <small><i class="fa fa-info"></i>(Recordar que la GT debe existir en el sistema antes de agregar depositos).</small>
+                                                                <small><i class="fa fa-info"></i>(Recordar que la GT debe existir en el sistema antes de agregar un dinero devuelto).</small>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -414,8 +388,8 @@
         }
 
         function ImprimeOC2() {
-            var id_deposito = document.getElementById('<%= T_ID.ClientID %>').value;
-            var win = window.open('Imprime_deposito.aspx?id_deposito=' + id_deposito, '_blank');
+            var id_dinero_deuvelto = document.getElementById('<%= T_ID.ClientID %>').value;
+            var win = window.open('Imprime_dinero_devuelto.aspx?id_dinero_devuelto=' + id_dinero_deuvelto, '_blank');
             win.focus();
         }
     </script>

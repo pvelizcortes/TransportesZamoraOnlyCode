@@ -11,7 +11,7 @@ namespace AMALIA
 {
 
 
-    public partial class Depositos
+    public partial class Dinero_Devuelto
     {
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace AMALIA
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CB_TIPO;
+        protected global::System.Web.UI.WebControls.DropDownList CB_TIPO;
 
         /// <summary>
         /// Control CB_ESTADO.
@@ -204,15 +204,6 @@ namespace AMALIA
         protected global::System.Web.UI.WebControls.Label lblDetalle;
 
         /// <summary>
-        /// Control chk_mantener_datos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chk_mantener_datos;
-
-        /// <summary>
         /// Control tNumViaje.
         /// </summary>
         /// <remarks>
@@ -229,15 +220,6 @@ namespace AMALIA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton b_search_gt;
-
-        /// <summary>
-        /// Control b_clean_gt.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton b_clean_gt;
 
         /// <summary>
         /// Control tFecha.

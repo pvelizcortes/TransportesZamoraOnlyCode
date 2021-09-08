@@ -339,5 +339,63 @@ namespace AMALIAFW
             }
             return dt;
         }
+
+        public static void LLENAOBJETOCORRELATIVO(ref OBJ_ENC_GT objeto)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connex))
+                {
+                    conn.Open();
+                    string sql = @"SELECT * from " + nombre_tabla + " where num_correlativo = @num_correlativo";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    // CAMBIAR AQUI //
+                    // **************************************** **************************************** **************************************** //   
+                    cmd.Parameters.AddWithValue("@num_correlativo", objeto.num_correlativo);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        // num_correlativo, id_conductor, id_camion , fecha_inicio, fecha_termino, dinero_entregado, id_estado
+                        objeto.ID_GT = int.Parse(reader["id_gt"].ToString());
+                        objeto.num_correlativo = int.Parse(reader["num_correlativo"].ToString());
+                        objeto.id_conductor = int.Parse(reader["id_conductor"].ToString());
+                        objeto.id_conductor2 = int.Parse(reader["id_conductor2"].ToString());
+                        objeto.id_camion = int.Parse(reader["id_camion"].ToString());
+                        objeto.id_rampla = int.Parse(reader["id_rampla"].ToString());
+                        objeto.fecha_inicio = DateTime.Parse(reader["fecha_inicio"].ToString());
+                        objeto.fecha_termino = DateTime.Parse(reader["fecha_termino"].ToString());
+                        objeto.dinero_entregado = int.Parse(reader["dinero_entregado"].ToString());
+                        objeto.sobre_deposito = int.Parse(reader["sobre_deposito"].ToString());
+                        objeto.dinero_devuelto = int.Parse(reader["dinero_devuelto"].ToString());
+                        objeto.entregado = reader["entregado"].ToString();
+                        objeto.km_inicial = int.Parse(reader["km_inicial"].ToString());
+                        objeto.km_final = int.Parse(reader["km_final"].ToString());
+                        objeto.id_estado = int.Parse(reader["id_estado"].ToString());
+                        objeto.observacion = reader["observacion"].ToString();
+                        objeto.saldo_dinero_entregado = int.Parse(reader["saldo_dinero_entregado"].ToString());
+                        objeto.total_flete = int.Parse(reader["total_flete"].ToString());
+                        objeto.total_gastos = int.Parse(reader["total_gastos"].ToString());
+                        objeto.total_precio_combustible = int.Parse(reader["total_precio_combustible"].ToString());
+                        objeto.total_km = int.Parse(reader["total_km"].ToString());
+                        objeto.total_litros = float.Parse(reader["total_litros"].ToString());
+                        objeto.rendimiento = float.Parse(reader["rendimiento"].ToString());
+                        objeto.saldo_total = int.Parse(reader["saldo_total"].ToString());
+                        objeto.creada_por = int.Parse(reader["creada_por"].ToString());
+                        objeto.fecha_creacion = DateTime.Parse(reader["fecha_creacion"].ToString());
+                        objeto.revisado_felipe = int.Parse(reader["revisado_felipe"].ToString());
+                        objeto.tipo_camion = reader["tipo_camion"].ToString();
+                        // **************************************** **************************************** **************************************** //    
+                        objeto._respok = true;
+                        objeto._respdet = " Objeto llenado con exito ";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                objeto._respok = false;
+                objeto._respdet = ex.Message;
+            }
+        }
     }
 }

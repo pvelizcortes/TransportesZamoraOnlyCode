@@ -92,6 +92,7 @@
     <Content Include="banner.jpg" />
     <Content Include="DemoRendicion.aspx" />
     <Content Include="Captura.PNG" />
+    <Content Include="Dinero_Devuelto.aspx" />
     <Content Include="Depositos.aspx" />
     <Content Include="FacturaVenta.aspx" />
     <Content Include="FacturaCompra.aspx" />
@@ -195,7 +196,9 @@
     <Compile Include="Clases\FN_CHECKLISTS_PREGUNTASa.cs" />
     <Compile Include="Clases\FN_CHECKLISTS_IMAGENES.cs" />
     <Compile Include="Clases\FN_CHECKLISTS_COMPLETADOS.cs" />
+    <Compile Include="Clases\FN_DINERO_DEVUELTO_DETALLE.cs" />
     <Compile Include="Clases\FN_DEPOSITO_DETALLE.cs" />
+    <Compile Include="Clases\FN_DINERO_DEVUELTO_ENC.cs" />
     <Compile Include="Clases\FN_DEPOSITO_ENC.cs" />
     <Compile Include="Clases\FN_HALLAZGO.cs" />
     <Compile Include="Clases\FN_HALLAZGOS_ADJUNTOS.cs" />
@@ -220,6 +223,13 @@
     <Compile Include="Clases\FN_FACT_COMPRA_DET.cs" />
     <Compile Include="Clases\FN_FACT_COMPRA.cs" />
     <Compile Include="Clases\FN_GD_MANT_AGENDADAS.cs" />
+    <Compile Include="Dinero_Devuelto.aspx.cs">
+      <DependentUpon>Dinero_Devuelto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dinero_Devuelto.aspx.designer.cs">
+      <DependentUpon>Dinero_Devuelto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Depositos.aspx.cs">
       <DependentUpon>Depositos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

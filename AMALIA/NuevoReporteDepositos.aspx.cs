@@ -118,6 +118,7 @@ namespace AMALIA
                             " , gt.dinero_entregado " +
                             " , gt.total_gastos " +
                             " , gt.id_camion " +
+                            " , gt.dinero_devuelto " +
                             " , (select isnull(SUM(valor), 0) from deposito_detalle where num_viaje = gt.num_correlativo and tipo = 'FONDO POR RENDIR' and estado = 'DEPOSITADO') as 'fondoporrendir' " +
                             " , (select isnull(SUM(valor), 0) from deposito_detalle where num_viaje = gt.num_correlativo and tipo = 'VIATICO' and estado = 'DEPOSITADO') as 'viatico' " +
                             " , (SELECT ISNULL(SUM(VALOR),0) FROM GASTO_GENERAL WHERE TIPO_GASTO = 2 AND ID_GT = gt.id_gt) as 'gastoviatico'  " +
@@ -158,6 +159,8 @@ namespace AMALIA
                 html_tabla += "<tbody>";
                 foreach (DataRow dr in dt.Rows)
                 {
+                    long dineroDevuelto = Convert.ToInt64(dr["dinero_devuelto"].ToString());
+
                     long fxr = Convert.ToInt64(dr["fondoporrendir"].ToString());
                     long viatico = Convert.ToInt64(dr["viatico"].ToString());
 
@@ -170,7 +173,7 @@ namespace AMALIA
                     long saldofxr = Convert.ToInt64(dr["saldofxr"].ToString());
                     long saldoviatico = Convert.ToInt64(dr["saldoviatico"].ToString());
 
-                    long pendientefxr = (fxr - gastosgenerales) - (descuentofxr - saldofxr);
+                    long pendientefxr = (fxr - dineroDevuelto - gastosgenerales) - (descuentofxr - saldofxr);
                     long pendienteviatico = (viatico - gastoviatico) - (descuentoviatico - saldoviatico);
 
                     long totalpendiente = pendientefxr + pendienteviatico;
@@ -185,7 +188,7 @@ namespace AMALIA
                     html_tabla += "<td>" + dr["fecha_termino"].ToString() + "</td>";
                     html_tabla += "<td> $ " + fxr.ToString("#,##0") + "</td>";
                     html_tabla += "<td> $ " + viatico.ToString("#,##0") + "</td>";
-                    html_tabla += "<td> $ " + (fxr - gastosgenerales).ToString("#,##0") + "</td>";
+                    html_tabla += "<td> $ " + (fxr - dineroDevuelto - gastosgenerales).ToString("#,##0") + "</td>";
                     html_tabla += "<td> $ " + (viatico - gastoviatico).ToString("#,##0") + "</td>";
                     html_tabla += "<td> $ " + descuentofxr.ToString("#,##0") + "</td>";
                     html_tabla += "<td> $ " + descuentoviatico.ToString("#,##0") + "</td>";
