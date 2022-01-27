@@ -141,6 +141,7 @@
                                     <li title="INFORMES" text-menu-small><a href="javascript:void(0);" class="menu-toggle"><i class="fa fa-file"></i><span class="text-menu-small"></span></a>
                                         <ul class="ml-menu">
                                             <li class="text-purple"><span class="text-purple"><strong>INFORMES</strong></span></li>
+                                            <li><a href="ReporteFondoViatico.aspx"><i class="fa fa-file"></i><span>FONDO Y VIATICO X RENDIR (NUEVO)</span></a></li>
                                             <li><a href="NuevoReporteDepositos.aspx"><i class="fa fa-file"></i><span>FXR - VIATICOS (NUEVO)</span></a></li>
                                             <li><a href="ReporteDepositos.aspx"><i class="fa fa-file"></i><span>Gt - Depositos</span></a></li>
                                             <li><a href="Reporte_GT.aspx"><i class="fa fa-file"></i><span>Reportes </span></a></li>

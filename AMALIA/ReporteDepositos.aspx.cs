@@ -119,8 +119,8 @@ namespace AMALIA
                                                  "      and tipo in ('SALDO FONDO POR RENDIR', 'SALDO VIATICO') " +
  
                                                       " and estado = 'DEPOSITADO') " +
-" Else(select(gt.dinero_entregado - total_gastos - dinero_devuelto) from enc_gt where num_correlativo = gt.num_correlativo) " +
-" END AS 'saldo_dinero_entregado_new' " +
+                            " Else(select(gt.dinero_entregado - total_gastos - dinero_devuelto) from enc_gt where num_correlativo = gt.num_correlativo) " +
+                            " END AS 'saldo_dinero_entregado_new' " +
 
 
                             " , gt.dinero_entregado " +

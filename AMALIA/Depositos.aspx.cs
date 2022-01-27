@@ -31,7 +31,7 @@ namespace AMALIA
                         bAgregarDetalle.Visible = true;
                         B_NUEVO.Visible = true;
                     }
-                    if (us.id_perfil == 2 || us.id_perfil == 4 || us.usuario == "jbrantes")
+                    if (us.id_perfil == 2 || us.id_perfil == 4 || us.usuario == "jbrantes" || us.usuario == "cvargas")
                     {
                         bAgregarDetalle.Visible = true;
                         B_NUEVO.Visible = true;
@@ -173,7 +173,7 @@ namespace AMALIA
                     us.usuario = HttpContext.Current.User.Identity.Name;
                     FN_USUARIOS.BUSCARCONUSUARIO(ref us);
 
-                    if (us.id_perfil == 2 || us.usuario == "festay" || us.usuario == "mzapata" || us.id_perfil == 4 || us.usuario == "gestay" || us.usuario == "jbrantes")
+                    if (us.id_perfil == 2 || us.usuario == "festay" || us.usuario == "mzapata" || us.id_perfil == 4 || us.usuario == "gestay" || us.usuario == "jbrantes" || us.usuario == "cvargas")
                     {
                         int id = int.Parse((G_PRINCIPAL.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[0].ToString()));
                         int idDetalle = int.Parse((G_PRINCIPAL.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[1].ToString()));

@@ -120,6 +120,7 @@
     <Content Include="Proveedores_OC.aspx" />
     <Content Include="Proveedores.aspx" />
     <Content Include="NuevoReporteDepositos.aspx" />
+    <Content Include="ReporteFondoViatico.aspx" />
     <Content Include="ReporteDepositos.aspx" />
     <Content Include="Reporte_OTZ.aspx" />
     <Content Include="Repuestos.aspx" />
@@ -422,6 +423,13 @@
     <Compile Include="NuevoReporteDepositos.aspx.designer.cs">
       <DependentUpon>NuevoReporteDepositos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ReporteFondoViatico.aspx.cs">
+      <DependentUpon>ReporteFondoViatico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReporteFondoViatico.aspx.designer.cs">
+      <DependentUpon>ReporteFondoViatico.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ReporteDepositos.aspx.cs">
       <DependentUpon>ReporteDepositos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -621,7 +629,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51183</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51183/</IISUrl>
+          <IISUrl>http://localhost:52000/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

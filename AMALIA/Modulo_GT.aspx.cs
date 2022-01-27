@@ -37,7 +37,7 @@ namespace AMALIA
                     {
                         DIV_OTZ.Visible = false;
                     }
-                    if (usuario.usuario != "jbrantes" && usuario.usuario != "gestay" && usuario.usuario != "festay")
+                    if (usuario.usuario != "jbrantes" && usuario.usuario != "gestay" && usuario.usuario != "festay" && usuario.usuario != "cvargas")
                     {
                         CHK_ENTREGADO.Attributes.Add("onclick", "return false;");
                     }
@@ -134,13 +134,13 @@ namespace AMALIA
             CB_RAMPLA.DataBind();
             CB_RAMPLA.Items.Insert(0, new ListItem("-- SELECCIONE --", "0"));
 
-            CB_CONDUCTOR.DataSource = FN_CONDUCTOR.LLENADT(" where activo = 'ACTIVO' order by NOMBRE_COMPLETO ");
+            CB_CONDUCTOR.DataSource = FN_CONDUCTOR.LLENADT(" order by NOMBRE_COMPLETO ");
             CB_CONDUCTOR.DataTextField = "NOMBRE_COMPLETO";
             CB_CONDUCTOR.DataValueField = "ID_CONDUCTOR";
             CB_CONDUCTOR.DataBind();
             CB_CONDUCTOR.Items.Insert(0, new ListItem("-- SELECCIONE --", "0"));
 
-            CB_CONDUCTOR2.DataSource = FN_CONDUCTOR.LLENADT(" where activo = 'ACTIVO' order by NOMBRE_COMPLETO ");
+            CB_CONDUCTOR2.DataSource = FN_CONDUCTOR.LLENADT(" order by NOMBRE_COMPLETO ");
             CB_CONDUCTOR2.DataTextField = "NOMBRE_COMPLETO";
             CB_CONDUCTOR2.DataValueField = "ID_CONDUCTOR";
             CB_CONDUCTOR2.DataBind();
@@ -442,7 +442,7 @@ namespace AMALIA
                     OBJ_USUARIOS usuario = new OBJ_USUARIOS();
                     usuario.usuario = HttpContext.Current.User.Identity.Name;
                     FN_USUARIOS.BUSCARCONUSUARIO(ref usuario);
-                    if (usuario.usuario == "jbrantes" || usuario.usuario == "gestay" || usuario.usuario == "festay")
+                    if (usuario.usuario == "jbrantes" || usuario.usuario == "gestay" || usuario.usuario == "festay" || usuario.usuario == "cvargas")
                     {
                         int id = int.Parse((G_PRINCIPAL.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[0].ToString()));
                         OBJ_ENC_GT tabla = new OBJ_ENC_GT();
